@@ -10,6 +10,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { useAuthStore } from '@/stores/authStore'
 import { handleServerError } from '@/utils/handle-server-error'
 import { toast } from '@/hooks/use-toast'
+import { AuthLoading } from '@/components/auth/AuthLoading'
 import { FontProvider } from './context/font-context'
 import { ThemeProvider } from './context/theme-context'
 import './index.css'
@@ -100,7 +101,9 @@ if (!rootElement.innerHTML) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
           <FontProvider>
-            <RouterProvider router={router} />
+            <AuthLoading>
+              <RouterProvider router={router} />
+            </AuthLoading>
           </FontProvider>
         </ThemeProvider>
       </QueryClientProvider>
