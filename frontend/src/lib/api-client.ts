@@ -72,13 +72,65 @@ export default apiClient;
 // Helper functions for common API operations
 export const authAPI = {
   signIn: async (email: string, password: string) => {
-    const response = await apiClient.post('/api/auth/signin', { email, password });
-    return response.data;
+    try {
+      const response = await apiClient.post('/api/auth/signin', { email, password });
+      return response.data;
+    } catch (error: any) {
+      console.error('Sign-in API error:', error);
+      // Return a formatted error object instead of throwing
+      return {
+        success: false,
+        message: error.response?.data?.message || 
+                 `Authentication failed: ${error.message || 'Server unreachable'}`
+      };
+    }
   },
   
   signUp: async (name: string, email: string, password: string) => {
-    const response = await apiClient.post('/api/auth/signup', { name, email, password });
+    try {
+      const response = await apiClient.post('/api/auth/signup', { name, email, password });
+      return response.data;
+    } catch (error: any) {
+      console.error('Sign-up API error:', error);
+      // Return a formatted error object instead of throwing
+      return {
+        success: false,
+        message: error.response?.data?.message || 
+                 `Registration failed: ${error.message || 'Server unreachable'}`
+      };
+    }
+  },
+  
+  signUpWithSocial: async (name: string, email: string, clerkId: string, provider: string) => {
+    const response = await apiClient.post('/api/auth/clerk', { 
+      name, 
+      email, 
+      clerkId,
+      provider 
+    });
     return response.data;
+  },
+  
+  signInWithSocial: async (email: string, clerkId: string, provider: string) => {
+    const response = await apiClient.post('/api/auth/clerk', { 
+      email, 
+      clerkId,
+      provider 
+    });
+    return response.data;
+  },
+  
+  exchangeGitHubCode: async (code: string) => {
+    try {
+      // This would make a call to your backend to exchange the GitHub code
+      // for an access token and user info without exposing your client secret on the frontend
+      const response = await apiClient.post('/api/auth/github', { code });
+      return response.data;
+    } catch (error) {
+      console.error('GitHub code exchange error:', error);
+      // For now, we'll throw an error since the backend endpoint isn't implemented yet
+      throw new Error('GitHub authentication is not fully implemented on the backend yet');
+    }
   },
   
   getProfile: async () => {
