@@ -1,7 +1,7 @@
 import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
+import { Searchh } from '@/components/searchh'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { columns } from './components/columns'
 import { DataTable } from './components/data-table'
@@ -14,7 +14,7 @@ export default function Tasks() {
   return (
     <TasksProvider>
       <Header fixed>
-        <Search />
+        <Searchh />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
           <ProfileDropdown />

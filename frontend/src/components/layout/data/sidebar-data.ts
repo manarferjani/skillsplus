@@ -10,17 +10,17 @@ import {
   IconLockAccess,
   IconMessages,
   IconNotification,
-  IconPackages,
   IconPalette,
   IconServerOff,
   IconSettings,
   IconTool,
   IconUserCog,
   IconUserOff,
-  IconUsers,
+  IconCalendar,
 } from '@tabler/icons-react'
 import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
 import { type SidebarData } from '../types'
+import { IconOnlineCourse } from "@/components/CourseIccon";
 
 export const sidebarData: SidebarData = {
   user: {
@@ -60,9 +60,9 @@ export const sidebarData: SidebarData = {
           icon: IconChecklist,
         },
         {
-          title: 'Apps',
-          url: '/apps',
-          icon: IconPackages,
+          title: 'Courses',
+          url: '/courses',
+          icon: IconOnlineCourse,
         },
         {
           title: 'Chats',
@@ -71,9 +71,9 @@ export const sidebarData: SidebarData = {
           icon: IconMessages,
         },
         {
-          title: 'Users',
-          url: '/users',
-          icon: IconUsers,
+          title: 'Calendar',
+          url: '/calendar',
+          icon: IconCalendar,
         },
       ],
     },
