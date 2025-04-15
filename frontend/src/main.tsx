@@ -10,6 +10,8 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { useAuthStore } from '@/stores/authStore'
 import { handleServerError } from '@/utils/handle-server-error'
 import { toast } from '@/hooks/use-toast'
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Importation de Font Awesome
+import 'bootstrap-icons/font/bootstrap-icons.css'; // Importation de Bootstrap Icons
 import { AuthLoading } from '@/components/auth/AuthLoading'
 import { FontProvider } from './context/font-context'
 import { ThemeProvider } from './context/theme-context'
