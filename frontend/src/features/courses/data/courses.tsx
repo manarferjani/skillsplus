@@ -13,6 +13,7 @@ import {
   IconBrandVue,
   IconBrandCss3,
   IconLayoutKanban,
+  IconStairsUp,
 } from '@tabler/icons-react'
 
 export const courses = [
@@ -95,6 +96,25 @@ export const courses = [
     name: 'V Cycle',
     logo: <IconChartArcs color="#6A1B9A" />,
     completed: false,
-    desc: 'Sequential software development process model.',
+    desc: 'linear project management method where each design step is followed by a corresponding validation phase.',
   },
+  {
+    name: 'JavaScript',
+    logo: <IconBrandHtml5 color="#F7DF1E" />, // Jaune JavaScript
+    completed: false,
+    desc: 'Learn the core programming language of the web: JavaScript.',
+  },
+  {
+    name: 'DeVops',
+    logo: <IconClipboardList color="#0E76A8" />, // Icône de gestion/de planification
+    completed: false,
+    desc: 'Integrate development and operations for faster software delivery.',
+  },
+  {
+    name: 'Waterfall',
+    logo: <IconStairsUp color="#1E88E5" />, // une icône qui évoque une progression linéaire par paliers
+    completed: false,
+    desc: 'Traditional sequential project management methodology.',
+  },
+  
 ]

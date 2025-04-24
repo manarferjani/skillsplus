@@ -5,13 +5,12 @@ const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpecs = require('./config/swagger');
 const mongoose = require('mongoose');
-const courseRoutes = require("./routes/courseRoutes");
 
 // Load environment variables
 dotenv.config();
 
 // Connect to database
-require('./config/db');
+require('./config/connect');
 
 const app = express();
 
@@ -19,7 +18,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/courses", courseRoutes);
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));

@@ -18,6 +18,7 @@ import { Route as AuthenticatedIndexImport } from './routes/_authenticated/index
 import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as auth500Import } from './routes/(auth)/500'
+import { Route as AuthenticatedCoursesHtmlcssintermediairesImport } from './routes/_authenticated/courses/htmlcssintermediaires'
 
 // Create Virtual Routes
 
@@ -37,6 +38,9 @@ const AuthenticatedSettingsRouteLazyImport = createFileRoute(
 const AuthenticatedUsersIndexLazyImport = createFileRoute(
   '/_authenticated/users/',
 )()
+const AuthenticatedTestsIndexLazyImport = createFileRoute(
+  '/_authenticated/tests/',
+)()
 const AuthenticatedTasksIndexLazyImport = createFileRoute(
   '/_authenticated/tasks/',
 )()
@@ -46,14 +50,17 @@ const AuthenticatedSettingsIndexLazyImport = createFileRoute(
 const AuthenticatedHelpCenterIndexLazyImport = createFileRoute(
   '/_authenticated/help-center/',
 )()
+const AuthenticatedCoursesIndexLazyImport = createFileRoute(
+  '/_authenticated/courses/',
+)()
 const AuthenticatedChatsIndexLazyImport = createFileRoute(
   '/_authenticated/chats/',
 )()
+const AuthenticatedChallengesIndexLazyImport = createFileRoute(
+  '/_authenticated/challenges/',
+)()
 const AuthenticatedCalendarIndexLazyImport = createFileRoute(
   '/_authenticated/calendar/',
-)()
-const AuthenticatedCoursesIndexLazyImport = createFileRoute(
-  '/_authenticated/courses/',
 )()
 const AuthenticatedSettingsNotificationsLazyImport = createFileRoute(
   '/_authenticated/settings/notifications',
@@ -66,6 +73,198 @@ const AuthenticatedSettingsAppearanceLazyImport = createFileRoute(
 )()
 const AuthenticatedSettingsAccountLazyImport = createFileRoute(
   '/_authenticated/settings/account',
+)()
+const AuthenticatedCoursesWaterintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/waterintermediaires',
+)()
+const AuthenticatedCoursesWaterfallLazyImport = createFileRoute(
+  '/_authenticated/courses/waterfall',
+)()
+const AuthenticatedCoursesWaterdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/waterdebutante',
+)()
+const AuthenticatedCoursesWateradvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/wateradvanced',
+)()
+const AuthenticatedCoursesVueintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/vueintermediaires',
+)()
+const AuthenticatedCoursesVuedebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/vuedebutante',
+)()
+const AuthenticatedCoursesVueadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/vueadvanced',
+)()
+const AuthenticatedCoursesVueLazyImport = createFileRoute(
+  '/_authenticated/courses/vue',
+)()
+const AuthenticatedCoursesScrumintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/scrumintermediaires',
+)()
+const AuthenticatedCoursesScrumdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/scrumdebutante',
+)()
+const AuthenticatedCoursesScrumadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/scrumadvanced',
+)()
+const AuthenticatedCoursesScrumLazyImport = createFileRoute(
+  '/_authenticated/courses/scrum',
+)()
+const AuthenticatedCoursesSafeintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/safeintermediaires',
+)()
+const AuthenticatedCoursesSafedebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/safedebutante',
+)()
+const AuthenticatedCoursesSafeadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/safeadvanced',
+)()
+const AuthenticatedCoursesSafeLazyImport = createFileRoute(
+  '/_authenticated/courses/safe',
+)()
+const AuthenticatedCoursesReactintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/reactintermediaires',
+)()
+const AuthenticatedCoursesReactdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/reactdebutante',
+)()
+const AuthenticatedCoursesReactadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/reactadvanced',
+)()
+const AuthenticatedCoursesReactLazyImport = createFileRoute(
+  '/_authenticated/courses/react',
+)()
+const AuthenticatedCoursesPythonintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/pythonintermediaires',
+)()
+const AuthenticatedCoursesPythondebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/pythondebutante',
+)()
+const AuthenticatedCoursesPythonadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/pythonadvanced',
+)()
+const AuthenticatedCoursesPythonLazyImport = createFileRoute(
+  '/_authenticated/courses/python',
+)()
+const AuthenticatedCoursesPlaylistLazyImport = createFileRoute(
+  '/_authenticated/courses/playlist',
+)()
+const AuthenticatedCoursesNodeintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/nodeintermediaires',
+)()
+const AuthenticatedCoursesNodedebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/nodedebutante',
+)()
+const AuthenticatedCoursesNodeadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/nodeadvanced',
+)()
+const AuthenticatedCoursesNodeLazyImport = createFileRoute(
+  '/_authenticated/courses/node',
+)()
+const AuthenticatedCoursesLeanintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/leanintermediaires',
+)()
+const AuthenticatedCoursesLeandebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/leandebutante',
+)()
+const AuthenticatedCoursesLeanadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/leanadvanced',
+)()
+const AuthenticatedCoursesLeanLazyImport = createFileRoute(
+  '/_authenticated/courses/lean',
+)()
+const AuthenticatedCoursesLaravelintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/laravelintermediaires',
+)()
+const AuthenticatedCoursesLaraveldebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/laraveldebutante',
+)()
+const AuthenticatedCoursesLaraveladvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/laraveladvanced',
+)()
+const AuthenticatedCoursesLaravelLazyImport = createFileRoute(
+  '/_authenticated/courses/laravel',
+)()
+const AuthenticatedCoursesKotlinintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/kotlinintermediaires',
+)()
+const AuthenticatedCoursesKotlindebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/kotlindebutante',
+)()
+const AuthenticatedCoursesKotlinadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/kotlinadvanced',
+)()
+const AuthenticatedCoursesKotlinLazyImport = createFileRoute(
+  '/_authenticated/courses/kotlin',
+)()
+const AuthenticatedCoursesKanbanintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/kanbanintermediaires',
+)()
+const AuthenticatedCoursesKanbandebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/kanbandebutante',
+)()
+const AuthenticatedCoursesKanbanadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/kanbanadvanced',
+)()
+const AuthenticatedCoursesKanbanLazyImport = createFileRoute(
+  '/_authenticated/courses/kanban',
+)()
+const AuthenticatedCoursesJavascriptintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/javascriptintermediaires',
+)()
+const AuthenticatedCoursesJavascriptdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/javascriptdebutante',
+)()
+const AuthenticatedCoursesJavascriptadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/javascriptadvanced',
+)()
+const AuthenticatedCoursesJavascriptLazyImport = createFileRoute(
+  '/_authenticated/courses/javascript',
+)()
+const AuthenticatedCoursesHtmlcssdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/htmlcssdebutante',
+)()
+const AuthenticatedCoursesHtmlcssadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/htmlcssadvanced',
+)()
+const AuthenticatedCoursesHtmlcssLazyImport = createFileRoute(
+  '/_authenticated/courses/htmlcss',
+)()
+const AuthenticatedCoursesDevopsintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/devopsintermediaires',
+)()
+const AuthenticatedCoursesDevopsdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/devopsdebutante',
+)()
+const AuthenticatedCoursesDevopsadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/devopsadvanced',
+)()
+const AuthenticatedCoursesDevopsLazyImport = createFileRoute(
+  '/_authenticated/courses/devops',
+)()
+const AuthenticatedCoursesCyclevintermediairesLazyImport = createFileRoute(
+  '/_authenticated/courses/cyclevintermediaires',
+)()
+const AuthenticatedCoursesCyclevdebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/cyclevdebutante',
+)()
+const AuthenticatedCoursesCyclevadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/cyclevadvanced',
+)()
+const AuthenticatedCoursesCyclevLazyImport = createFileRoute(
+  '/_authenticated/courses/cyclev',
+)()
+const AuthenticatedCoursesAngularintermediaresLazyImport = createFileRoute(
+  '/_authenticated/courses/angularintermediares',
+)()
+const AuthenticatedCoursesAngulardebutanteLazyImport = createFileRoute(
+  '/_authenticated/courses/angulardebutante',
+)()
+const AuthenticatedCoursesAngularadvancedLazyImport = createFileRoute(
+  '/_authenticated/courses/angularadvanced',
+)()
+const AuthenticatedCoursesAngularLazyImport = createFileRoute(
+  '/_authenticated/courses/angular',
 )()
 
 // Create/Update Routes
@@ -183,6 +382,15 @@ const AuthenticatedUsersIndexLazyRoute =
     import('./routes/_authenticated/users/index.lazy').then((d) => d.Route),
   )
 
+const AuthenticatedTestsIndexLazyRoute =
+  AuthenticatedTestsIndexLazyImport.update({
+    id: '/tests/',
+    path: '/tests/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/tests/index.lazy').then((d) => d.Route),
+  )
+
 const AuthenticatedTasksIndexLazyRoute =
   AuthenticatedTasksIndexLazyImport.update({
     id: '/tasks/',
@@ -190,14 +398,6 @@ const AuthenticatedTasksIndexLazyRoute =
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
     import('./routes/_authenticated/tasks/index.lazy').then((d) => d.Route),
-  )
-  const AuthenticatedCalendarIndexLazyRoute =
-  AuthenticatedCalendarIndexLazyImport.update({
-    id: '/calendar/',
-    path: '/calendar/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/_authenticated/calendar/index.lazy').then((d) => d.Route),
   )
 
 const AuthenticatedSettingsIndexLazyRoute =
@@ -220,6 +420,15 @@ const AuthenticatedHelpCenterIndexLazyRoute =
     ),
   )
 
+const AuthenticatedCoursesIndexLazyRoute =
+  AuthenticatedCoursesIndexLazyImport.update({
+    id: '/courses/',
+    path: '/courses/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/index.lazy').then((d) => d.Route),
+  )
+
 const AuthenticatedChatsIndexLazyRoute =
   AuthenticatedChatsIndexLazyImport.update({
     id: '/chats/',
@@ -229,15 +438,25 @@ const AuthenticatedChatsIndexLazyRoute =
     import('./routes/_authenticated/chats/index.lazy').then((d) => d.Route),
   )
 
-const AuthenticatedCoursesIndexLazyRoute = AuthenticatedCoursesIndexLazyImport.update(
-  {
-    id: '/courses/',
-    path: '/courses/',
+const AuthenticatedChallengesIndexLazyRoute =
+  AuthenticatedChallengesIndexLazyImport.update({
+    id: '/challenges/',
+    path: '/challenges/',
     getParentRoute: () => AuthenticatedRouteRoute,
-  } as any,
-).lazy(() =>
-  import('./routes/_authenticated/courses/index.lazy').then((d) => d.Route),
-)
+  } as any).lazy(() =>
+    import('./routes/_authenticated/challenges/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCalendarIndexLazyRoute =
+  AuthenticatedCalendarIndexLazyImport.update({
+    id: '/calendar/',
+    path: '/calendar/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/calendar/index.lazy').then((d) => d.Route),
+  )
 
 const AuthenticatedSettingsNotificationsLazyRoute =
   AuthenticatedSettingsNotificationsLazyImport.update({
@@ -282,6 +501,689 @@ const AuthenticatedSettingsAccountLazyRoute =
       (d) => d.Route,
     ),
   )
+
+const AuthenticatedCoursesWaterintermediairesLazyRoute =
+  AuthenticatedCoursesWaterintermediairesLazyImport.update({
+    id: '/courses/waterintermediaires',
+    path: '/courses/waterintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/waterintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesWaterfallLazyRoute =
+  AuthenticatedCoursesWaterfallLazyImport.update({
+    id: '/courses/waterfall',
+    path: '/courses/waterfall',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/waterfall.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesWaterdebutanteLazyRoute =
+  AuthenticatedCoursesWaterdebutanteLazyImport.update({
+    id: '/courses/waterdebutante',
+    path: '/courses/waterdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/waterdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesWateradvancedLazyRoute =
+  AuthenticatedCoursesWateradvancedLazyImport.update({
+    id: '/courses/wateradvanced',
+    path: '/courses/wateradvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/wateradvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesVueintermediairesLazyRoute =
+  AuthenticatedCoursesVueintermediairesLazyImport.update({
+    id: '/courses/vueintermediaires',
+    path: '/courses/vueintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/vueintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesVuedebutanteLazyRoute =
+  AuthenticatedCoursesVuedebutanteLazyImport.update({
+    id: '/courses/vuedebutante',
+    path: '/courses/vuedebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/vuedebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesVueadvancedLazyRoute =
+  AuthenticatedCoursesVueadvancedLazyImport.update({
+    id: '/courses/vueadvanced',
+    path: '/courses/vueadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/vueadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesVueLazyRoute =
+  AuthenticatedCoursesVueLazyImport.update({
+    id: '/courses/vue',
+    path: '/courses/vue',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/vue.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesScrumintermediairesLazyRoute =
+  AuthenticatedCoursesScrumintermediairesLazyImport.update({
+    id: '/courses/scrumintermediaires',
+    path: '/courses/scrumintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/scrumintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesScrumdebutanteLazyRoute =
+  AuthenticatedCoursesScrumdebutanteLazyImport.update({
+    id: '/courses/scrumdebutante',
+    path: '/courses/scrumdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/scrumdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesScrumadvancedLazyRoute =
+  AuthenticatedCoursesScrumadvancedLazyImport.update({
+    id: '/courses/scrumadvanced',
+    path: '/courses/scrumadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/scrumadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesScrumLazyRoute =
+  AuthenticatedCoursesScrumLazyImport.update({
+    id: '/courses/scrum',
+    path: '/courses/scrum',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/scrum.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesSafeintermediairesLazyRoute =
+  AuthenticatedCoursesSafeintermediairesLazyImport.update({
+    id: '/courses/safeintermediaires',
+    path: '/courses/safeintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/safeintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesSafedebutanteLazyRoute =
+  AuthenticatedCoursesSafedebutanteLazyImport.update({
+    id: '/courses/safedebutante',
+    path: '/courses/safedebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/safedebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesSafeadvancedLazyRoute =
+  AuthenticatedCoursesSafeadvancedLazyImport.update({
+    id: '/courses/safeadvanced',
+    path: '/courses/safeadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/safeadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesSafeLazyRoute =
+  AuthenticatedCoursesSafeLazyImport.update({
+    id: '/courses/safe',
+    path: '/courses/safe',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/safe.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesReactintermediairesLazyRoute =
+  AuthenticatedCoursesReactintermediairesLazyImport.update({
+    id: '/courses/reactintermediaires',
+    path: '/courses/reactintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/reactintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesReactdebutanteLazyRoute =
+  AuthenticatedCoursesReactdebutanteLazyImport.update({
+    id: '/courses/reactdebutante',
+    path: '/courses/reactdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/reactdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesReactadvancedLazyRoute =
+  AuthenticatedCoursesReactadvancedLazyImport.update({
+    id: '/courses/reactadvanced',
+    path: '/courses/reactadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/reactadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesReactLazyRoute =
+  AuthenticatedCoursesReactLazyImport.update({
+    id: '/courses/react',
+    path: '/courses/react',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/react.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesPythonintermediairesLazyRoute =
+  AuthenticatedCoursesPythonintermediairesLazyImport.update({
+    id: '/courses/pythonintermediaires',
+    path: '/courses/pythonintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/pythonintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesPythondebutanteLazyRoute =
+  AuthenticatedCoursesPythondebutanteLazyImport.update({
+    id: '/courses/pythondebutante',
+    path: '/courses/pythondebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/pythondebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesPythonadvancedLazyRoute =
+  AuthenticatedCoursesPythonadvancedLazyImport.update({
+    id: '/courses/pythonadvanced',
+    path: '/courses/pythonadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/pythonadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesPythonLazyRoute =
+  AuthenticatedCoursesPythonLazyImport.update({
+    id: '/courses/python',
+    path: '/courses/python',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/python.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesPlaylistLazyRoute =
+  AuthenticatedCoursesPlaylistLazyImport.update({
+    id: '/courses/playlist',
+    path: '/courses/playlist',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/playlist.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesNodeintermediairesLazyRoute =
+  AuthenticatedCoursesNodeintermediairesLazyImport.update({
+    id: '/courses/nodeintermediaires',
+    path: '/courses/nodeintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/nodeintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesNodedebutanteLazyRoute =
+  AuthenticatedCoursesNodedebutanteLazyImport.update({
+    id: '/courses/nodedebutante',
+    path: '/courses/nodedebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/nodedebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesNodeadvancedLazyRoute =
+  AuthenticatedCoursesNodeadvancedLazyImport.update({
+    id: '/courses/nodeadvanced',
+    path: '/courses/nodeadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/nodeadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesNodeLazyRoute =
+  AuthenticatedCoursesNodeLazyImport.update({
+    id: '/courses/node',
+    path: '/courses/node',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/node.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesLeanintermediairesLazyRoute =
+  AuthenticatedCoursesLeanintermediairesLazyImport.update({
+    id: '/courses/leanintermediaires',
+    path: '/courses/leanintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/leanintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLeandebutanteLazyRoute =
+  AuthenticatedCoursesLeandebutanteLazyImport.update({
+    id: '/courses/leandebutante',
+    path: '/courses/leandebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/leandebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLeanadvancedLazyRoute =
+  AuthenticatedCoursesLeanadvancedLazyImport.update({
+    id: '/courses/leanadvanced',
+    path: '/courses/leanadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/leanadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLeanLazyRoute =
+  AuthenticatedCoursesLeanLazyImport.update({
+    id: '/courses/lean',
+    path: '/courses/lean',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/lean.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesLaravelintermediairesLazyRoute =
+  AuthenticatedCoursesLaravelintermediairesLazyImport.update({
+    id: '/courses/laravelintermediaires',
+    path: '/courses/laravelintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/laravelintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLaraveldebutanteLazyRoute =
+  AuthenticatedCoursesLaraveldebutanteLazyImport.update({
+    id: '/courses/laraveldebutante',
+    path: '/courses/laraveldebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/laraveldebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLaraveladvancedLazyRoute =
+  AuthenticatedCoursesLaraveladvancedLazyImport.update({
+    id: '/courses/laraveladvanced',
+    path: '/courses/laraveladvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/laraveladvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesLaravelLazyRoute =
+  AuthenticatedCoursesLaravelLazyImport.update({
+    id: '/courses/laravel',
+    path: '/courses/laravel',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/laravel.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesKotlinintermediairesLazyRoute =
+  AuthenticatedCoursesKotlinintermediairesLazyImport.update({
+    id: '/courses/kotlinintermediaires',
+    path: '/courses/kotlinintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kotlinintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKotlindebutanteLazyRoute =
+  AuthenticatedCoursesKotlindebutanteLazyImport.update({
+    id: '/courses/kotlindebutante',
+    path: '/courses/kotlindebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kotlindebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKotlinadvancedLazyRoute =
+  AuthenticatedCoursesKotlinadvancedLazyImport.update({
+    id: '/courses/kotlinadvanced',
+    path: '/courses/kotlinadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kotlinadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKotlinLazyRoute =
+  AuthenticatedCoursesKotlinLazyImport.update({
+    id: '/courses/kotlin',
+    path: '/courses/kotlin',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kotlin.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesKanbanintermediairesLazyRoute =
+  AuthenticatedCoursesKanbanintermediairesLazyImport.update({
+    id: '/courses/kanbanintermediaires',
+    path: '/courses/kanbanintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kanbanintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKanbandebutanteLazyRoute =
+  AuthenticatedCoursesKanbandebutanteLazyImport.update({
+    id: '/courses/kanbandebutante',
+    path: '/courses/kanbandebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kanbandebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKanbanadvancedLazyRoute =
+  AuthenticatedCoursesKanbanadvancedLazyImport.update({
+    id: '/courses/kanbanadvanced',
+    path: '/courses/kanbanadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kanbanadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesKanbanLazyRoute =
+  AuthenticatedCoursesKanbanLazyImport.update({
+    id: '/courses/kanban',
+    path: '/courses/kanban',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/kanban.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesJavascriptintermediairesLazyRoute =
+  AuthenticatedCoursesJavascriptintermediairesLazyImport.update({
+    id: '/courses/javascriptintermediaires',
+    path: '/courses/javascriptintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import(
+      './routes/_authenticated/courses/javascriptintermediaires.lazy'
+    ).then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesJavascriptdebutanteLazyRoute =
+  AuthenticatedCoursesJavascriptdebutanteLazyImport.update({
+    id: '/courses/javascriptdebutante',
+    path: '/courses/javascriptdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/javascriptdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesJavascriptadvancedLazyRoute =
+  AuthenticatedCoursesJavascriptadvancedLazyImport.update({
+    id: '/courses/javascriptadvanced',
+    path: '/courses/javascriptadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/javascriptadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesJavascriptLazyRoute =
+  AuthenticatedCoursesJavascriptLazyImport.update({
+    id: '/courses/javascript',
+    path: '/courses/javascript',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/javascript.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesHtmlcssdebutanteLazyRoute =
+  AuthenticatedCoursesHtmlcssdebutanteLazyImport.update({
+    id: '/courses/htmlcssdebutante',
+    path: '/courses/htmlcssdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/htmlcssdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesHtmlcssadvancedLazyRoute =
+  AuthenticatedCoursesHtmlcssadvancedLazyImport.update({
+    id: '/courses/htmlcssadvanced',
+    path: '/courses/htmlcssadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/htmlcssadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesHtmlcssLazyRoute =
+  AuthenticatedCoursesHtmlcssLazyImport.update({
+    id: '/courses/htmlcss',
+    path: '/courses/htmlcss',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/htmlcss.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesDevopsintermediairesLazyRoute =
+  AuthenticatedCoursesDevopsintermediairesLazyImport.update({
+    id: '/courses/devopsintermediaires',
+    path: '/courses/devopsintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/devopsintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesDevopsdebutanteLazyRoute =
+  AuthenticatedCoursesDevopsdebutanteLazyImport.update({
+    id: '/courses/devopsdebutante',
+    path: '/courses/devopsdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/devopsdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesDevopsadvancedLazyRoute =
+  AuthenticatedCoursesDevopsadvancedLazyImport.update({
+    id: '/courses/devopsadvanced',
+    path: '/courses/devopsadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/devopsadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesDevopsLazyRoute =
+  AuthenticatedCoursesDevopsLazyImport.update({
+    id: '/courses/devops',
+    path: '/courses/devops',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/devops.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesCyclevintermediairesLazyRoute =
+  AuthenticatedCoursesCyclevintermediairesLazyImport.update({
+    id: '/courses/cyclevintermediaires',
+    path: '/courses/cyclevintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/cyclevintermediaires.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesCyclevdebutanteLazyRoute =
+  AuthenticatedCoursesCyclevdebutanteLazyImport.update({
+    id: '/courses/cyclevdebutante',
+    path: '/courses/cyclevdebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/cyclevdebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesCyclevadvancedLazyRoute =
+  AuthenticatedCoursesCyclevadvancedLazyImport.update({
+    id: '/courses/cyclevadvanced',
+    path: '/courses/cyclevadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/cyclevadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesCyclevLazyRoute =
+  AuthenticatedCoursesCyclevLazyImport.update({
+    id: '/courses/cyclev',
+    path: '/courses/cyclev',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/cyclev.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesAngularintermediaresLazyRoute =
+  AuthenticatedCoursesAngularintermediaresLazyImport.update({
+    id: '/courses/angularintermediares',
+    path: '/courses/angularintermediares',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/angularintermediares.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesAngulardebutanteLazyRoute =
+  AuthenticatedCoursesAngulardebutanteLazyImport.update({
+    id: '/courses/angulardebutante',
+    path: '/courses/angulardebutante',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/angulardebutante.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesAngularadvancedLazyRoute =
+  AuthenticatedCoursesAngularadvancedLazyImport.update({
+    id: '/courses/angularadvanced',
+    path: '/courses/angularadvanced',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/angularadvanced.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCoursesAngularLazyRoute =
+  AuthenticatedCoursesAngularLazyImport.update({
+    id: '/courses/angular',
+    path: '/courses/angular',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/courses/angular.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedCoursesHtmlcssintermediairesRoute =
+  AuthenticatedCoursesHtmlcssintermediairesImport.update({
+    id: '/courses/htmlcssintermediaires',
+    path: '/courses/htmlcssintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -385,6 +1287,461 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedIndexImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/courses/htmlcssintermediaires': {
+      id: '/_authenticated/courses/htmlcssintermediaires'
+      path: '/courses/htmlcssintermediaires'
+      fullPath: '/courses/htmlcssintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesHtmlcssintermediairesImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/angular': {
+      id: '/_authenticated/courses/angular'
+      path: '/courses/angular'
+      fullPath: '/courses/angular'
+      preLoaderRoute: typeof AuthenticatedCoursesAngularLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/angularadvanced': {
+      id: '/_authenticated/courses/angularadvanced'
+      path: '/courses/angularadvanced'
+      fullPath: '/courses/angularadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesAngularadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/angulardebutante': {
+      id: '/_authenticated/courses/angulardebutante'
+      path: '/courses/angulardebutante'
+      fullPath: '/courses/angulardebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesAngulardebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/angularintermediares': {
+      id: '/_authenticated/courses/angularintermediares'
+      path: '/courses/angularintermediares'
+      fullPath: '/courses/angularintermediares'
+      preLoaderRoute: typeof AuthenticatedCoursesAngularintermediaresLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/cyclev': {
+      id: '/_authenticated/courses/cyclev'
+      path: '/courses/cyclev'
+      fullPath: '/courses/cyclev'
+      preLoaderRoute: typeof AuthenticatedCoursesCyclevLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/cyclevadvanced': {
+      id: '/_authenticated/courses/cyclevadvanced'
+      path: '/courses/cyclevadvanced'
+      fullPath: '/courses/cyclevadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesCyclevadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/cyclevdebutante': {
+      id: '/_authenticated/courses/cyclevdebutante'
+      path: '/courses/cyclevdebutante'
+      fullPath: '/courses/cyclevdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesCyclevdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/cyclevintermediaires': {
+      id: '/_authenticated/courses/cyclevintermediaires'
+      path: '/courses/cyclevintermediaires'
+      fullPath: '/courses/cyclevintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesCyclevintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/devops': {
+      id: '/_authenticated/courses/devops'
+      path: '/courses/devops'
+      fullPath: '/courses/devops'
+      preLoaderRoute: typeof AuthenticatedCoursesDevopsLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/devopsadvanced': {
+      id: '/_authenticated/courses/devopsadvanced'
+      path: '/courses/devopsadvanced'
+      fullPath: '/courses/devopsadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesDevopsadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/devopsdebutante': {
+      id: '/_authenticated/courses/devopsdebutante'
+      path: '/courses/devopsdebutante'
+      fullPath: '/courses/devopsdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesDevopsdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/devopsintermediaires': {
+      id: '/_authenticated/courses/devopsintermediaires'
+      path: '/courses/devopsintermediaires'
+      fullPath: '/courses/devopsintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesDevopsintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/htmlcss': {
+      id: '/_authenticated/courses/htmlcss'
+      path: '/courses/htmlcss'
+      fullPath: '/courses/htmlcss'
+      preLoaderRoute: typeof AuthenticatedCoursesHtmlcssLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/htmlcssadvanced': {
+      id: '/_authenticated/courses/htmlcssadvanced'
+      path: '/courses/htmlcssadvanced'
+      fullPath: '/courses/htmlcssadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesHtmlcssadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/htmlcssdebutante': {
+      id: '/_authenticated/courses/htmlcssdebutante'
+      path: '/courses/htmlcssdebutante'
+      fullPath: '/courses/htmlcssdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesHtmlcssdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/javascript': {
+      id: '/_authenticated/courses/javascript'
+      path: '/courses/javascript'
+      fullPath: '/courses/javascript'
+      preLoaderRoute: typeof AuthenticatedCoursesJavascriptLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/javascriptadvanced': {
+      id: '/_authenticated/courses/javascriptadvanced'
+      path: '/courses/javascriptadvanced'
+      fullPath: '/courses/javascriptadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesJavascriptadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/javascriptdebutante': {
+      id: '/_authenticated/courses/javascriptdebutante'
+      path: '/courses/javascriptdebutante'
+      fullPath: '/courses/javascriptdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesJavascriptdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/javascriptintermediaires': {
+      id: '/_authenticated/courses/javascriptintermediaires'
+      path: '/courses/javascriptintermediaires'
+      fullPath: '/courses/javascriptintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesJavascriptintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kanban': {
+      id: '/_authenticated/courses/kanban'
+      path: '/courses/kanban'
+      fullPath: '/courses/kanban'
+      preLoaderRoute: typeof AuthenticatedCoursesKanbanLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kanbanadvanced': {
+      id: '/_authenticated/courses/kanbanadvanced'
+      path: '/courses/kanbanadvanced'
+      fullPath: '/courses/kanbanadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesKanbanadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kanbandebutante': {
+      id: '/_authenticated/courses/kanbandebutante'
+      path: '/courses/kanbandebutante'
+      fullPath: '/courses/kanbandebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesKanbandebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kanbanintermediaires': {
+      id: '/_authenticated/courses/kanbanintermediaires'
+      path: '/courses/kanbanintermediaires'
+      fullPath: '/courses/kanbanintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesKanbanintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kotlin': {
+      id: '/_authenticated/courses/kotlin'
+      path: '/courses/kotlin'
+      fullPath: '/courses/kotlin'
+      preLoaderRoute: typeof AuthenticatedCoursesKotlinLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kotlinadvanced': {
+      id: '/_authenticated/courses/kotlinadvanced'
+      path: '/courses/kotlinadvanced'
+      fullPath: '/courses/kotlinadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesKotlinadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kotlindebutante': {
+      id: '/_authenticated/courses/kotlindebutante'
+      path: '/courses/kotlindebutante'
+      fullPath: '/courses/kotlindebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesKotlindebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/kotlinintermediaires': {
+      id: '/_authenticated/courses/kotlinintermediaires'
+      path: '/courses/kotlinintermediaires'
+      fullPath: '/courses/kotlinintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesKotlinintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/laravel': {
+      id: '/_authenticated/courses/laravel'
+      path: '/courses/laravel'
+      fullPath: '/courses/laravel'
+      preLoaderRoute: typeof AuthenticatedCoursesLaravelLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/laraveladvanced': {
+      id: '/_authenticated/courses/laraveladvanced'
+      path: '/courses/laraveladvanced'
+      fullPath: '/courses/laraveladvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesLaraveladvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/laraveldebutante': {
+      id: '/_authenticated/courses/laraveldebutante'
+      path: '/courses/laraveldebutante'
+      fullPath: '/courses/laraveldebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesLaraveldebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/laravelintermediaires': {
+      id: '/_authenticated/courses/laravelintermediaires'
+      path: '/courses/laravelintermediaires'
+      fullPath: '/courses/laravelintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesLaravelintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/lean': {
+      id: '/_authenticated/courses/lean'
+      path: '/courses/lean'
+      fullPath: '/courses/lean'
+      preLoaderRoute: typeof AuthenticatedCoursesLeanLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/leanadvanced': {
+      id: '/_authenticated/courses/leanadvanced'
+      path: '/courses/leanadvanced'
+      fullPath: '/courses/leanadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesLeanadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/leandebutante': {
+      id: '/_authenticated/courses/leandebutante'
+      path: '/courses/leandebutante'
+      fullPath: '/courses/leandebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesLeandebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/leanintermediaires': {
+      id: '/_authenticated/courses/leanintermediaires'
+      path: '/courses/leanintermediaires'
+      fullPath: '/courses/leanintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesLeanintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/node': {
+      id: '/_authenticated/courses/node'
+      path: '/courses/node'
+      fullPath: '/courses/node'
+      preLoaderRoute: typeof AuthenticatedCoursesNodeLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/nodeadvanced': {
+      id: '/_authenticated/courses/nodeadvanced'
+      path: '/courses/nodeadvanced'
+      fullPath: '/courses/nodeadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesNodeadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/nodedebutante': {
+      id: '/_authenticated/courses/nodedebutante'
+      path: '/courses/nodedebutante'
+      fullPath: '/courses/nodedebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesNodedebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/nodeintermediaires': {
+      id: '/_authenticated/courses/nodeintermediaires'
+      path: '/courses/nodeintermediaires'
+      fullPath: '/courses/nodeintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesNodeintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/playlist': {
+      id: '/_authenticated/courses/playlist'
+      path: '/courses/playlist'
+      fullPath: '/courses/playlist'
+      preLoaderRoute: typeof AuthenticatedCoursesPlaylistLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/python': {
+      id: '/_authenticated/courses/python'
+      path: '/courses/python'
+      fullPath: '/courses/python'
+      preLoaderRoute: typeof AuthenticatedCoursesPythonLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/pythonadvanced': {
+      id: '/_authenticated/courses/pythonadvanced'
+      path: '/courses/pythonadvanced'
+      fullPath: '/courses/pythonadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesPythonadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/pythondebutante': {
+      id: '/_authenticated/courses/pythondebutante'
+      path: '/courses/pythondebutante'
+      fullPath: '/courses/pythondebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesPythondebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/pythonintermediaires': {
+      id: '/_authenticated/courses/pythonintermediaires'
+      path: '/courses/pythonintermediaires'
+      fullPath: '/courses/pythonintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesPythonintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/react': {
+      id: '/_authenticated/courses/react'
+      path: '/courses/react'
+      fullPath: '/courses/react'
+      preLoaderRoute: typeof AuthenticatedCoursesReactLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/reactadvanced': {
+      id: '/_authenticated/courses/reactadvanced'
+      path: '/courses/reactadvanced'
+      fullPath: '/courses/reactadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesReactadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/reactdebutante': {
+      id: '/_authenticated/courses/reactdebutante'
+      path: '/courses/reactdebutante'
+      fullPath: '/courses/reactdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesReactdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/reactintermediaires': {
+      id: '/_authenticated/courses/reactintermediaires'
+      path: '/courses/reactintermediaires'
+      fullPath: '/courses/reactintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesReactintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/safe': {
+      id: '/_authenticated/courses/safe'
+      path: '/courses/safe'
+      fullPath: '/courses/safe'
+      preLoaderRoute: typeof AuthenticatedCoursesSafeLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/safeadvanced': {
+      id: '/_authenticated/courses/safeadvanced'
+      path: '/courses/safeadvanced'
+      fullPath: '/courses/safeadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesSafeadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/safedebutante': {
+      id: '/_authenticated/courses/safedebutante'
+      path: '/courses/safedebutante'
+      fullPath: '/courses/safedebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesSafedebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/safeintermediaires': {
+      id: '/_authenticated/courses/safeintermediaires'
+      path: '/courses/safeintermediaires'
+      fullPath: '/courses/safeintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesSafeintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/scrum': {
+      id: '/_authenticated/courses/scrum'
+      path: '/courses/scrum'
+      fullPath: '/courses/scrum'
+      preLoaderRoute: typeof AuthenticatedCoursesScrumLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/scrumadvanced': {
+      id: '/_authenticated/courses/scrumadvanced'
+      path: '/courses/scrumadvanced'
+      fullPath: '/courses/scrumadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesScrumadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/scrumdebutante': {
+      id: '/_authenticated/courses/scrumdebutante'
+      path: '/courses/scrumdebutante'
+      fullPath: '/courses/scrumdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesScrumdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/scrumintermediaires': {
+      id: '/_authenticated/courses/scrumintermediaires'
+      path: '/courses/scrumintermediaires'
+      fullPath: '/courses/scrumintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesScrumintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/vue': {
+      id: '/_authenticated/courses/vue'
+      path: '/courses/vue'
+      fullPath: '/courses/vue'
+      preLoaderRoute: typeof AuthenticatedCoursesVueLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/vueadvanced': {
+      id: '/_authenticated/courses/vueadvanced'
+      path: '/courses/vueadvanced'
+      fullPath: '/courses/vueadvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesVueadvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/vuedebutante': {
+      id: '/_authenticated/courses/vuedebutante'
+      path: '/courses/vuedebutante'
+      fullPath: '/courses/vuedebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesVuedebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/vueintermediaires': {
+      id: '/_authenticated/courses/vueintermediaires'
+      path: '/courses/vueintermediaires'
+      fullPath: '/courses/vueintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesVueintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/wateradvanced': {
+      id: '/_authenticated/courses/wateradvanced'
+      path: '/courses/wateradvanced'
+      fullPath: '/courses/wateradvanced'
+      preLoaderRoute: typeof AuthenticatedCoursesWateradvancedLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/waterdebutante': {
+      id: '/_authenticated/courses/waterdebutante'
+      path: '/courses/waterdebutante'
+      fullPath: '/courses/waterdebutante'
+      preLoaderRoute: typeof AuthenticatedCoursesWaterdebutanteLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/waterfall': {
+      id: '/_authenticated/courses/waterfall'
+      path: '/courses/waterfall'
+      fullPath: '/courses/waterfall'
+      preLoaderRoute: typeof AuthenticatedCoursesWaterfallLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/courses/waterintermediaires': {
+      id: '/_authenticated/courses/waterintermediaires'
+      path: '/courses/waterintermediaires'
+      fullPath: '/courses/waterintermediaires'
+      preLoaderRoute: typeof AuthenticatedCoursesWaterintermediairesLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/settings/account': {
       id: '/_authenticated/settings/account'
       path: '/account'
@@ -413,11 +1770,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsNotificationsLazyImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyImport
     }
-    '/_authenticated/courses/': {
-      id: '/_authenticated/courses/'
-      path: '/courses'
-      fullPath: '/courses'
-      preLoaderRoute: typeof AuthenticatedCoursesIndexLazyImport
+    '/_authenticated/calendar/': {
+      id: '/_authenticated/calendar/'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof AuthenticatedCalendarIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/challenges/': {
+      id: '/_authenticated/challenges/'
+      path: '/challenges'
+      fullPath: '/challenges'
+      preLoaderRoute: typeof AuthenticatedChallengesIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/chats/': {
@@ -427,11 +1791,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedChatsIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
-    '/_authenticated/calendar/': {
-      id: '/_authenticated/calendar/'
-      path: '/calendar'
-      fullPath: '/calendar'
-      preLoaderRoute: typeof AuthenticatedCalendarIndexLazyImport
+    '/_authenticated/courses/': {
+      id: '/_authenticated/courses/'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof AuthenticatedCoursesIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/help-center/': {
@@ -453,6 +1817,13 @@ declare module '@tanstack/react-router' {
       path: '/tasks'
       fullPath: '/tasks'
       preLoaderRoute: typeof AuthenticatedTasksIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/tests/': {
+      id: '/_authenticated/tests/'
+      path: '/tests'
+      fullPath: '/tests'
+      preLoaderRoute: typeof AuthenticatedTestsIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/users/': {
@@ -496,11 +1867,78 @@ const AuthenticatedSettingsRouteLazyRouteWithChildren =
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedSettingsRouteLazyRoute: typeof AuthenticatedSettingsRouteLazyRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
-  AuthenticatedCoursesIndexLazyRoute: typeof AuthenticatedCoursesIndexLazyRoute
-  AuthenticatedChatsIndexLazyRoute: typeof AuthenticatedChatsIndexLazyRoute
+  AuthenticatedCoursesHtmlcssintermediairesRoute: typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  AuthenticatedCoursesAngularLazyRoute: typeof AuthenticatedCoursesAngularLazyRoute
+  AuthenticatedCoursesAngularadvancedLazyRoute: typeof AuthenticatedCoursesAngularadvancedLazyRoute
+  AuthenticatedCoursesAngulardebutanteLazyRoute: typeof AuthenticatedCoursesAngulardebutanteLazyRoute
+  AuthenticatedCoursesAngularintermediaresLazyRoute: typeof AuthenticatedCoursesAngularintermediaresLazyRoute
+  AuthenticatedCoursesCyclevLazyRoute: typeof AuthenticatedCoursesCyclevLazyRoute
+  AuthenticatedCoursesCyclevadvancedLazyRoute: typeof AuthenticatedCoursesCyclevadvancedLazyRoute
+  AuthenticatedCoursesCyclevdebutanteLazyRoute: typeof AuthenticatedCoursesCyclevdebutanteLazyRoute
+  AuthenticatedCoursesCyclevintermediairesLazyRoute: typeof AuthenticatedCoursesCyclevintermediairesLazyRoute
+  AuthenticatedCoursesDevopsLazyRoute: typeof AuthenticatedCoursesDevopsLazyRoute
+  AuthenticatedCoursesDevopsadvancedLazyRoute: typeof AuthenticatedCoursesDevopsadvancedLazyRoute
+  AuthenticatedCoursesDevopsdebutanteLazyRoute: typeof AuthenticatedCoursesDevopsdebutanteLazyRoute
+  AuthenticatedCoursesDevopsintermediairesLazyRoute: typeof AuthenticatedCoursesDevopsintermediairesLazyRoute
+  AuthenticatedCoursesHtmlcssLazyRoute: typeof AuthenticatedCoursesHtmlcssLazyRoute
+  AuthenticatedCoursesHtmlcssadvancedLazyRoute: typeof AuthenticatedCoursesHtmlcssadvancedLazyRoute
+  AuthenticatedCoursesHtmlcssdebutanteLazyRoute: typeof AuthenticatedCoursesHtmlcssdebutanteLazyRoute
+  AuthenticatedCoursesJavascriptLazyRoute: typeof AuthenticatedCoursesJavascriptLazyRoute
+  AuthenticatedCoursesJavascriptadvancedLazyRoute: typeof AuthenticatedCoursesJavascriptadvancedLazyRoute
+  AuthenticatedCoursesJavascriptdebutanteLazyRoute: typeof AuthenticatedCoursesJavascriptdebutanteLazyRoute
+  AuthenticatedCoursesJavascriptintermediairesLazyRoute: typeof AuthenticatedCoursesJavascriptintermediairesLazyRoute
+  AuthenticatedCoursesKanbanLazyRoute: typeof AuthenticatedCoursesKanbanLazyRoute
+  AuthenticatedCoursesKanbanadvancedLazyRoute: typeof AuthenticatedCoursesKanbanadvancedLazyRoute
+  AuthenticatedCoursesKanbandebutanteLazyRoute: typeof AuthenticatedCoursesKanbandebutanteLazyRoute
+  AuthenticatedCoursesKanbanintermediairesLazyRoute: typeof AuthenticatedCoursesKanbanintermediairesLazyRoute
+  AuthenticatedCoursesKotlinLazyRoute: typeof AuthenticatedCoursesKotlinLazyRoute
+  AuthenticatedCoursesKotlinadvancedLazyRoute: typeof AuthenticatedCoursesKotlinadvancedLazyRoute
+  AuthenticatedCoursesKotlindebutanteLazyRoute: typeof AuthenticatedCoursesKotlindebutanteLazyRoute
+  AuthenticatedCoursesKotlinintermediairesLazyRoute: typeof AuthenticatedCoursesKotlinintermediairesLazyRoute
+  AuthenticatedCoursesLaravelLazyRoute: typeof AuthenticatedCoursesLaravelLazyRoute
+  AuthenticatedCoursesLaraveladvancedLazyRoute: typeof AuthenticatedCoursesLaraveladvancedLazyRoute
+  AuthenticatedCoursesLaraveldebutanteLazyRoute: typeof AuthenticatedCoursesLaraveldebutanteLazyRoute
+  AuthenticatedCoursesLaravelintermediairesLazyRoute: typeof AuthenticatedCoursesLaravelintermediairesLazyRoute
+  AuthenticatedCoursesLeanLazyRoute: typeof AuthenticatedCoursesLeanLazyRoute
+  AuthenticatedCoursesLeanadvancedLazyRoute: typeof AuthenticatedCoursesLeanadvancedLazyRoute
+  AuthenticatedCoursesLeandebutanteLazyRoute: typeof AuthenticatedCoursesLeandebutanteLazyRoute
+  AuthenticatedCoursesLeanintermediairesLazyRoute: typeof AuthenticatedCoursesLeanintermediairesLazyRoute
+  AuthenticatedCoursesNodeLazyRoute: typeof AuthenticatedCoursesNodeLazyRoute
+  AuthenticatedCoursesNodeadvancedLazyRoute: typeof AuthenticatedCoursesNodeadvancedLazyRoute
+  AuthenticatedCoursesNodedebutanteLazyRoute: typeof AuthenticatedCoursesNodedebutanteLazyRoute
+  AuthenticatedCoursesNodeintermediairesLazyRoute: typeof AuthenticatedCoursesNodeintermediairesLazyRoute
+  AuthenticatedCoursesPlaylistLazyRoute: typeof AuthenticatedCoursesPlaylistLazyRoute
+  AuthenticatedCoursesPythonLazyRoute: typeof AuthenticatedCoursesPythonLazyRoute
+  AuthenticatedCoursesPythonadvancedLazyRoute: typeof AuthenticatedCoursesPythonadvancedLazyRoute
+  AuthenticatedCoursesPythondebutanteLazyRoute: typeof AuthenticatedCoursesPythondebutanteLazyRoute
+  AuthenticatedCoursesPythonintermediairesLazyRoute: typeof AuthenticatedCoursesPythonintermediairesLazyRoute
+  AuthenticatedCoursesReactLazyRoute: typeof AuthenticatedCoursesReactLazyRoute
+  AuthenticatedCoursesReactadvancedLazyRoute: typeof AuthenticatedCoursesReactadvancedLazyRoute
+  AuthenticatedCoursesReactdebutanteLazyRoute: typeof AuthenticatedCoursesReactdebutanteLazyRoute
+  AuthenticatedCoursesReactintermediairesLazyRoute: typeof AuthenticatedCoursesReactintermediairesLazyRoute
+  AuthenticatedCoursesSafeLazyRoute: typeof AuthenticatedCoursesSafeLazyRoute
+  AuthenticatedCoursesSafeadvancedLazyRoute: typeof AuthenticatedCoursesSafeadvancedLazyRoute
+  AuthenticatedCoursesSafedebutanteLazyRoute: typeof AuthenticatedCoursesSafedebutanteLazyRoute
+  AuthenticatedCoursesSafeintermediairesLazyRoute: typeof AuthenticatedCoursesSafeintermediairesLazyRoute
+  AuthenticatedCoursesScrumLazyRoute: typeof AuthenticatedCoursesScrumLazyRoute
+  AuthenticatedCoursesScrumadvancedLazyRoute: typeof AuthenticatedCoursesScrumadvancedLazyRoute
+  AuthenticatedCoursesScrumdebutanteLazyRoute: typeof AuthenticatedCoursesScrumdebutanteLazyRoute
+  AuthenticatedCoursesScrumintermediairesLazyRoute: typeof AuthenticatedCoursesScrumintermediairesLazyRoute
+  AuthenticatedCoursesVueLazyRoute: typeof AuthenticatedCoursesVueLazyRoute
+  AuthenticatedCoursesVueadvancedLazyRoute: typeof AuthenticatedCoursesVueadvancedLazyRoute
+  AuthenticatedCoursesVuedebutanteLazyRoute: typeof AuthenticatedCoursesVuedebutanteLazyRoute
+  AuthenticatedCoursesVueintermediairesLazyRoute: typeof AuthenticatedCoursesVueintermediairesLazyRoute
+  AuthenticatedCoursesWateradvancedLazyRoute: typeof AuthenticatedCoursesWateradvancedLazyRoute
+  AuthenticatedCoursesWaterdebutanteLazyRoute: typeof AuthenticatedCoursesWaterdebutanteLazyRoute
+  AuthenticatedCoursesWaterfallLazyRoute: typeof AuthenticatedCoursesWaterfallLazyRoute
+  AuthenticatedCoursesWaterintermediairesLazyRoute: typeof AuthenticatedCoursesWaterintermediairesLazyRoute
   AuthenticatedCalendarIndexLazyRoute: typeof AuthenticatedCalendarIndexLazyRoute
+  AuthenticatedChallengesIndexLazyRoute: typeof AuthenticatedChallengesIndexLazyRoute
+  AuthenticatedChatsIndexLazyRoute: typeof AuthenticatedChatsIndexLazyRoute
+  AuthenticatedCoursesIndexLazyRoute: typeof AuthenticatedCoursesIndexLazyRoute
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
+  AuthenticatedTestsIndexLazyRoute: typeof AuthenticatedTestsIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -508,11 +1946,128 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSettingsRouteLazyRoute:
     AuthenticatedSettingsRouteLazyRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
-  AuthenticatedCoursesIndexLazyRoute: AuthenticatedCoursesIndexLazyRoute,
-  AuthenticatedChatsIndexLazyRoute: AuthenticatedChatsIndexLazyRoute,
+  AuthenticatedCoursesHtmlcssintermediairesRoute:
+    AuthenticatedCoursesHtmlcssintermediairesRoute,
+  AuthenticatedCoursesAngularLazyRoute: AuthenticatedCoursesAngularLazyRoute,
+  AuthenticatedCoursesAngularadvancedLazyRoute:
+    AuthenticatedCoursesAngularadvancedLazyRoute,
+  AuthenticatedCoursesAngulardebutanteLazyRoute:
+    AuthenticatedCoursesAngulardebutanteLazyRoute,
+  AuthenticatedCoursesAngularintermediaresLazyRoute:
+    AuthenticatedCoursesAngularintermediaresLazyRoute,
+  AuthenticatedCoursesCyclevLazyRoute: AuthenticatedCoursesCyclevLazyRoute,
+  AuthenticatedCoursesCyclevadvancedLazyRoute:
+    AuthenticatedCoursesCyclevadvancedLazyRoute,
+  AuthenticatedCoursesCyclevdebutanteLazyRoute:
+    AuthenticatedCoursesCyclevdebutanteLazyRoute,
+  AuthenticatedCoursesCyclevintermediairesLazyRoute:
+    AuthenticatedCoursesCyclevintermediairesLazyRoute,
+  AuthenticatedCoursesDevopsLazyRoute: AuthenticatedCoursesDevopsLazyRoute,
+  AuthenticatedCoursesDevopsadvancedLazyRoute:
+    AuthenticatedCoursesDevopsadvancedLazyRoute,
+  AuthenticatedCoursesDevopsdebutanteLazyRoute:
+    AuthenticatedCoursesDevopsdebutanteLazyRoute,
+  AuthenticatedCoursesDevopsintermediairesLazyRoute:
+    AuthenticatedCoursesDevopsintermediairesLazyRoute,
+  AuthenticatedCoursesHtmlcssLazyRoute: AuthenticatedCoursesHtmlcssLazyRoute,
+  AuthenticatedCoursesHtmlcssadvancedLazyRoute:
+    AuthenticatedCoursesHtmlcssadvancedLazyRoute,
+  AuthenticatedCoursesHtmlcssdebutanteLazyRoute:
+    AuthenticatedCoursesHtmlcssdebutanteLazyRoute,
+  AuthenticatedCoursesJavascriptLazyRoute:
+    AuthenticatedCoursesJavascriptLazyRoute,
+  AuthenticatedCoursesJavascriptadvancedLazyRoute:
+    AuthenticatedCoursesJavascriptadvancedLazyRoute,
+  AuthenticatedCoursesJavascriptdebutanteLazyRoute:
+    AuthenticatedCoursesJavascriptdebutanteLazyRoute,
+  AuthenticatedCoursesJavascriptintermediairesLazyRoute:
+    AuthenticatedCoursesJavascriptintermediairesLazyRoute,
+  AuthenticatedCoursesKanbanLazyRoute: AuthenticatedCoursesKanbanLazyRoute,
+  AuthenticatedCoursesKanbanadvancedLazyRoute:
+    AuthenticatedCoursesKanbanadvancedLazyRoute,
+  AuthenticatedCoursesKanbandebutanteLazyRoute:
+    AuthenticatedCoursesKanbandebutanteLazyRoute,
+  AuthenticatedCoursesKanbanintermediairesLazyRoute:
+    AuthenticatedCoursesKanbanintermediairesLazyRoute,
+  AuthenticatedCoursesKotlinLazyRoute: AuthenticatedCoursesKotlinLazyRoute,
+  AuthenticatedCoursesKotlinadvancedLazyRoute:
+    AuthenticatedCoursesKotlinadvancedLazyRoute,
+  AuthenticatedCoursesKotlindebutanteLazyRoute:
+    AuthenticatedCoursesKotlindebutanteLazyRoute,
+  AuthenticatedCoursesKotlinintermediairesLazyRoute:
+    AuthenticatedCoursesKotlinintermediairesLazyRoute,
+  AuthenticatedCoursesLaravelLazyRoute: AuthenticatedCoursesLaravelLazyRoute,
+  AuthenticatedCoursesLaraveladvancedLazyRoute:
+    AuthenticatedCoursesLaraveladvancedLazyRoute,
+  AuthenticatedCoursesLaraveldebutanteLazyRoute:
+    AuthenticatedCoursesLaraveldebutanteLazyRoute,
+  AuthenticatedCoursesLaravelintermediairesLazyRoute:
+    AuthenticatedCoursesLaravelintermediairesLazyRoute,
+  AuthenticatedCoursesLeanLazyRoute: AuthenticatedCoursesLeanLazyRoute,
+  AuthenticatedCoursesLeanadvancedLazyRoute:
+    AuthenticatedCoursesLeanadvancedLazyRoute,
+  AuthenticatedCoursesLeandebutanteLazyRoute:
+    AuthenticatedCoursesLeandebutanteLazyRoute,
+  AuthenticatedCoursesLeanintermediairesLazyRoute:
+    AuthenticatedCoursesLeanintermediairesLazyRoute,
+  AuthenticatedCoursesNodeLazyRoute: AuthenticatedCoursesNodeLazyRoute,
+  AuthenticatedCoursesNodeadvancedLazyRoute:
+    AuthenticatedCoursesNodeadvancedLazyRoute,
+  AuthenticatedCoursesNodedebutanteLazyRoute:
+    AuthenticatedCoursesNodedebutanteLazyRoute,
+  AuthenticatedCoursesNodeintermediairesLazyRoute:
+    AuthenticatedCoursesNodeintermediairesLazyRoute,
+  AuthenticatedCoursesPlaylistLazyRoute: AuthenticatedCoursesPlaylistLazyRoute,
+  AuthenticatedCoursesPythonLazyRoute: AuthenticatedCoursesPythonLazyRoute,
+  AuthenticatedCoursesPythonadvancedLazyRoute:
+    AuthenticatedCoursesPythonadvancedLazyRoute,
+  AuthenticatedCoursesPythondebutanteLazyRoute:
+    AuthenticatedCoursesPythondebutanteLazyRoute,
+  AuthenticatedCoursesPythonintermediairesLazyRoute:
+    AuthenticatedCoursesPythonintermediairesLazyRoute,
+  AuthenticatedCoursesReactLazyRoute: AuthenticatedCoursesReactLazyRoute,
+  AuthenticatedCoursesReactadvancedLazyRoute:
+    AuthenticatedCoursesReactadvancedLazyRoute,
+  AuthenticatedCoursesReactdebutanteLazyRoute:
+    AuthenticatedCoursesReactdebutanteLazyRoute,
+  AuthenticatedCoursesReactintermediairesLazyRoute:
+    AuthenticatedCoursesReactintermediairesLazyRoute,
+  AuthenticatedCoursesSafeLazyRoute: AuthenticatedCoursesSafeLazyRoute,
+  AuthenticatedCoursesSafeadvancedLazyRoute:
+    AuthenticatedCoursesSafeadvancedLazyRoute,
+  AuthenticatedCoursesSafedebutanteLazyRoute:
+    AuthenticatedCoursesSafedebutanteLazyRoute,
+  AuthenticatedCoursesSafeintermediairesLazyRoute:
+    AuthenticatedCoursesSafeintermediairesLazyRoute,
+  AuthenticatedCoursesScrumLazyRoute: AuthenticatedCoursesScrumLazyRoute,
+  AuthenticatedCoursesScrumadvancedLazyRoute:
+    AuthenticatedCoursesScrumadvancedLazyRoute,
+  AuthenticatedCoursesScrumdebutanteLazyRoute:
+    AuthenticatedCoursesScrumdebutanteLazyRoute,
+  AuthenticatedCoursesScrumintermediairesLazyRoute:
+    AuthenticatedCoursesScrumintermediairesLazyRoute,
+  AuthenticatedCoursesVueLazyRoute: AuthenticatedCoursesVueLazyRoute,
+  AuthenticatedCoursesVueadvancedLazyRoute:
+    AuthenticatedCoursesVueadvancedLazyRoute,
+  AuthenticatedCoursesVuedebutanteLazyRoute:
+    AuthenticatedCoursesVuedebutanteLazyRoute,
+  AuthenticatedCoursesVueintermediairesLazyRoute:
+    AuthenticatedCoursesVueintermediairesLazyRoute,
+  AuthenticatedCoursesWateradvancedLazyRoute:
+    AuthenticatedCoursesWateradvancedLazyRoute,
+  AuthenticatedCoursesWaterdebutanteLazyRoute:
+    AuthenticatedCoursesWaterdebutanteLazyRoute,
+  AuthenticatedCoursesWaterfallLazyRoute:
+    AuthenticatedCoursesWaterfallLazyRoute,
+  AuthenticatedCoursesWaterintermediairesLazyRoute:
+    AuthenticatedCoursesWaterintermediairesLazyRoute,
   AuthenticatedCalendarIndexLazyRoute: AuthenticatedCalendarIndexLazyRoute,
+  AuthenticatedChallengesIndexLazyRoute: AuthenticatedChallengesIndexLazyRoute,
+  AuthenticatedChatsIndexLazyRoute: AuthenticatedChatsIndexLazyRoute,
+  AuthenticatedCoursesIndexLazyRoute: AuthenticatedCoursesIndexLazyRoute,
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
+  AuthenticatedTestsIndexLazyRoute: AuthenticatedTestsIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
 }
 
@@ -533,16 +2088,83 @@ export interface FileRoutesByFullPath {
   '/404': typeof errors404LazyRoute
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
+  '/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
+  '/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
+  '/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
+  '/courses/angularintermediares': typeof AuthenticatedCoursesAngularintermediaresLazyRoute
+  '/courses/cyclev': typeof AuthenticatedCoursesCyclevLazyRoute
+  '/courses/cyclevadvanced': typeof AuthenticatedCoursesCyclevadvancedLazyRoute
+  '/courses/cyclevdebutante': typeof AuthenticatedCoursesCyclevdebutanteLazyRoute
+  '/courses/cyclevintermediaires': typeof AuthenticatedCoursesCyclevintermediairesLazyRoute
+  '/courses/devops': typeof AuthenticatedCoursesDevopsLazyRoute
+  '/courses/devopsadvanced': typeof AuthenticatedCoursesDevopsadvancedLazyRoute
+  '/courses/devopsdebutante': typeof AuthenticatedCoursesDevopsdebutanteLazyRoute
+  '/courses/devopsintermediaires': typeof AuthenticatedCoursesDevopsintermediairesLazyRoute
+  '/courses/htmlcss': typeof AuthenticatedCoursesHtmlcssLazyRoute
+  '/courses/htmlcssadvanced': typeof AuthenticatedCoursesHtmlcssadvancedLazyRoute
+  '/courses/htmlcssdebutante': typeof AuthenticatedCoursesHtmlcssdebutanteLazyRoute
+  '/courses/javascript': typeof AuthenticatedCoursesJavascriptLazyRoute
+  '/courses/javascriptadvanced': typeof AuthenticatedCoursesJavascriptadvancedLazyRoute
+  '/courses/javascriptdebutante': typeof AuthenticatedCoursesJavascriptdebutanteLazyRoute
+  '/courses/javascriptintermediaires': typeof AuthenticatedCoursesJavascriptintermediairesLazyRoute
+  '/courses/kanban': typeof AuthenticatedCoursesKanbanLazyRoute
+  '/courses/kanbanadvanced': typeof AuthenticatedCoursesKanbanadvancedLazyRoute
+  '/courses/kanbandebutante': typeof AuthenticatedCoursesKanbandebutanteLazyRoute
+  '/courses/kanbanintermediaires': typeof AuthenticatedCoursesKanbanintermediairesLazyRoute
+  '/courses/kotlin': typeof AuthenticatedCoursesKotlinLazyRoute
+  '/courses/kotlinadvanced': typeof AuthenticatedCoursesKotlinadvancedLazyRoute
+  '/courses/kotlindebutante': typeof AuthenticatedCoursesKotlindebutanteLazyRoute
+  '/courses/kotlinintermediaires': typeof AuthenticatedCoursesKotlinintermediairesLazyRoute
+  '/courses/laravel': typeof AuthenticatedCoursesLaravelLazyRoute
+  '/courses/laraveladvanced': typeof AuthenticatedCoursesLaraveladvancedLazyRoute
+  '/courses/laraveldebutante': typeof AuthenticatedCoursesLaraveldebutanteLazyRoute
+  '/courses/laravelintermediaires': typeof AuthenticatedCoursesLaravelintermediairesLazyRoute
+  '/courses/lean': typeof AuthenticatedCoursesLeanLazyRoute
+  '/courses/leanadvanced': typeof AuthenticatedCoursesLeanadvancedLazyRoute
+  '/courses/leandebutante': typeof AuthenticatedCoursesLeandebutanteLazyRoute
+  '/courses/leanintermediaires': typeof AuthenticatedCoursesLeanintermediairesLazyRoute
+  '/courses/node': typeof AuthenticatedCoursesNodeLazyRoute
+  '/courses/nodeadvanced': typeof AuthenticatedCoursesNodeadvancedLazyRoute
+  '/courses/nodedebutante': typeof AuthenticatedCoursesNodedebutanteLazyRoute
+  '/courses/nodeintermediaires': typeof AuthenticatedCoursesNodeintermediairesLazyRoute
+  '/courses/playlist': typeof AuthenticatedCoursesPlaylistLazyRoute
+  '/courses/python': typeof AuthenticatedCoursesPythonLazyRoute
+  '/courses/pythonadvanced': typeof AuthenticatedCoursesPythonadvancedLazyRoute
+  '/courses/pythondebutante': typeof AuthenticatedCoursesPythondebutanteLazyRoute
+  '/courses/pythonintermediaires': typeof AuthenticatedCoursesPythonintermediairesLazyRoute
+  '/courses/react': typeof AuthenticatedCoursesReactLazyRoute
+  '/courses/reactadvanced': typeof AuthenticatedCoursesReactadvancedLazyRoute
+  '/courses/reactdebutante': typeof AuthenticatedCoursesReactdebutanteLazyRoute
+  '/courses/reactintermediaires': typeof AuthenticatedCoursesReactintermediairesLazyRoute
+  '/courses/safe': typeof AuthenticatedCoursesSafeLazyRoute
+  '/courses/safeadvanced': typeof AuthenticatedCoursesSafeadvancedLazyRoute
+  '/courses/safedebutante': typeof AuthenticatedCoursesSafedebutanteLazyRoute
+  '/courses/safeintermediaires': typeof AuthenticatedCoursesSafeintermediairesLazyRoute
+  '/courses/scrum': typeof AuthenticatedCoursesScrumLazyRoute
+  '/courses/scrumadvanced': typeof AuthenticatedCoursesScrumadvancedLazyRoute
+  '/courses/scrumdebutante': typeof AuthenticatedCoursesScrumdebutanteLazyRoute
+  '/courses/scrumintermediaires': typeof AuthenticatedCoursesScrumintermediairesLazyRoute
+  '/courses/vue': typeof AuthenticatedCoursesVueLazyRoute
+  '/courses/vueadvanced': typeof AuthenticatedCoursesVueadvancedLazyRoute
+  '/courses/vuedebutante': typeof AuthenticatedCoursesVuedebutanteLazyRoute
+  '/courses/vueintermediaires': typeof AuthenticatedCoursesVueintermediairesLazyRoute
+  '/courses/wateradvanced': typeof AuthenticatedCoursesWateradvancedLazyRoute
+  '/courses/waterdebutante': typeof AuthenticatedCoursesWaterdebutanteLazyRoute
+  '/courses/waterfall': typeof AuthenticatedCoursesWaterfallLazyRoute
+  '/courses/waterintermediaires': typeof AuthenticatedCoursesWaterintermediairesLazyRoute
   '/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
-  '/courses': typeof AuthenticatedCoursesIndexLazyRoute
-  '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/calendar': typeof AuthenticatedCalendarIndexLazyRoute
+  '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
+  '/chats': typeof AuthenticatedChatsIndexLazyRoute
+  '/courses': typeof AuthenticatedCoursesIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/tests': typeof AuthenticatedTestsIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -558,16 +2180,83 @@ export interface FileRoutesByTo {
   '/404': typeof errors404LazyRoute
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
+  '/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
+  '/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
+  '/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
+  '/courses/angularintermediares': typeof AuthenticatedCoursesAngularintermediaresLazyRoute
+  '/courses/cyclev': typeof AuthenticatedCoursesCyclevLazyRoute
+  '/courses/cyclevadvanced': typeof AuthenticatedCoursesCyclevadvancedLazyRoute
+  '/courses/cyclevdebutante': typeof AuthenticatedCoursesCyclevdebutanteLazyRoute
+  '/courses/cyclevintermediaires': typeof AuthenticatedCoursesCyclevintermediairesLazyRoute
+  '/courses/devops': typeof AuthenticatedCoursesDevopsLazyRoute
+  '/courses/devopsadvanced': typeof AuthenticatedCoursesDevopsadvancedLazyRoute
+  '/courses/devopsdebutante': typeof AuthenticatedCoursesDevopsdebutanteLazyRoute
+  '/courses/devopsintermediaires': typeof AuthenticatedCoursesDevopsintermediairesLazyRoute
+  '/courses/htmlcss': typeof AuthenticatedCoursesHtmlcssLazyRoute
+  '/courses/htmlcssadvanced': typeof AuthenticatedCoursesHtmlcssadvancedLazyRoute
+  '/courses/htmlcssdebutante': typeof AuthenticatedCoursesHtmlcssdebutanteLazyRoute
+  '/courses/javascript': typeof AuthenticatedCoursesJavascriptLazyRoute
+  '/courses/javascriptadvanced': typeof AuthenticatedCoursesJavascriptadvancedLazyRoute
+  '/courses/javascriptdebutante': typeof AuthenticatedCoursesJavascriptdebutanteLazyRoute
+  '/courses/javascriptintermediaires': typeof AuthenticatedCoursesJavascriptintermediairesLazyRoute
+  '/courses/kanban': typeof AuthenticatedCoursesKanbanLazyRoute
+  '/courses/kanbanadvanced': typeof AuthenticatedCoursesKanbanadvancedLazyRoute
+  '/courses/kanbandebutante': typeof AuthenticatedCoursesKanbandebutanteLazyRoute
+  '/courses/kanbanintermediaires': typeof AuthenticatedCoursesKanbanintermediairesLazyRoute
+  '/courses/kotlin': typeof AuthenticatedCoursesKotlinLazyRoute
+  '/courses/kotlinadvanced': typeof AuthenticatedCoursesKotlinadvancedLazyRoute
+  '/courses/kotlindebutante': typeof AuthenticatedCoursesKotlindebutanteLazyRoute
+  '/courses/kotlinintermediaires': typeof AuthenticatedCoursesKotlinintermediairesLazyRoute
+  '/courses/laravel': typeof AuthenticatedCoursesLaravelLazyRoute
+  '/courses/laraveladvanced': typeof AuthenticatedCoursesLaraveladvancedLazyRoute
+  '/courses/laraveldebutante': typeof AuthenticatedCoursesLaraveldebutanteLazyRoute
+  '/courses/laravelintermediaires': typeof AuthenticatedCoursesLaravelintermediairesLazyRoute
+  '/courses/lean': typeof AuthenticatedCoursesLeanLazyRoute
+  '/courses/leanadvanced': typeof AuthenticatedCoursesLeanadvancedLazyRoute
+  '/courses/leandebutante': typeof AuthenticatedCoursesLeandebutanteLazyRoute
+  '/courses/leanintermediaires': typeof AuthenticatedCoursesLeanintermediairesLazyRoute
+  '/courses/node': typeof AuthenticatedCoursesNodeLazyRoute
+  '/courses/nodeadvanced': typeof AuthenticatedCoursesNodeadvancedLazyRoute
+  '/courses/nodedebutante': typeof AuthenticatedCoursesNodedebutanteLazyRoute
+  '/courses/nodeintermediaires': typeof AuthenticatedCoursesNodeintermediairesLazyRoute
+  '/courses/playlist': typeof AuthenticatedCoursesPlaylistLazyRoute
+  '/courses/python': typeof AuthenticatedCoursesPythonLazyRoute
+  '/courses/pythonadvanced': typeof AuthenticatedCoursesPythonadvancedLazyRoute
+  '/courses/pythondebutante': typeof AuthenticatedCoursesPythondebutanteLazyRoute
+  '/courses/pythonintermediaires': typeof AuthenticatedCoursesPythonintermediairesLazyRoute
+  '/courses/react': typeof AuthenticatedCoursesReactLazyRoute
+  '/courses/reactadvanced': typeof AuthenticatedCoursesReactadvancedLazyRoute
+  '/courses/reactdebutante': typeof AuthenticatedCoursesReactdebutanteLazyRoute
+  '/courses/reactintermediaires': typeof AuthenticatedCoursesReactintermediairesLazyRoute
+  '/courses/safe': typeof AuthenticatedCoursesSafeLazyRoute
+  '/courses/safeadvanced': typeof AuthenticatedCoursesSafeadvancedLazyRoute
+  '/courses/safedebutante': typeof AuthenticatedCoursesSafedebutanteLazyRoute
+  '/courses/safeintermediaires': typeof AuthenticatedCoursesSafeintermediairesLazyRoute
+  '/courses/scrum': typeof AuthenticatedCoursesScrumLazyRoute
+  '/courses/scrumadvanced': typeof AuthenticatedCoursesScrumadvancedLazyRoute
+  '/courses/scrumdebutante': typeof AuthenticatedCoursesScrumdebutanteLazyRoute
+  '/courses/scrumintermediaires': typeof AuthenticatedCoursesScrumintermediairesLazyRoute
+  '/courses/vue': typeof AuthenticatedCoursesVueLazyRoute
+  '/courses/vueadvanced': typeof AuthenticatedCoursesVueadvancedLazyRoute
+  '/courses/vuedebutante': typeof AuthenticatedCoursesVuedebutanteLazyRoute
+  '/courses/vueintermediaires': typeof AuthenticatedCoursesVueintermediairesLazyRoute
+  '/courses/wateradvanced': typeof AuthenticatedCoursesWateradvancedLazyRoute
+  '/courses/waterdebutante': typeof AuthenticatedCoursesWaterdebutanteLazyRoute
+  '/courses/waterfall': typeof AuthenticatedCoursesWaterfallLazyRoute
+  '/courses/waterintermediaires': typeof AuthenticatedCoursesWaterintermediairesLazyRoute
   '/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
-  '/courses': typeof AuthenticatedCoursesIndexLazyRoute
-  '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/calendar': typeof AuthenticatedCalendarIndexLazyRoute
+  '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
+  '/chats': typeof AuthenticatedChatsIndexLazyRoute
+  '/courses': typeof AuthenticatedCoursesIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/tests': typeof AuthenticatedTestsIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -587,16 +2276,83 @@ export interface FileRoutesById {
   '/(errors)/500': typeof errors500LazyRoute
   '/(errors)/503': typeof errors503LazyRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/_authenticated/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/_authenticated/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
+  '/_authenticated/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
+  '/_authenticated/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
+  '/_authenticated/courses/angularintermediares': typeof AuthenticatedCoursesAngularintermediaresLazyRoute
+  '/_authenticated/courses/cyclev': typeof AuthenticatedCoursesCyclevLazyRoute
+  '/_authenticated/courses/cyclevadvanced': typeof AuthenticatedCoursesCyclevadvancedLazyRoute
+  '/_authenticated/courses/cyclevdebutante': typeof AuthenticatedCoursesCyclevdebutanteLazyRoute
+  '/_authenticated/courses/cyclevintermediaires': typeof AuthenticatedCoursesCyclevintermediairesLazyRoute
+  '/_authenticated/courses/devops': typeof AuthenticatedCoursesDevopsLazyRoute
+  '/_authenticated/courses/devopsadvanced': typeof AuthenticatedCoursesDevopsadvancedLazyRoute
+  '/_authenticated/courses/devopsdebutante': typeof AuthenticatedCoursesDevopsdebutanteLazyRoute
+  '/_authenticated/courses/devopsintermediaires': typeof AuthenticatedCoursesDevopsintermediairesLazyRoute
+  '/_authenticated/courses/htmlcss': typeof AuthenticatedCoursesHtmlcssLazyRoute
+  '/_authenticated/courses/htmlcssadvanced': typeof AuthenticatedCoursesHtmlcssadvancedLazyRoute
+  '/_authenticated/courses/htmlcssdebutante': typeof AuthenticatedCoursesHtmlcssdebutanteLazyRoute
+  '/_authenticated/courses/javascript': typeof AuthenticatedCoursesJavascriptLazyRoute
+  '/_authenticated/courses/javascriptadvanced': typeof AuthenticatedCoursesJavascriptadvancedLazyRoute
+  '/_authenticated/courses/javascriptdebutante': typeof AuthenticatedCoursesJavascriptdebutanteLazyRoute
+  '/_authenticated/courses/javascriptintermediaires': typeof AuthenticatedCoursesJavascriptintermediairesLazyRoute
+  '/_authenticated/courses/kanban': typeof AuthenticatedCoursesKanbanLazyRoute
+  '/_authenticated/courses/kanbanadvanced': typeof AuthenticatedCoursesKanbanadvancedLazyRoute
+  '/_authenticated/courses/kanbandebutante': typeof AuthenticatedCoursesKanbandebutanteLazyRoute
+  '/_authenticated/courses/kanbanintermediaires': typeof AuthenticatedCoursesKanbanintermediairesLazyRoute
+  '/_authenticated/courses/kotlin': typeof AuthenticatedCoursesKotlinLazyRoute
+  '/_authenticated/courses/kotlinadvanced': typeof AuthenticatedCoursesKotlinadvancedLazyRoute
+  '/_authenticated/courses/kotlindebutante': typeof AuthenticatedCoursesKotlindebutanteLazyRoute
+  '/_authenticated/courses/kotlinintermediaires': typeof AuthenticatedCoursesKotlinintermediairesLazyRoute
+  '/_authenticated/courses/laravel': typeof AuthenticatedCoursesLaravelLazyRoute
+  '/_authenticated/courses/laraveladvanced': typeof AuthenticatedCoursesLaraveladvancedLazyRoute
+  '/_authenticated/courses/laraveldebutante': typeof AuthenticatedCoursesLaraveldebutanteLazyRoute
+  '/_authenticated/courses/laravelintermediaires': typeof AuthenticatedCoursesLaravelintermediairesLazyRoute
+  '/_authenticated/courses/lean': typeof AuthenticatedCoursesLeanLazyRoute
+  '/_authenticated/courses/leanadvanced': typeof AuthenticatedCoursesLeanadvancedLazyRoute
+  '/_authenticated/courses/leandebutante': typeof AuthenticatedCoursesLeandebutanteLazyRoute
+  '/_authenticated/courses/leanintermediaires': typeof AuthenticatedCoursesLeanintermediairesLazyRoute
+  '/_authenticated/courses/node': typeof AuthenticatedCoursesNodeLazyRoute
+  '/_authenticated/courses/nodeadvanced': typeof AuthenticatedCoursesNodeadvancedLazyRoute
+  '/_authenticated/courses/nodedebutante': typeof AuthenticatedCoursesNodedebutanteLazyRoute
+  '/_authenticated/courses/nodeintermediaires': typeof AuthenticatedCoursesNodeintermediairesLazyRoute
+  '/_authenticated/courses/playlist': typeof AuthenticatedCoursesPlaylistLazyRoute
+  '/_authenticated/courses/python': typeof AuthenticatedCoursesPythonLazyRoute
+  '/_authenticated/courses/pythonadvanced': typeof AuthenticatedCoursesPythonadvancedLazyRoute
+  '/_authenticated/courses/pythondebutante': typeof AuthenticatedCoursesPythondebutanteLazyRoute
+  '/_authenticated/courses/pythonintermediaires': typeof AuthenticatedCoursesPythonintermediairesLazyRoute
+  '/_authenticated/courses/react': typeof AuthenticatedCoursesReactLazyRoute
+  '/_authenticated/courses/reactadvanced': typeof AuthenticatedCoursesReactadvancedLazyRoute
+  '/_authenticated/courses/reactdebutante': typeof AuthenticatedCoursesReactdebutanteLazyRoute
+  '/_authenticated/courses/reactintermediaires': typeof AuthenticatedCoursesReactintermediairesLazyRoute
+  '/_authenticated/courses/safe': typeof AuthenticatedCoursesSafeLazyRoute
+  '/_authenticated/courses/safeadvanced': typeof AuthenticatedCoursesSafeadvancedLazyRoute
+  '/_authenticated/courses/safedebutante': typeof AuthenticatedCoursesSafedebutanteLazyRoute
+  '/_authenticated/courses/safeintermediaires': typeof AuthenticatedCoursesSafeintermediairesLazyRoute
+  '/_authenticated/courses/scrum': typeof AuthenticatedCoursesScrumLazyRoute
+  '/_authenticated/courses/scrumadvanced': typeof AuthenticatedCoursesScrumadvancedLazyRoute
+  '/_authenticated/courses/scrumdebutante': typeof AuthenticatedCoursesScrumdebutanteLazyRoute
+  '/_authenticated/courses/scrumintermediaires': typeof AuthenticatedCoursesScrumintermediairesLazyRoute
+  '/_authenticated/courses/vue': typeof AuthenticatedCoursesVueLazyRoute
+  '/_authenticated/courses/vueadvanced': typeof AuthenticatedCoursesVueadvancedLazyRoute
+  '/_authenticated/courses/vuedebutante': typeof AuthenticatedCoursesVuedebutanteLazyRoute
+  '/_authenticated/courses/vueintermediaires': typeof AuthenticatedCoursesVueintermediairesLazyRoute
+  '/_authenticated/courses/wateradvanced': typeof AuthenticatedCoursesWateradvancedLazyRoute
+  '/_authenticated/courses/waterdebutante': typeof AuthenticatedCoursesWaterdebutanteLazyRoute
+  '/_authenticated/courses/waterfall': typeof AuthenticatedCoursesWaterfallLazyRoute
+  '/_authenticated/courses/waterintermediaires': typeof AuthenticatedCoursesWaterintermediairesLazyRoute
   '/_authenticated/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/_authenticated/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
-  '/_authenticated/courses/': typeof AuthenticatedCoursesIndexLazyRoute
-  '/_authenticated/chats/': typeof AuthenticatedChatsIndexLazyRoute
   '/_authenticated/calendar/': typeof AuthenticatedCalendarIndexLazyRoute
+  '/_authenticated/challenges/': typeof AuthenticatedChallengesIndexLazyRoute
+  '/_authenticated/chats/': typeof AuthenticatedChatsIndexLazyRoute
+  '/_authenticated/courses/': typeof AuthenticatedCoursesIndexLazyRoute
   '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
+  '/_authenticated/tests/': typeof AuthenticatedTestsIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -616,18 +2372,84 @@ export interface FileRouteTypes {
     | '/404'
     | '/503'
     | '/'
+    | '/courses/htmlcssintermediaires'
+    | '/courses/angular'
+    | '/courses/angularadvanced'
+    | '/courses/angulardebutante'
+    | '/courses/angularintermediares'
+    | '/courses/cyclev'
+    | '/courses/cyclevadvanced'
+    | '/courses/cyclevdebutante'
+    | '/courses/cyclevintermediaires'
+    | '/courses/devops'
+    | '/courses/devopsadvanced'
+    | '/courses/devopsdebutante'
+    | '/courses/devopsintermediaires'
+    | '/courses/htmlcss'
+    | '/courses/htmlcssadvanced'
+    | '/courses/htmlcssdebutante'
+    | '/courses/javascript'
+    | '/courses/javascriptadvanced'
+    | '/courses/javascriptdebutante'
+    | '/courses/javascriptintermediaires'
+    | '/courses/kanban'
+    | '/courses/kanbanadvanced'
+    | '/courses/kanbandebutante'
+    | '/courses/kanbanintermediaires'
+    | '/courses/kotlin'
+    | '/courses/kotlinadvanced'
+    | '/courses/kotlindebutante'
+    | '/courses/kotlinintermediaires'
+    | '/courses/laravel'
+    | '/courses/laraveladvanced'
+    | '/courses/laraveldebutante'
+    | '/courses/laravelintermediaires'
+    | '/courses/lean'
+    | '/courses/leanadvanced'
+    | '/courses/leandebutante'
+    | '/courses/leanintermediaires'
+    | '/courses/node'
+    | '/courses/nodeadvanced'
+    | '/courses/nodedebutante'
+    | '/courses/nodeintermediaires'
+    | '/courses/playlist'
+    | '/courses/python'
+    | '/courses/pythonadvanced'
+    | '/courses/pythondebutante'
+    | '/courses/pythonintermediaires'
+    | '/courses/react'
+    | '/courses/reactadvanced'
+    | '/courses/reactdebutante'
+    | '/courses/reactintermediaires'
+    | '/courses/safe'
+    | '/courses/safeadvanced'
+    | '/courses/safedebutante'
+    | '/courses/safeintermediaires'
+    | '/courses/scrum'
+    | '/courses/scrumadvanced'
+    | '/courses/scrumdebutante'
+    | '/courses/scrumintermediaires'
+    | '/courses/vue'
+    | '/courses/vueadvanced'
+    | '/courses/vuedebutante'
+    | '/courses/vueintermediaires'
+    | '/courses/wateradvanced'
+    | '/courses/waterdebutante'
+    | '/courses/waterfall'
+    | '/courses/waterintermediaires'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
-    | '/courses'
-    | '/chats'
     | '/calendar'
+    | '/challenges'
+    | '/chats'
+    | '/courses'
     | '/help-center'
     | '/settings/'
     | '/tasks'
+    | '/tests'
     | '/users'
-
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/500'
@@ -641,16 +2463,83 @@ export interface FileRouteTypes {
     | '/404'
     | '/503'
     | '/'
+    | '/courses/htmlcssintermediaires'
+    | '/courses/angular'
+    | '/courses/angularadvanced'
+    | '/courses/angulardebutante'
+    | '/courses/angularintermediares'
+    | '/courses/cyclev'
+    | '/courses/cyclevadvanced'
+    | '/courses/cyclevdebutante'
+    | '/courses/cyclevintermediaires'
+    | '/courses/devops'
+    | '/courses/devopsadvanced'
+    | '/courses/devopsdebutante'
+    | '/courses/devopsintermediaires'
+    | '/courses/htmlcss'
+    | '/courses/htmlcssadvanced'
+    | '/courses/htmlcssdebutante'
+    | '/courses/javascript'
+    | '/courses/javascriptadvanced'
+    | '/courses/javascriptdebutante'
+    | '/courses/javascriptintermediaires'
+    | '/courses/kanban'
+    | '/courses/kanbanadvanced'
+    | '/courses/kanbandebutante'
+    | '/courses/kanbanintermediaires'
+    | '/courses/kotlin'
+    | '/courses/kotlinadvanced'
+    | '/courses/kotlindebutante'
+    | '/courses/kotlinintermediaires'
+    | '/courses/laravel'
+    | '/courses/laraveladvanced'
+    | '/courses/laraveldebutante'
+    | '/courses/laravelintermediaires'
+    | '/courses/lean'
+    | '/courses/leanadvanced'
+    | '/courses/leandebutante'
+    | '/courses/leanintermediaires'
+    | '/courses/node'
+    | '/courses/nodeadvanced'
+    | '/courses/nodedebutante'
+    | '/courses/nodeintermediaires'
+    | '/courses/playlist'
+    | '/courses/python'
+    | '/courses/pythonadvanced'
+    | '/courses/pythondebutante'
+    | '/courses/pythonintermediaires'
+    | '/courses/react'
+    | '/courses/reactadvanced'
+    | '/courses/reactdebutante'
+    | '/courses/reactintermediaires'
+    | '/courses/safe'
+    | '/courses/safeadvanced'
+    | '/courses/safedebutante'
+    | '/courses/safeintermediaires'
+    | '/courses/scrum'
+    | '/courses/scrumadvanced'
+    | '/courses/scrumdebutante'
+    | '/courses/scrumintermediaires'
+    | '/courses/vue'
+    | '/courses/vueadvanced'
+    | '/courses/vuedebutante'
+    | '/courses/vueintermediaires'
+    | '/courses/wateradvanced'
+    | '/courses/waterdebutante'
+    | '/courses/waterfall'
+    | '/courses/waterintermediaires'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
-    | '/courses'
-    | '/chats'
     | '/calendar'
+    | '/challenges'
+    | '/chats'
+    | '/courses'
     | '/help-center'
     | '/settings'
     | '/tasks'
+    | '/tests'
     | '/users'
   id:
     | '__root__'
@@ -668,16 +2557,83 @@ export interface FileRouteTypes {
     | '/(errors)/500'
     | '/(errors)/503'
     | '/_authenticated/'
+    | '/_authenticated/courses/htmlcssintermediaires'
+    | '/_authenticated/courses/angular'
+    | '/_authenticated/courses/angularadvanced'
+    | '/_authenticated/courses/angulardebutante'
+    | '/_authenticated/courses/angularintermediares'
+    | '/_authenticated/courses/cyclev'
+    | '/_authenticated/courses/cyclevadvanced'
+    | '/_authenticated/courses/cyclevdebutante'
+    | '/_authenticated/courses/cyclevintermediaires'
+    | '/_authenticated/courses/devops'
+    | '/_authenticated/courses/devopsadvanced'
+    | '/_authenticated/courses/devopsdebutante'
+    | '/_authenticated/courses/devopsintermediaires'
+    | '/_authenticated/courses/htmlcss'
+    | '/_authenticated/courses/htmlcssadvanced'
+    | '/_authenticated/courses/htmlcssdebutante'
+    | '/_authenticated/courses/javascript'
+    | '/_authenticated/courses/javascriptadvanced'
+    | '/_authenticated/courses/javascriptdebutante'
+    | '/_authenticated/courses/javascriptintermediaires'
+    | '/_authenticated/courses/kanban'
+    | '/_authenticated/courses/kanbanadvanced'
+    | '/_authenticated/courses/kanbandebutante'
+    | '/_authenticated/courses/kanbanintermediaires'
+    | '/_authenticated/courses/kotlin'
+    | '/_authenticated/courses/kotlinadvanced'
+    | '/_authenticated/courses/kotlindebutante'
+    | '/_authenticated/courses/kotlinintermediaires'
+    | '/_authenticated/courses/laravel'
+    | '/_authenticated/courses/laraveladvanced'
+    | '/_authenticated/courses/laraveldebutante'
+    | '/_authenticated/courses/laravelintermediaires'
+    | '/_authenticated/courses/lean'
+    | '/_authenticated/courses/leanadvanced'
+    | '/_authenticated/courses/leandebutante'
+    | '/_authenticated/courses/leanintermediaires'
+    | '/_authenticated/courses/node'
+    | '/_authenticated/courses/nodeadvanced'
+    | '/_authenticated/courses/nodedebutante'
+    | '/_authenticated/courses/nodeintermediaires'
+    | '/_authenticated/courses/playlist'
+    | '/_authenticated/courses/python'
+    | '/_authenticated/courses/pythonadvanced'
+    | '/_authenticated/courses/pythondebutante'
+    | '/_authenticated/courses/pythonintermediaires'
+    | '/_authenticated/courses/react'
+    | '/_authenticated/courses/reactadvanced'
+    | '/_authenticated/courses/reactdebutante'
+    | '/_authenticated/courses/reactintermediaires'
+    | '/_authenticated/courses/safe'
+    | '/_authenticated/courses/safeadvanced'
+    | '/_authenticated/courses/safedebutante'
+    | '/_authenticated/courses/safeintermediaires'
+    | '/_authenticated/courses/scrum'
+    | '/_authenticated/courses/scrumadvanced'
+    | '/_authenticated/courses/scrumdebutante'
+    | '/_authenticated/courses/scrumintermediaires'
+    | '/_authenticated/courses/vue'
+    | '/_authenticated/courses/vueadvanced'
+    | '/_authenticated/courses/vuedebutante'
+    | '/_authenticated/courses/vueintermediaires'
+    | '/_authenticated/courses/wateradvanced'
+    | '/_authenticated/courses/waterdebutante'
+    | '/_authenticated/courses/waterfall'
+    | '/_authenticated/courses/waterintermediaires'
     | '/_authenticated/settings/account'
     | '/_authenticated/settings/appearance'
     | '/_authenticated/settings/display'
     | '/_authenticated/settings/notifications'
-    | '/_authenticated/courses/'
-    | '/_authenticated/chats/'
     | '/_authenticated/calendar/'
+    | '/_authenticated/challenges/'
+    | '/_authenticated/chats/'
+    | '/_authenticated/courses/'
     | '/_authenticated/help-center/'
     | '/_authenticated/settings/'
     | '/_authenticated/tasks/'
+    | '/_authenticated/tests/'
     | '/_authenticated/users/'
   fileRoutesById: FileRoutesById
 }
@@ -741,10 +2697,78 @@ export const routeTree = rootRoute
       "children": [
         "/_authenticated/settings",
         "/_authenticated/",
-        "/_authenticated/apps/",
+        "/_authenticated/courses/htmlcssintermediaires",
+        "/_authenticated/courses/angular",
+        "/_authenticated/courses/angularadvanced",
+        "/_authenticated/courses/angulardebutante",
+        "/_authenticated/courses/angularintermediares",
+        "/_authenticated/courses/cyclev",
+        "/_authenticated/courses/cyclevadvanced",
+        "/_authenticated/courses/cyclevdebutante",
+        "/_authenticated/courses/cyclevintermediaires",
+        "/_authenticated/courses/devops",
+        "/_authenticated/courses/devopsadvanced",
+        "/_authenticated/courses/devopsdebutante",
+        "/_authenticated/courses/devopsintermediaires",
+        "/_authenticated/courses/htmlcss",
+        "/_authenticated/courses/htmlcssadvanced",
+        "/_authenticated/courses/htmlcssdebutante",
+        "/_authenticated/courses/javascript",
+        "/_authenticated/courses/javascriptadvanced",
+        "/_authenticated/courses/javascriptdebutante",
+        "/_authenticated/courses/javascriptintermediaires",
+        "/_authenticated/courses/kanban",
+        "/_authenticated/courses/kanbanadvanced",
+        "/_authenticated/courses/kanbandebutante",
+        "/_authenticated/courses/kanbanintermediaires",
+        "/_authenticated/courses/kotlin",
+        "/_authenticated/courses/kotlinadvanced",
+        "/_authenticated/courses/kotlindebutante",
+        "/_authenticated/courses/kotlinintermediaires",
+        "/_authenticated/courses/laravel",
+        "/_authenticated/courses/laraveladvanced",
+        "/_authenticated/courses/laraveldebutante",
+        "/_authenticated/courses/laravelintermediaires",
+        "/_authenticated/courses/lean",
+        "/_authenticated/courses/leanadvanced",
+        "/_authenticated/courses/leandebutante",
+        "/_authenticated/courses/leanintermediaires",
+        "/_authenticated/courses/node",
+        "/_authenticated/courses/nodeadvanced",
+        "/_authenticated/courses/nodedebutante",
+        "/_authenticated/courses/nodeintermediaires",
+        "/_authenticated/courses/playlist",
+        "/_authenticated/courses/python",
+        "/_authenticated/courses/pythonadvanced",
+        "/_authenticated/courses/pythondebutante",
+        "/_authenticated/courses/pythonintermediaires",
+        "/_authenticated/courses/react",
+        "/_authenticated/courses/reactadvanced",
+        "/_authenticated/courses/reactdebutante",
+        "/_authenticated/courses/reactintermediaires",
+        "/_authenticated/courses/safe",
+        "/_authenticated/courses/safeadvanced",
+        "/_authenticated/courses/safedebutante",
+        "/_authenticated/courses/safeintermediaires",
+        "/_authenticated/courses/scrum",
+        "/_authenticated/courses/scrumadvanced",
+        "/_authenticated/courses/scrumdebutante",
+        "/_authenticated/courses/scrumintermediaires",
+        "/_authenticated/courses/vue",
+        "/_authenticated/courses/vueadvanced",
+        "/_authenticated/courses/vuedebutante",
+        "/_authenticated/courses/vueintermediaires",
+        "/_authenticated/courses/wateradvanced",
+        "/_authenticated/courses/waterdebutante",
+        "/_authenticated/courses/waterfall",
+        "/_authenticated/courses/waterintermediaires",
+        "/_authenticated/calendar/",
+        "/_authenticated/challenges/",
         "/_authenticated/chats/",
+        "/_authenticated/courses/",
         "/_authenticated/help-center/",
         "/_authenticated/tasks/",
+        "/_authenticated/tests/",
         "/_authenticated/users/"
       ]
     },
@@ -796,6 +2820,266 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/index.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/courses/htmlcssintermediaires": {
+      "filePath": "_authenticated/courses/htmlcssintermediaires.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/angular": {
+      "filePath": "_authenticated/courses/angular.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/angularadvanced": {
+      "filePath": "_authenticated/courses/angularadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/angulardebutante": {
+      "filePath": "_authenticated/courses/angulardebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/angularintermediares": {
+      "filePath": "_authenticated/courses/angularintermediares.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/cyclev": {
+      "filePath": "_authenticated/courses/cyclev.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/cyclevadvanced": {
+      "filePath": "_authenticated/courses/cyclevadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/cyclevdebutante": {
+      "filePath": "_authenticated/courses/cyclevdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/cyclevintermediaires": {
+      "filePath": "_authenticated/courses/cyclevintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/devops": {
+      "filePath": "_authenticated/courses/devops.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/devopsadvanced": {
+      "filePath": "_authenticated/courses/devopsadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/devopsdebutante": {
+      "filePath": "_authenticated/courses/devopsdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/devopsintermediaires": {
+      "filePath": "_authenticated/courses/devopsintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/htmlcss": {
+      "filePath": "_authenticated/courses/htmlcss.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/htmlcssadvanced": {
+      "filePath": "_authenticated/courses/htmlcssadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/htmlcssdebutante": {
+      "filePath": "_authenticated/courses/htmlcssdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/javascript": {
+      "filePath": "_authenticated/courses/javascript.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/javascriptadvanced": {
+      "filePath": "_authenticated/courses/javascriptadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/javascriptdebutante": {
+      "filePath": "_authenticated/courses/javascriptdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/javascriptintermediaires": {
+      "filePath": "_authenticated/courses/javascriptintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kanban": {
+      "filePath": "_authenticated/courses/kanban.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kanbanadvanced": {
+      "filePath": "_authenticated/courses/kanbanadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kanbandebutante": {
+      "filePath": "_authenticated/courses/kanbandebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kanbanintermediaires": {
+      "filePath": "_authenticated/courses/kanbanintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kotlin": {
+      "filePath": "_authenticated/courses/kotlin.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kotlinadvanced": {
+      "filePath": "_authenticated/courses/kotlinadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kotlindebutante": {
+      "filePath": "_authenticated/courses/kotlindebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/kotlinintermediaires": {
+      "filePath": "_authenticated/courses/kotlinintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/laravel": {
+      "filePath": "_authenticated/courses/laravel.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/laraveladvanced": {
+      "filePath": "_authenticated/courses/laraveladvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/laraveldebutante": {
+      "filePath": "_authenticated/courses/laraveldebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/laravelintermediaires": {
+      "filePath": "_authenticated/courses/laravelintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/lean": {
+      "filePath": "_authenticated/courses/lean.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/leanadvanced": {
+      "filePath": "_authenticated/courses/leanadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/leandebutante": {
+      "filePath": "_authenticated/courses/leandebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/leanintermediaires": {
+      "filePath": "_authenticated/courses/leanintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/node": {
+      "filePath": "_authenticated/courses/node.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/nodeadvanced": {
+      "filePath": "_authenticated/courses/nodeadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/nodedebutante": {
+      "filePath": "_authenticated/courses/nodedebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/nodeintermediaires": {
+      "filePath": "_authenticated/courses/nodeintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/playlist": {
+      "filePath": "_authenticated/courses/playlist.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/python": {
+      "filePath": "_authenticated/courses/python.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/pythonadvanced": {
+      "filePath": "_authenticated/courses/pythonadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/pythondebutante": {
+      "filePath": "_authenticated/courses/pythondebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/pythonintermediaires": {
+      "filePath": "_authenticated/courses/pythonintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/react": {
+      "filePath": "_authenticated/courses/react.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/reactadvanced": {
+      "filePath": "_authenticated/courses/reactadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/reactdebutante": {
+      "filePath": "_authenticated/courses/reactdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/reactintermediaires": {
+      "filePath": "_authenticated/courses/reactintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/safe": {
+      "filePath": "_authenticated/courses/safe.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/safeadvanced": {
+      "filePath": "_authenticated/courses/safeadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/safedebutante": {
+      "filePath": "_authenticated/courses/safedebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/safeintermediaires": {
+      "filePath": "_authenticated/courses/safeintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/scrum": {
+      "filePath": "_authenticated/courses/scrum.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/scrumadvanced": {
+      "filePath": "_authenticated/courses/scrumadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/scrumdebutante": {
+      "filePath": "_authenticated/courses/scrumdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/scrumintermediaires": {
+      "filePath": "_authenticated/courses/scrumintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/vue": {
+      "filePath": "_authenticated/courses/vue.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/vueadvanced": {
+      "filePath": "_authenticated/courses/vueadvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/vuedebutante": {
+      "filePath": "_authenticated/courses/vuedebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/vueintermediaires": {
+      "filePath": "_authenticated/courses/vueintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/wateradvanced": {
+      "filePath": "_authenticated/courses/wateradvanced.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/waterdebutante": {
+      "filePath": "_authenticated/courses/waterdebutante.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/waterfall": {
+      "filePath": "_authenticated/courses/waterfall.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/waterintermediaires": {
+      "filePath": "_authenticated/courses/waterintermediaires.lazy.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/settings/account": {
       "filePath": "_authenticated/settings/account.lazy.tsx",
       "parent": "/_authenticated/settings"
@@ -812,12 +3096,20 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/settings/notifications.lazy.tsx",
       "parent": "/_authenticated/settings"
     },
-    "/_authenticated/apps/": {
-      "filePath": "_authenticated/apps/index.lazy.tsx",
+    "/_authenticated/calendar/": {
+      "filePath": "_authenticated/calendar/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/challenges/": {
+      "filePath": "_authenticated/challenges/index.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/chats/": {
       "filePath": "_authenticated/chats/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/courses/": {
+      "filePath": "_authenticated/courses/index.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/help-center/": {
@@ -830,6 +3122,10 @@ export const routeTree = rootRoute
     },
     "/_authenticated/tasks/": {
       "filePath": "_authenticated/tasks/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/tests/": {
+      "filePath": "_authenticated/tests/index.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/users/": {
