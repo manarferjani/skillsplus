@@ -12,7 +12,7 @@ export default {
   safelist: fonts.map((font) => `font-${font}`),
   theme: {
     container: {
-      center: true,
+      center: 'true',
       padding: '2rem',
       screens: {
         '2xl': '1400px',

@@ -13,12 +13,10 @@ import { toast } from '@/hooks/use-toast'
 import { AuthLoading } from '@/components/auth/AuthLoading'
 import { FontProvider } from './context/font-context'
 import { ThemeProvider } from './context/theme-context'
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
 import './index.css'
 // Generated Routes
 import { routeTree } from './routeTree.gen'
+import { AuthProvider } from './context/authContext'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -102,13 +100,15 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-          <FontProvider>
-            <AuthLoading>
-              <RouterProvider router={router} />
-            </AuthLoading>
-          </FontProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+            <FontProvider>
+              <AuthLoading>
+                <RouterProvider router={router} />
+              </AuthLoading>
+            </FontProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </QueryClientProvider>
     </StrictMode>
   )
