@@ -10,5 +10,7 @@ export type Event = {
   color: EventColor;  // Change to EventColor type
   type?: EventType;  // type remains optional
   link: string;
-  reminder: boolean;  // reminder should be a boolean, not string
+  reminder: boolean;  
+  pdfUrl?: string;  // Add the pdfUrl property
+  // reminder should be a boolean, not string
 };

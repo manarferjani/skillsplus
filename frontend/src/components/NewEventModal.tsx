@@ -13,7 +13,6 @@ interface NewEventModalProps {
   onClose: () => void;
   onSave: (eventData: any) => void;
   initialData?: Event | null;
-  
 }
 
 export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEventModalProps) {
@@ -27,6 +26,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
     type: "Webinar" as EventType,
     link: "",
     reminder: false,
+    pdfUrl: "", // Ajout du champ pour l'URL du PDF
   });
 
   // Fonction pour déterminer la couleur en fonction du type d'événement
@@ -34,9 +34,9 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
     switch (type) {
       case "Webinar":
         return "blue";
-      case "Challenges": // Corrigé pour matcher avec la valeur du Select
+      case "Challenges":
         return "green";
-      case "task": // Corrigé pour matcher avec la valeur du Select
+      case "task":
         return "pink";
       default:
         return "blue";
@@ -60,6 +60,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
         type: initialData.type || "Webinar",
         link: initialData.link || "",
         reminder: initialData.reminder || false,
+        pdfUrl: initialData.pdfUrl || "", // Chargez l'URL du PDF si elle est présente
       });
     }
   }, [initialData, isOpen]);
@@ -85,6 +86,11 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
     setFormData((prev) => ({ ...prev, reminder: checked }));
   };
 
+  // Handle PDF URL input change
+  const handlePdfUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, pdfUrl: e.target.value }));
+  };
+
   // Submit form data
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,7 +110,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
       ...formData,
       start: startDateTime,
       end: endDateTime,
-      id: initialData?.id || crypto.randomUUID(), // Génère un ID si nouvel événement
+      id: initialData?.id || crypto.randomUUID(),
     };
 
     onSave(eventToSave);
@@ -124,6 +130,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
       type: "Webinar",
       link: "",
       reminder: false,
+      pdfUrl: "", // Reset du champ PDF URL
     });
   };
 
@@ -133,17 +140,18 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className=" sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>{dialogTitle}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit}>
-          <div className="grid gap-4 py-4">
+          <div className="grid rounded-3xl  gap-4 py-4">
             {/* Event Title */}
-            <div className="space-y-2">
+            <div className="space-y-2 ">
               <Label htmlFor="title">Event Title</Label>
               <Input
                 id="title"
+                className="rounded-3xl"
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
@@ -153,10 +161,11 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
             </div>
 
             {/* Event Description */}
-            <div className="space-y-2">
+            <div className=" space-y-2">
               <Label htmlFor="description">Description</Label>
               <Textarea
                 id="description"
+                className="rounded-3xl"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
@@ -171,6 +180,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
                 <Label htmlFor="date">Date</Label>
                 <Input
                   id="date"
+                  className="rounded-3xl"
                   name="date"
                   type="date"
                   value={formData.date}
@@ -179,16 +189,16 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="type">Event Type</Label>
+              <div className="space-y-2 rounded-3xl">
+                <Label htmlFor="type" >Event Type</Label>
                 <Select value={formData.type} onValueChange={handleTypeChange}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select event type" />
+                  <SelectTrigger className="rounded-3xl"                  >
+                    <SelectValue  className="rounded-3xl" placeholder="Select event type"  />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Webinar">Webinar</SelectItem>
-                    <SelectItem value="Challenges">Challenges</SelectItem>
-                    <SelectItem value="task">task</SelectItem>
+                  <SelectContent className="rounded-3xl"                  >
+                    <SelectItem className="rounded-3xl" value="Webinar">Webinar</SelectItem>
+                    <SelectItem  className="rounded-3xl" value="Challenges">Challenges</SelectItem>
+                    <SelectItem  className="rounded-3xl" value="task">task</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -200,6 +210,8 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
                 <Label htmlFor="startTime">Start Time</Label>
                 <Input
                   id="startTime"
+                  className="rounded-3xl"
+
                   name="startTime"
                   type="time"
                   value={formData.startTime}
@@ -212,6 +224,7 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
                 <Label htmlFor="endTime">End Time</Label>
                 <Input
                   id="endTime"
+                  className="rounded-3xl"
                   name="endTime"
                   type="time"
                   value={formData.endTime}
@@ -226,10 +239,25 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
               <Label htmlFor="link">Meeting Link</Label>
               <Input
                 id="link"
+                className="rounded-3xl"
                 name="link"
                 value={formData.link}
                 onChange={handleChange}
                 placeholder="Enter meeting link"
+              />
+            </div>
+
+            {/* PDF URL */}
+            <div className="space-y-2">
+              <Label htmlFor="pdfUrl">PDF URL</Label>
+              <Input
+                id="pdfUrl"
+                className="rounded-3xl"
+                name="pdfUrl"
+                type="url"
+                value={formData.pdfUrl}
+                onChange={handlePdfUrlChange}
+                placeholder="Enter PDF URL"
               />
             </div>
 
@@ -246,10 +274,10 @@ export function NewEventModal({ isOpen, onClose, onSave, initialData }: NewEvent
 
           {/* Dialog Footer */}
           <DialogFooter>
-            <Button variant="outline" type="button" onClick={onClose}>
+            <Button className="rounded-3xl" variant="outline" type="button" onClick={onClose}>
               Cancel
             </Button>
-            <Button type="submit">{submitButtonText}</Button>
+            <Button className="rounded-3xl" type="submit">{submitButtonText}</Button>
           </DialogFooter>
         </form>
       </DialogContent>
