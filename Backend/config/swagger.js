@@ -1,4 +1,4 @@
-const swaggerJsdoc = require('swagger-jsdoc');
+import swaggerJsdoc from 'swagger-jsdoc';
 
 const options = {
   definition: {
@@ -9,7 +9,7 @@ const options = {
       description: 'API documentation for the SkillsPlus application',
       contact: {
         name: 'SkillsPlus Support',
-        email: 'support@skillsplus.com'
+        email: 'support@skillsplus.com',
       },
     },
     servers: [
@@ -44,7 +44,7 @@ const options = {
       {
         name: 'System',
         description: 'System status and diagnostics endpoints',
-      }
+      },
     ],
   },
   apis: ['./routes/*.js', './server.js'],
@@ -52,4 +52,4 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
-module.exports = specs; 
+export default specs;  // Export par défaut
