@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -34,10 +35,7 @@ const userSchema = new mongoose.Schema({
     resetPasswordExpires: {
         type: Date
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+    
 }, {
     timestamps: true
 });
@@ -68,4 +66,4 @@ userSchema.methods.getRoleName = function() {
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;

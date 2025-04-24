@@ -38,6 +38,9 @@ const AuthenticatedSettingsRouteLazyImport = createFileRoute(
 const AuthenticatedUsersIndexLazyImport = createFileRoute(
   '/_authenticated/users/',
 )()
+const AuthenticatedUserProfileIndexLazyImport = createFileRoute(
+  '/_authenticated/userProfile/',
+)()
 const AuthenticatedTestsIndexLazyImport = createFileRoute(
   '/_authenticated/tests/',
 )()
@@ -46,6 +49,9 @@ const AuthenticatedTasksIndexLazyImport = createFileRoute(
 )()
 const AuthenticatedSettingsIndexLazyImport = createFileRoute(
   '/_authenticated/settings/',
+)()
+const AuthenticatedPinboardIndexLazyImport = createFileRoute(
+  '/_authenticated/pinboard/',
 )()
 const AuthenticatedHelpCenterIndexLazyImport = createFileRoute(
   '/_authenticated/help-center/',
@@ -61,6 +67,9 @@ const AuthenticatedChallengesIndexLazyImport = createFileRoute(
 )()
 const AuthenticatedCalendarIndexLazyImport = createFileRoute(
   '/_authenticated/calendar/',
+)()
+const AuthenticatedAppsIndexLazyImport = createFileRoute(
+  '/_authenticated/apps/',
 )()
 const AuthenticatedSettingsNotificationsLazyImport = createFileRoute(
   '/_authenticated/settings/notifications',
@@ -382,6 +391,17 @@ const AuthenticatedUsersIndexLazyRoute =
     import('./routes/_authenticated/users/index.lazy').then((d) => d.Route),
   )
 
+const AuthenticatedUserProfileIndexLazyRoute =
+  AuthenticatedUserProfileIndexLazyImport.update({
+    id: '/userProfile/',
+    path: '/userProfile/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/userProfile/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
 const AuthenticatedTestsIndexLazyRoute =
   AuthenticatedTestsIndexLazyImport.update({
     id: '/tests/',
@@ -407,6 +427,15 @@ const AuthenticatedSettingsIndexLazyRoute =
     getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
   } as any).lazy(() =>
     import('./routes/_authenticated/settings/index.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedPinboardIndexLazyRoute =
+  AuthenticatedPinboardIndexLazyImport.update({
+    id: '/pinboard/',
+    path: '/pinboard/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/pinboard/index.lazy').then((d) => d.Route),
   )
 
 const AuthenticatedHelpCenterIndexLazyRoute =
@@ -457,6 +486,16 @@ const AuthenticatedCalendarIndexLazyRoute =
   } as any).lazy(() =>
     import('./routes/_authenticated/calendar/index.lazy').then((d) => d.Route),
   )
+
+const AuthenticatedAppsIndexLazyRoute = AuthenticatedAppsIndexLazyImport.update(
+  {
+    id: '/apps/',
+    path: '/apps/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any,
+).lazy(() =>
+  import('./routes/_authenticated/apps/index.lazy').then((d) => d.Route),
+)
 
 const AuthenticatedSettingsNotificationsLazyRoute =
   AuthenticatedSettingsNotificationsLazyImport.update({
@@ -1770,6 +1809,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsNotificationsLazyImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyImport
     }
+    '/_authenticated/apps/': {
+      id: '/_authenticated/apps/'
+      path: '/apps'
+      fullPath: '/apps'
+      preLoaderRoute: typeof AuthenticatedAppsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/calendar/': {
       id: '/_authenticated/calendar/'
       path: '/calendar'
@@ -1805,6 +1851,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedHelpCenterIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/pinboard/': {
+      id: '/_authenticated/pinboard/'
+      path: '/pinboard'
+      fullPath: '/pinboard'
+      preLoaderRoute: typeof AuthenticatedPinboardIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/settings/': {
       id: '/_authenticated/settings/'
       path: '/'
@@ -1824,6 +1877,13 @@ declare module '@tanstack/react-router' {
       path: '/tests'
       fullPath: '/tests'
       preLoaderRoute: typeof AuthenticatedTestsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/userProfile/': {
+      id: '/_authenticated/userProfile/'
+      path: '/userProfile'
+      fullPath: '/userProfile'
+      preLoaderRoute: typeof AuthenticatedUserProfileIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/users/': {
@@ -1932,13 +1992,16 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCoursesWaterdebutanteLazyRoute: typeof AuthenticatedCoursesWaterdebutanteLazyRoute
   AuthenticatedCoursesWaterfallLazyRoute: typeof AuthenticatedCoursesWaterfallLazyRoute
   AuthenticatedCoursesWaterintermediairesLazyRoute: typeof AuthenticatedCoursesWaterintermediairesLazyRoute
+  AuthenticatedAppsIndexLazyRoute: typeof AuthenticatedAppsIndexLazyRoute
   AuthenticatedCalendarIndexLazyRoute: typeof AuthenticatedCalendarIndexLazyRoute
   AuthenticatedChallengesIndexLazyRoute: typeof AuthenticatedChallengesIndexLazyRoute
   AuthenticatedChatsIndexLazyRoute: typeof AuthenticatedChatsIndexLazyRoute
   AuthenticatedCoursesIndexLazyRoute: typeof AuthenticatedCoursesIndexLazyRoute
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
+  AuthenticatedPinboardIndexLazyRoute: typeof AuthenticatedPinboardIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
   AuthenticatedTestsIndexLazyRoute: typeof AuthenticatedTestsIndexLazyRoute
+  AuthenticatedUserProfileIndexLazyRoute: typeof AuthenticatedUserProfileIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -2061,13 +2124,17 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
     AuthenticatedCoursesWaterfallLazyRoute,
   AuthenticatedCoursesWaterintermediairesLazyRoute:
     AuthenticatedCoursesWaterintermediairesLazyRoute,
+  AuthenticatedAppsIndexLazyRoute: AuthenticatedAppsIndexLazyRoute,
   AuthenticatedCalendarIndexLazyRoute: AuthenticatedCalendarIndexLazyRoute,
   AuthenticatedChallengesIndexLazyRoute: AuthenticatedChallengesIndexLazyRoute,
   AuthenticatedChatsIndexLazyRoute: AuthenticatedChatsIndexLazyRoute,
   AuthenticatedCoursesIndexLazyRoute: AuthenticatedCoursesIndexLazyRoute,
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
+  AuthenticatedPinboardIndexLazyRoute: AuthenticatedPinboardIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
   AuthenticatedTestsIndexLazyRoute: AuthenticatedTestsIndexLazyRoute,
+  AuthenticatedUserProfileIndexLazyRoute:
+    AuthenticatedUserProfileIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
 }
 
@@ -2157,14 +2224,17 @@ export interface FileRoutesByFullPath {
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
+  '/apps': typeof AuthenticatedAppsIndexLazyRoute
   '/calendar': typeof AuthenticatedCalendarIndexLazyRoute
   '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
   '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/courses': typeof AuthenticatedCoursesIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
+  '/pinboard': typeof AuthenticatedPinboardIndexLazyRoute
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/tests': typeof AuthenticatedTestsIndexLazyRoute
+  '/userProfile': typeof AuthenticatedUserProfileIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -2249,14 +2319,17 @@ export interface FileRoutesByTo {
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
+  '/apps': typeof AuthenticatedAppsIndexLazyRoute
   '/calendar': typeof AuthenticatedCalendarIndexLazyRoute
   '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
   '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/courses': typeof AuthenticatedCoursesIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
+  '/pinboard': typeof AuthenticatedPinboardIndexLazyRoute
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/tests': typeof AuthenticatedTestsIndexLazyRoute
+  '/userProfile': typeof AuthenticatedUserProfileIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -2345,14 +2418,17 @@ export interface FileRoutesById {
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
   '/_authenticated/settings/notifications': typeof AuthenticatedSettingsNotificationsLazyRoute
+  '/_authenticated/apps/': typeof AuthenticatedAppsIndexLazyRoute
   '/_authenticated/calendar/': typeof AuthenticatedCalendarIndexLazyRoute
   '/_authenticated/challenges/': typeof AuthenticatedChallengesIndexLazyRoute
   '/_authenticated/chats/': typeof AuthenticatedChatsIndexLazyRoute
   '/_authenticated/courses/': typeof AuthenticatedCoursesIndexLazyRoute
   '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexLazyRoute
+  '/_authenticated/pinboard/': typeof AuthenticatedPinboardIndexLazyRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
   '/_authenticated/tests/': typeof AuthenticatedTestsIndexLazyRoute
+  '/_authenticated/userProfile/': typeof AuthenticatedUserProfileIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
 }
 
@@ -2441,14 +2517,17 @@ export interface FileRouteTypes {
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
+    | '/apps'
     | '/calendar'
     | '/challenges'
     | '/chats'
     | '/courses'
     | '/help-center'
+    | '/pinboard'
     | '/settings/'
     | '/tasks'
     | '/tests'
+    | '/userProfile'
     | '/users'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -2532,14 +2611,17 @@ export interface FileRouteTypes {
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
+    | '/apps'
     | '/calendar'
     | '/challenges'
     | '/chats'
     | '/courses'
     | '/help-center'
+    | '/pinboard'
     | '/settings'
     | '/tasks'
     | '/tests'
+    | '/userProfile'
     | '/users'
   id:
     | '__root__'
@@ -2626,14 +2708,17 @@ export interface FileRouteTypes {
     | '/_authenticated/settings/appearance'
     | '/_authenticated/settings/display'
     | '/_authenticated/settings/notifications'
+    | '/_authenticated/apps/'
     | '/_authenticated/calendar/'
     | '/_authenticated/challenges/'
     | '/_authenticated/chats/'
     | '/_authenticated/courses/'
     | '/_authenticated/help-center/'
+    | '/_authenticated/pinboard/'
     | '/_authenticated/settings/'
     | '/_authenticated/tasks/'
     | '/_authenticated/tests/'
+    | '/_authenticated/userProfile/'
     | '/_authenticated/users/'
   fileRoutesById: FileRoutesById
 }
@@ -2762,13 +2847,16 @@ export const routeTree = rootRoute
         "/_authenticated/courses/waterdebutante",
         "/_authenticated/courses/waterfall",
         "/_authenticated/courses/waterintermediaires",
+        "/_authenticated/apps/",
         "/_authenticated/calendar/",
         "/_authenticated/challenges/",
         "/_authenticated/chats/",
         "/_authenticated/courses/",
         "/_authenticated/help-center/",
+        "/_authenticated/pinboard/",
         "/_authenticated/tasks/",
         "/_authenticated/tests/",
+        "/_authenticated/userProfile/",
         "/_authenticated/users/"
       ]
     },
@@ -3096,6 +3184,10 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/settings/notifications.lazy.tsx",
       "parent": "/_authenticated/settings"
     },
+    "/_authenticated/apps/": {
+      "filePath": "_authenticated/apps/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/calendar/": {
       "filePath": "_authenticated/calendar/index.lazy.tsx",
       "parent": "/_authenticated"
@@ -3116,6 +3208,10 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/help-center/index.lazy.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/pinboard/": {
+      "filePath": "_authenticated/pinboard/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/settings/": {
       "filePath": "_authenticated/settings/index.lazy.tsx",
       "parent": "/_authenticated/settings"
@@ -3126,6 +3222,10 @@ export const routeTree = rootRoute
     },
     "/_authenticated/tests/": {
       "filePath": "_authenticated/tests/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/userProfile/": {
+      "filePath": "_authenticated/userProfile/index.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/users/": {

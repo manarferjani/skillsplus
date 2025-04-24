@@ -1,13 +1,18 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js';
 
 /**
- * Middleware to protect routes that require authentication
+ * Middleware to protect routes that require authentication using JWT.
+ *
+ * It checks for the token in the "Authorization" header,
+ * verifies it using the JWT secret, and attaches the user and token information to the request.
  */
 const auth = async (req, res, next) => {
     try {
-        // Get token from header
-        const token = req.header('Authorization')?.replace('Bearer ', '');
+        // Extraction du token depuis le header (ou éventuellement un cookie)
+        const token =
+            req.header('Authorization')?.replace('Bearer ', '') ||
+            req.cookies?.token;
         
         if (!token) {
             return res.status(401).json({ 
@@ -16,10 +21,32 @@ const auth = async (req, res, next) => {
             });
         }
 
-        // Verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret');
-        
-        // Find user by id
+        // Vérifier le token et gérer les erreurs spécifiques
+        let decoded;
+        try {
+            decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret');
+        } catch (error) {
+            console.error('JWT verification error:', error);
+            if (error.name === 'TokenExpiredError') {
+                return res.status(401).json({ 
+                    success: false,
+                    message: 'Token has expired'
+                });
+            }
+            return res.status(401).json({ 
+                success: false,
+                message: 'Token is not valid'
+            });
+        }
+
+        if (!decoded || !decoded.id) {
+            return res.status(401).json({
+                success: false,
+                message: 'Invalid token payload'
+            });
+        }
+
+        // Cherche l'utilisateur associé au token
         const user = await User.findById(decoded.id);
         
         if (!user) {
@@ -29,17 +56,18 @@ const auth = async (req, res, next) => {
             });
         }
 
-        // Add user to request object
+        // Ajout des informations à l'objet requête
         req.user = user;
         req.userId = decoded.id;
         req.userRole = user.role;
-        
+
+        // Passage au middleware suivant ou à l'endpoint
         next();
     } catch (error) {
-        console.error('Auth middleware error:', error);
+        console.error('Auth middleware unexpected error:', error);
         res.status(401).json({ 
             success: false,
-            message: 'Token is not valid' 
+            message: 'Token is not valid'
         });
     }
 };
@@ -58,10 +86,10 @@ const isAdmin = (req, res, next) => {
 };
 
 /**
- * Middleware to check if user is manager (role=2) or above
+ * Middleware to check if user is manager (role 1 or 2)
  */
 const isManager = (req, res, next) => {
-    if (req.userRole > 2) { // Role 1 (admin) or 2 (manager) only
+    if (req.userRole > 2) { // Only roles 1 and 2 are allowed
         return res.status(403).json({ 
             success: false,
             message: 'Access denied. Manager privileges required' 
@@ -71,7 +99,7 @@ const isManager = (req, res, next) => {
 };
 
 /**
- * Middleware to check if user has specific role
+ * Middleware to check if user has a specific role or higher.
  */
 const hasRole = (roleRequired) => {
     return (req, res, next) => {
@@ -85,4 +113,5 @@ const hasRole = (roleRequired) => {
     };
 };
 
-module.exports = { auth, isAdmin, isManager, hasRole }; 
+// Exportation des middlewares en tant qu'exportations nommées
+export { auth, isAdmin, isManager, hasRole };
