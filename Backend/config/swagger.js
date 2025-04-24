@@ -44,12 +44,7 @@ const options = {
       {
         name: 'System',
         description: 'System status and diagnostics endpoints',
-      },
-      {
-        name: 'Courses',
-        description: 'Courses management endpoints',
       }
-      
     ],
   },
   apis: ['./routes/*.js', './server.js'],

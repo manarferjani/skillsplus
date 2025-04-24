@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
   IconAdjustmentsHorizontal,
   IconSortAscendingLetters,
@@ -21,17 +21,19 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Searchh } from '@/components/searchh'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@/components/ui/dropdown-menu"
-import { courses as courseData } from './data/courses'
+import { courses } from './data/courses'
+import { Link } from '@tanstack/react-router'; // Importation de Link
+import { useNavigate } from '@tanstack/react-router' // tout en haut de ton fichier
 
 const appText = new Map<string, string>([
-  ['all', 'All Apps'],
+  ['all', 'All '],
 ])
 
 export default function Courses() {
   const [sort, setSort] = useState('ascending')
   const [appType, setAppType] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
-  const [courses, setCourses] = useState(courseData)  // <-- Initialisation de courses ici
+  const navigate = useNavigate();
 
   const filteredApps = courses
     .sort((a, b) =>
@@ -48,19 +50,12 @@ export default function Courses() {
     )
     .filter((app) => app.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
-  useEffect(() => {
-    fetch('http://localhost:5000/api/courses')
-      .then(response => response.json())
-      .then(data => setCourses(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []); 
-
   return (
     <>
       {/* ===== Top Heading ===== */}
       <Header>
         <Searchh />
-        <div className='rounded-3xl ml-auto flex items-center gap-4'>
+        <div className=' rounded-3xl ml-auto flex items-center gap-4'>
           <ThemeSwitch />
           <ProfileDropdown />
         </div>
@@ -80,14 +75,14 @@ export default function Courses() {
           <div className='flex flex-col gap-4 sm:my-4 sm:flex-row'>
             <Input
               placeholder='Filter courses...'
-              className='rounded-3xl h-9 w-40 lg:w-[250px]'
+              className=' rounded-3xl h-9 w-40 lg:w-[250px]'
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
 
             {/* All Apps Button */}
             <Select value={appType} onValueChange={setAppType}>
-              <SelectTrigger className='rounded-3xl flex items-center justify-center px-4 py-2 bg-[#1a1a1a] text-white font-medium whitespace-nowrap hover:bg-white hover:text-black transition-colors [&>svg]:hidden'>
+              <SelectTrigger className=' rounded-3xl flex items-center justify-center px-4 py-2 bg-[#1a1a1a] text-white font-medium whitespace-nowrap hover:bg-white hover:text-black transition-colors [&>svg]:hidden'>
                 <SelectValue>{appText.get(appType)}</SelectValue>
               </SelectTrigger>
             </Select>
@@ -95,7 +90,7 @@ export default function Courses() {
             {/* Méthodologie Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger className="px-5 py-1 rounded-3xl bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center">
-                <span>Methodology</span>
+                <span> Methodology</span>
                 <IconChevronDown size={18} className="ml-3" />
               </DropdownMenuTrigger>
 
@@ -103,127 +98,238 @@ export default function Courses() {
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Agile</DropdownMenuSubTrigger>
                   <DropdownMenuSubContent>
-                    <DropdownMenuItem onClick={() => setAppType("scrum")}>Scrum</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("kanban")}>Kanban</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("Lean")}>Lean</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("SAFe")}>SAFe</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/scrum" })}>
+    Scrum
+  </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/kanban" })}>
+   Kanban
+  </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/lean" })}>
+    Lean
+  </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/safe" })}>
+    SAFe
+  </DropdownMenuItem>
+
                   </DropdownMenuSubContent>
                 </DropdownMenuSub>
 
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>Classics</DropdownMenuSubTrigger>
                   <DropdownMenuSubContent>
-                    <DropdownMenuItem onClick={() => setAppType("cyclev")}>Cycle en V</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("waterfall")}>Waterfall</DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/cyclev" })}>
+   V Cycle
+  </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate({ to: "/courses/waterfall" })}>
+    Waterfall
+  </DropdownMenuItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuSub>
 
-                <DropdownMenuItem onClick={() => setAppType("devops")}>DevOps</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate({ to: "/courses/devops" })}>
+    DevOps
+  </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
             {/* Technology Menu */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-5 py-1 rounded-full bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center">
-                <span>Technology</span>
-                <IconChevronDown size={18} className="ml-3" />
-              </DropdownMenuTrigger>
+  <DropdownMenuTrigger className="px-5 py-1 rounded-full bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center">
+    <span>Technology</span>
+    <IconChevronDown size={18} className="ml-3" />
+  </DropdownMenuTrigger>
 
-              <DropdownMenuContent>
-                {/* Backend Submenu */}
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger>Backend</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
-                    <DropdownMenuItem onClick={() => setAppType("PHP Laravel")}>PHP Laravel</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("JavaScript(Node.js)")}>JavaScript (Node.js)</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("Python")}>Python</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("Kotlin")}>Kotlin</DropdownMenuItem>
-                  </DropdownMenuSubContent>
-                </DropdownMenuSub>
+  <DropdownMenuContent>
+    {/* Backend Submenu */}
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Backend</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/laravel" })}>
+        PHP Laravel
+  </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/node" })}>
+        JavaScript (Node.js)
+  </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/python" })}>
+       Python
+  </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/kotlin" })}>
+      Kotlin
+  </DropdownMenuItem>
 
-                {/* Frontend Submenu */}
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger>Frontend</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
-                    <DropdownMenuItem onClick={() => setAppType("JavaScript(JS)")}>JavaScript (JS)</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setAppType("HTML/CSS")}>HTML/CSS</DropdownMenuItem>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
 
-                    {/* Framework & Library Submenu */}
-                    <DropdownMenuSub>
-                      <DropdownMenuSubTrigger>Framework & Library</DropdownMenuSubTrigger>
-                      <DropdownMenuSubContent>
-                        <DropdownMenuItem onClick={() => setAppType("React.JS")}>React.js</DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setAppType("Vue.js")}>Vue.js</DropdownMenuItem>
-                        <DropdownMenuItem onClick={() => setAppType("Angular")}>Angular</DropdownMenuItem>
-                      </DropdownMenuSubContent>
-                    </DropdownMenuSub>
-                  </DropdownMenuSubContent>
-                </DropdownMenuSub>
-              </DropdownMenuContent>
-            </DropdownMenu>
+    {/* Frontend Submenu */}
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Frontend</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/javascript" })}>
+        JavaScript (JS)
+  </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate({ to: "/courses/htmlcss" })}>
+    HTML/CSS
+  </DropdownMenuItem>
+        {/* Framework & Library Submenu */}
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>Framework & Library</DropdownMenuSubTrigger>
+          <DropdownMenuSubContent>
+            <DropdownMenuItem onClick={() => navigate({ to: "/courses/react" })}>
+   React.js
+  </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate({ to: "/courses/vue" })}>
+   Vue.js
+  </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate({ to: "/courses/angular" })}>
+    Angular
+  </DropdownMenuItem>          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
+  </DropdownMenuContent>
+</DropdownMenu>
 
-            <button
-              className="px-5 py-1 rounded-3xl bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center justify-center"
-            >
-              Enrolled Courses
-            </button>
-            <button
-              className="px-5 py-1 rounded-3xl bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center justify-center"
-            >
-              News
-            </button>
-
+<button
+  className="px-5 py-1 rounded-3xl bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center justify-center"
+>
+  Enrolled Courses
+</button>
+<button
+  className="px-5 py-1 rounded-3xl bg-white text-black font-medium whitespace-nowrap hover:bg-black hover:text-white transition-colors border border-gray-300 focus-visible:ring-2 focus-visible:ring-gray-400 flex items-center justify-center"
+>
+  News
+</button>
             {/* Sorting Select */}
-            <Select value={sort} onValueChange={setSort}>
-              <SelectTrigger className='rounded-3xl w-16 ml-40'>
-                <SelectValue>
-                  <IconAdjustmentsHorizontal size={18} />
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent align='end'>
-                <SelectItem value='ascending'>
-                  <div className='flex items-center gap-4'>
-                    <IconSortAscendingLetters size={16} />
-                    <span>Ascending</span>
-                  </div>
-                </SelectItem>
-                <SelectItem value='descending'>
-                  <div className='flex items-center gap-4'>
-                    <IconSortDescendingLetters size={16} />
-                    <span>Descending</span>
-                  </div>
-                </SelectItem>
-              </SelectContent>
-            </Select>
+            
+          <Select value={sort} onValueChange={setSort}>
+            <SelectTrigger className=' rounded-3xl w-16 ml-40'>
+              <SelectValue>
+                <IconAdjustmentsHorizontal size={18} />
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent align='end'>
+              <SelectItem value='ascending'>
+                <div className='flex items-center gap-4'>
+                  <IconSortAscendingLetters size={16} />
+                  <span>Ascending</span>
+                </div>
+              </SelectItem>
+              <SelectItem value='descending'>
+                <div className='flex items-center gap-4'>
+                  <IconSortDescendingLetters size={16} />
+                  <span>Descending</span>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
+      
           </div>
         </div>
 
         <Separator className='shadow' />
+        
         <ul className='rounded-3xl faded-bottom no-scrollbar grid gap-4 overflow-auto pb-16 pt-4 md:grid-cols-2 lg:grid-cols-3'>
-          {filteredApps.map((app) => (
-            <li
-              key={app.name}
-              className='rounded-3xl border p-4 hover:shadow-md'
-            >
-              <div className='rounded-3xl mb-8 flex items-center justify-between'>
-                <div className={`rounded-3xl flex size-10 items-center justify-center bg-muted p-2`}>
-                  {app.logo}
-                </div>
-                <Button
-                  variant='outline'
-                  size='sm'
-                  className={`${app.completed ? 'rounded-3xl border border-blue-300 bg-blue-50 hover:bg-blue-100 dark:border-blue-700 dark:bg-blue-950 dark:hover:bg-blue-900' : 'rounded-3xl'}`}
-                >
-                  {app.completed ? 'Completed' : 'Complete'}
-                </Button>
-              </div>
-              <div>
-                <h2 className='rounded-3xl mb-2 text-lg font-bold'>{app.name}</h2>
-                <p className='text-sm'>{app.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+  {filteredApps.map((app) => (
+    <li
+      key={app.name}
+      className='cursor-pointer rounded-3xl border p-4 hover:shadow-md  hover:scale-110 transition-transform duration-200'
+    >
+      <div className='rounded-3xl mb-8 flex items-center justify-between'>
+        <div className={`rounded-3xl flex size-10 items-center justify-center bg-muted p-2`}>
+          {app.logo}
+        </div>
+        <Button
+          variant='outline'
+          size='sm'
+          className={`${app.completed ? 'rounded-3xl border border-blue-300 bg-blue-50 hover:bg-blue-100 dark:border-blue-700 dark:bg-blue-950 dark:hover:bg-blue-900' : 'rounded-3xl'}`}
+        >
+          {app.completed ? 'Completed' : 'Complete'}
+        </Button>
+      </div>
+
+      <div>
+        <h2 className='rounded-3xl mb-1 font-semibold'>
+          {/* Envelopper le nom du cours dans le Link pour le rendre cliquable */}
+          {
+  app.name === 'Angular' ? (
+    <Link to="/courses/angular" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'HTML/CSS' ? (
+    <Link to="/courses/htmlcss" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Kanban' ? (
+    <Link to="/courses/kanban" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Scrum' ? (
+    <Link to="/courses/scrum" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Lean' ? (
+    <Link to="/courses/lean" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'SAFe' ? (
+    <Link to="/courses/safe" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'V Cycle' ? (
+    <Link to="/courses/cyclev" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Waterfall' ? (
+    <Link to="/courses/waterfall" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'DeVops' ? (
+    <Link to="/courses/devops" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Laravel' ? (
+    <Link to="/courses/laravel" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Node.js' ? (
+    <Link to="/courses/node" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Python' ? (
+    <Link to="/courses/python" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Vue.js' ? (
+    <Link to="/courses/vue" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'JavaScript' ? (
+    <Link to="/courses/javascript" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'React.js' ? (
+    <Link to="/courses/react" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name === 'Kotlin' ? (
+    <Link to="/courses/kotlin" className="text-black hover:underline">
+      {app.name}
+    </Link>
+  ) : app.name
+
+    
+  
+}
+
+          
+         
+         
+        </h2>
+        <p className='line-clamp-2 text-gray-500'>{app.desc}</p>
+      </div>
+    </li>
+  ))}
+</ul>
+
       </Main>
     </>
   )

@@ -46,19 +46,13 @@ export const formatDate = (date: Date): string => {
   };
   
   // Check if an event is on a specific day
-  export const isEventForDay = (day: Date, eventStart: Date, eventEnd: Date) => {
-    const start = new Date(eventStart);
-    const end = new Date(eventEnd);
-    const current = new Date(day);
-  
-    // Normalize time to avoid timezone issues
-    start.setHours(0, 0, 0, 0);
-    end.setHours(23, 59, 59, 999);
-    current.setHours(12, 0, 0, 0);
-  
-    return current >= start && current <= end;
+  export const isEventForDay = (eventStart: Date, day: Date): boolean => {
+    return (
+      eventStart.getDate() === day.getDate() &&
+      eventStart.getMonth() === day.getMonth() &&
+      eventStart.getFullYear() === day.getFullYear()
+    );
   };
-  
   
   // Calculate positioning for an event in the calendar grid
   export const getEventStyle = (start: Date, end: Date) => {
