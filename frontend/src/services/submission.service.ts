@@ -1,35 +1,30 @@
-import axios from 'axios';
+
+import apiClient from "@/lib/api-client"; // Assurez-vous que le chemin est correct
+import { AxiosResponse } from "axios";
 
 // Définition des types pour les paramètres
 interface AnswerData {
   testId: string; // L'ID du test
-  collaboratorId: string; // L'ID du collaborateur
   questionText: string; // texte de la question
-  answer: string; // La réponse donnée par le collaborateur
+  response: string | string[]; // La réponse donnée par le collaborateur
 }
 
 // Fonction avec typage explicite pour les paramètres
-async function sendAnswer(testId: string, collaboratorId: string, questionText: string, answer: string): Promise<void> {
+export async function sendAnswer(
+  testId: string,
+  questionText: string,
+  response: string | string[]
+): Promise<AxiosResponse> {
   try {
-    // Préparation des données à envoyer
-    const data: AnswerData = {
-      testId: testId,
-      collaboratorId: collaboratorId,
-      questionText: questionText,
-      answer: answer
+    const data = {
+      testId,
+      questionText,
+      response
     };
 
-    // Envoi de la requête POST pour ajouter ou modifier la réponse
-    const response = await axios.post('/api/submission', data);
-
-    // Si la réponse est ajoutée ou modifiée avec succès
-    console.log("Réponse ajoutée ou modifiée avec succès :", response.data);
-
-    // Vous pouvez ici mettre à jour l'interface utilisateur si nécessaire
-    // Par exemple, afficher un message de confirmation ou rediriger l'utilisateur
-
+    return await apiClient.post('/api/submission/submission', data);
   } catch (error) {
-    console.error("Erreur lors de l'ajout ou de la modification de la réponse :", error);
-    // Vous pouvez aussi afficher un message d'erreur à l'utilisateur si quelque chose échoue
+    console.error("Erreur lors de l'envoi de la réponse :", error);
+    throw error;
   }
 }

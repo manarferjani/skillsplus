@@ -4,13 +4,15 @@ import UserService from '../services/user.service.js';
 
 const router = express.Router();
 
-// Ajout d'un utilisateur (fonctionnel)
-router.post('/add', async (req, res) => {
+// 👉 Ajout d'un utilisateur AVEC email envoyé automatiquement
+router.post('/addWithEmail', async (req, res) => {
   try {
-    const { name, email, password, role, clerkId } = req.body;
+    console.log(req.body);
+    
+    const { name, email, password, role } = req.body;
     
     // Validation des champs
-    if (!name || !email || !password || !role || !clerkId) {
+    if (!name || !email || !password || !role) {
       return res.status(400).json({ 
         success: false,
         message: "Tous les champs sont requis" 
@@ -25,8 +27,55 @@ router.post('/add', async (req, res) => {
         message: "L'utilisateur existe déjà" 
       });
     }
+    console.log("fffffffffffffffff");
     
-    // Création de l'utilisateur via le service
+    
+    // Création de l'utilisateur via le service + envoi email
+    const newUser = await UserService.createUserWithEmail({
+      name,
+      email,
+      password,
+      role,
+    });
+    
+    res.status(201).json({
+      success: true,
+      message: "Utilisateur créé et email envoyé avec succès",
+      data: newUser
+    });
+  } catch (error) {
+    // Capture de l'erreur et réponse à l'utilisateur
+    console.error("Erreur serveur:", error);
+    
+    const errorMessage = (error instanceof Error) ? error.message : 'Une erreur inconnue est survenue';
+    
+    res.status(500).json({ 
+      success: false,
+      error: errorMessage 
+    });
+  }
+});
+
+// Ajout d'un utilisateur (sans email automatique)
+router.post('/add', async (req, res) => {
+  try {
+    const { name, email, password, role, clerkId } = req.body;
+    
+    if (!name || !email || !password || !role) {
+      return res.status(400).json({ 
+        success: false,
+        message: "Tous les champs sont requis" 
+      });
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ 
+        success: false,
+        message: "L'utilisateur existe déjà" 
+      });
+    }
+    
     const newUser = await UserService.addUser({
       name,
       email,
@@ -46,6 +95,7 @@ router.post('/add', async (req, res) => {
     });
   }
 });
+
 
 // Récupération de tous les utilisateurs
 router.get('/getallUsers', async (req, res) => {

@@ -51,7 +51,7 @@ class AuthService {
    */
   async signin(data) {
     const { email, password } = data;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password");
     if (!user) {
       throw new Error("Invalid credentials");
     }
@@ -69,7 +69,7 @@ class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName()
+        
       }
     };
   }
@@ -134,7 +134,7 @@ class AuthService {
     try {
       const decoded = jwt.verify(
         refreshToken,
-        process.env.JWT_REFRESH_SECRET || 'your_refresh_jwt_secret'
+        process.env.JWT_REFRESH_SECRET || 'skills_plus_refresh_token_secret_key_2024'
       );
       const user = await User.findById(decoded.id);
       if (!user) {
@@ -142,7 +142,7 @@ class AuthService {
       }
       const accessToken = jwt.sign(
         { id: user._id, role: user.role },
-        process.env.JWT_SECRET || 'your_jwt_secret',
+        process.env.JWT_SECRET || 'yskills_plus_super_secret_jwt_key_2024',
         { expiresIn: '1h' }
       );
       return {
@@ -161,13 +161,13 @@ class AuthService {
    */
   generateTokens(user) {
     const accessToken = jwt.sign(
-      { id: user._id, role: user.role },
-      process.env.JWT_SECRET || 'your_jwt_secret',
-      { expiresIn: '1h' }
+      { id: user._id, name: user.name, role: user.role ,email : user.email},
+      process.env.JWT_SECRET || 'skills_plus_super_secret_jwt_key_2024',
+      { expiresIn: '8h' }
     );
     const refreshToken = jwt.sign(
       { id: user._id },
-      process.env.JWT_REFRESH_SECRET || 'your_refresh_jwt_secret',
+      process.env.JWT_REFRESH_SECRET || 'skills_plus_super_secret_jwt_key_2024',
       { expiresIn: '7d' }
     );
     return { accessToken, refreshToken };
@@ -235,7 +235,7 @@ class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName(),
+        
         createdAt: user.createdAt
       }
     };
@@ -260,7 +260,7 @@ class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName()
+        
       }
     };
   }

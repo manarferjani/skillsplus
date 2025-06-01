@@ -71,17 +71,19 @@ export const sidebarData: SidebarData = {
           title: 'Apps',
           url: '/apps',
           icon: IconPackages,
+          visible: ["admin", "manager"], // limité
         },
         {
           title: 'Chats',
           url: '/chats',
-          badge: '3',
+          badge: '',
           icon: IconMessages,
         },
         {
           title: 'Users',
           url: '/users',
           icon: IconUsers,
+          visible: ["admin"], // réservé aux admins
         },
         {
           title: 'Calendar',
@@ -89,8 +91,8 @@ export const sidebarData: SidebarData = {
           icon: IconCalendar,
         },
         {
-          title: 'Pinboard',
-          url: '/pinboard',
+          title: 'CreatingTests',
+          url: '/createTests',
           icon: IconChecklist,
         },
       ],
@@ -101,6 +103,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Auth',
           icon: IconLockAccess,
+          visible: ["admin", "manager"], // pas utile pour users
           items: [
             {
               title: 'Sign In',
@@ -127,6 +130,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Errors',
           icon: IconBug,
+          visible: ["admin"], // erreurs visibles seulement pour admin/dev
           items: [
             {
               title: 'Unauthorized',
@@ -163,6 +167,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Settings',
           icon: IconSettings,
+          visible: ["admin", "manager"], // config avancée
           items: [
             {
               title: 'Profile',

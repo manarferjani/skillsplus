@@ -8,6 +8,15 @@ import { User } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
 
+// Définition des libellés des positions (ajouté en haut du fichier)
+const JOB_POSITION_LABELS = {
+  fullStackDeveloper: 'Full-Stack Developer',
+  frontendDeveloper: 'Frontend Developer',
+  backendDeveloper: 'Backend Developer',
+  unspecified: 'Not specified' // Libellé anglais
+} as const;
+
+
 export const columns: ColumnDef<User>[] = [
   {
     id: 'select',
@@ -40,34 +49,35 @@ export const columns: ColumnDef<User>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'username',
+    id: 'name',
+    accessorKey: 'name',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Username' />
+      <DataTableColumnHeader column={column} title="Name" />
     ),
-    cell: ({ row }) => (
-      <LongText className='max-w-36'>{row.getValue('username')}</LongText>
-    ),
-    meta: {
+    cell: ({ row }) => {
+      const name = row.getValue('name') as string;
+      return (
+        <LongText 
+          className="max-w-36"
+          contentClassName="text-xs"
+          asChild
+          threshold={20}
+        >
+          {name}  {/* Affichez directement le nom */}
+        </LongText>
+      );
+    },
+    meta: { 
       className: cn(
-        'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
+        'w-36',
+        'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2pxrgb(255_255_255_/_0.1)] lg:drop-shadow-none',
         'bg-background transition-colors duration-200 group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
         'sticky left-6 md:table-cell'
-      ),
+      )
     },
     enableHiding: false,
   },
-  {
-    id: 'fullName',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Name' />
-    ),
-    cell: ({ row }) => {
-      const { firstName, lastName } = row.original
-      const fullName = `${firstName} ${lastName}`
-      return <LongText className='max-w-36'>{fullName}</LongText>
-    },
-    meta: { className: 'w-36' },
-  },
+  
   {
     accessorKey: 'email',
     header: ({ column }) => (
@@ -78,12 +88,21 @@ export const columns: ColumnDef<User>[] = [
     ),
   },
   {
-    accessorKey: 'phoneNumber',
+    accessorKey: 'jobPosition',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Phone Number' />
+      <DataTableColumnHeader column={column} title="Position" />
     ),
-    cell: ({ row }) => <div>{row.getValue('phoneNumber')}</div>,
-    enableSorting: false,
+    cell: ({ row }) => {
+      const position = row.getValue('jobPosition') as keyof typeof JOB_POSITION_LABELS;
+      return (
+        <div className={cn(
+          "font-medium",
+          position === 'unspecified' && "text-gray-400 italic"
+        )}>
+          {JOB_POSITION_LABELS[position]}
+        </div>
+      );
+    }
   },
   {
     accessorKey: 'status',
@@ -117,15 +136,18 @@ export const columns: ColumnDef<User>[] = [
       const userType = userTypes.find(({ value }) => value === role)
 
       if (!userType) {
-        return null
+        console.warn(`Role inconnu: ${role}`) // Log pour débogage
+        return (
+          <div className='flex items-center gap-x-2 text-muted-foreground'>
+            <span className='text-sm capitalize'>{role}</span>
+          </div>
+        )
       }
 
       return (
         <div className='flex items-center gap-x-2'>
-          {userType.icon && (
-            <userType.icon size={16} className='text-muted-foreground' />
-          )}
-          <span className='text-sm capitalize'>{row.getValue('role')}</span>
+          <userType.icon className='h-4 w-4 text-muted-foreground' />
+          <span className='text-sm capitalize'>{userType.label}</span>
         </div>
       )
     },

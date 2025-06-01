@@ -1,5 +1,6 @@
 import { LinkProps } from '@tanstack/react-router'
 
+
 interface User {
   name: string
   email: string
@@ -16,6 +17,7 @@ interface BaseNavItem {
   title: string
   badge?: string
   icon?: React.ElementType
+  visible?: string[] 
 }
 
 type NavLink = BaseNavItem & {
@@ -42,3 +44,5 @@ interface SidebarData {
 }
 
 export type { SidebarData, NavGroup, NavItem, NavCollapsible, NavLink }
+
+

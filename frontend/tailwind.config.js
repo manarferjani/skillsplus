@@ -29,8 +29,15 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        background: 'hsl(var(--background))',
+        //background: 'hsl(232 100% 97%)',
+        background: 'hsl(222 53% 96%)',
         foreground: 'hsl(var(--foreground))',
+        calendarBg: '#fff7ed',
+        brandBlue: '#219ebc',
+        brandBeige: '#DDCDC2',
+        cardColor : '#f8faff',
+        customGreen: '#57cc99',
+        
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

@@ -1,5 +1,7 @@
 // services/technology.service.js
 import Technologie from '../models/technology.js';
+import dayjs from 'dayjs'
+import Test from '../models/test.js'; // adapte le chemin si nécessaire
 
 class TechnologyService {
 
@@ -25,6 +27,7 @@ class TechnologyService {
       throw new Error(error.message);
     }
   }
+  
   async getAllTechnologiesFiltered() {
     try {
       const technologies = await Technologie.find({}, '_id name');
@@ -92,6 +95,68 @@ class TechnologyService {
       throw new Error(error.message);
     }
   }
+  async getAllTechnologiesIdAndNameOnly() {
+    try {
+      const technologies = await Technologie.find({}, '_id name');
+      return technologies;
+    } catch (error) {
+      throw new Error("Erreur lors de la récupération des technologies (id et nom uniquement) : " + error.message);
+    }
+  }
+   /**
+   * Récupère toutes les technologies avec leur _id et name.
+   * @returns {Array} Liste des technologies
+   */
+  async getAllTechnologiesBasicInfo() {
+    try {
+      const technologies = await Technologie.find({}, "_id name");
+      return technologies;
+    } catch (error) {
+      throw new Error(
+        `Erreur lors de la récupération des technologies : ${error.message}`
+      );
+    }
+  }
+  async calculateYearlyAverages(technologyId) {
+    const currentYear = dayjs().year();
+    const startOfYear = dayjs(`${currentYear}-01-01`).toDate();
+    const endOfYear = dayjs(`${currentYear}-12-31`).toDate();
+
+    // Récupérer tous les tests complétés de cette technologie pour l'année courante
+    const tests = await Test.find({
+      technology: technologyId,
+      status: 'completed',
+      scheduledDate: {
+        $gte: startOfYear,
+        $lte: endOfYear
+      }
+    });
+
+    let totalAverageScore = 0;
+    let totalAverageSuccessRate = 0;
+    let validTests = 0;
+
+    // Calculer les statistiques pour chaque test
+    for (const test of tests) {
+      if (test.averageScore !== null && test.averageSuccessRate !== null) {
+        totalAverageScore += test.averageScore;
+        totalAverageSuccessRate += test.averageSuccessRate;
+        validTests++;
+      }
+    }
+
+    // Calculer les moyennes globales
+    return {
+      averageScore: validTests > 0 ? totalAverageScore / validTests : null,
+      averageSuccessRate: validTests > 0 ? totalAverageSuccessRate / validTests : null,
+      testCount: validTests,
+      year: currentYear
+    };
+  }
+
+  
+
+  
 }
 
 export default new TechnologyService();

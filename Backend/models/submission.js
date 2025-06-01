@@ -59,7 +59,13 @@ const submissionSchema = new Schema({
   expertScore: { 
     type: Number, 
     default: 0 
+  },
+  estimatedLevel: {
+    type: String,
+    enum: ['beginner', 'basic', 'intermediate', 'expert'],
+    default: 'beginner'
   }
+  
 }, { timestamps: true });
 
 submissionSchema.index({ test: 1, collaborator: 1 }, { unique: true });

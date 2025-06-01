@@ -9,8 +9,10 @@ const testSchema = new Schema({
     trim: true
   },
   level: {
-    type: Number,
+    type: String,
+    enum: ['junior', 'intermediaire', 'senior'], // valeurs possibles
     required: true
+    
   },
   technology: {
     type: Schema.Types.ObjectId,
@@ -55,6 +57,11 @@ const testSchema = new Schema({
       enum: ['single', 'multiple', 'code'],
       required: true
     },
+    level: {
+      type: String,
+      enum: ['basic', 'intermediate', 'expert'],
+      required: true
+    },
     options: [{ 
       type: String 
     }],
@@ -84,9 +91,9 @@ const testSchema = new Schema({
         validate: {
           validator: async function(userId) {
             const user = await User.findById(userId);
-            return user && user.role === 3;
+            return user && user.role === 'collaborator';  // Comparaison avec la chaîne "collaborator"
           },
-          message: 'Seuls les collaborateurs (role=3) peuvent être associés à un test'
+          message: 'Seuls les collaborateurs (role="collaborator") peuvent être associés à un test'
         }
       },
       totalScore: {

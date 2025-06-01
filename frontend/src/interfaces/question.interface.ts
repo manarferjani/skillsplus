@@ -1,7 +1,15 @@
 export interface Question {
-    questionText: string;    // Le texte de la question
-    options: string[];       // Un tableau contenant les options de réponse (chaînes)
-    correctAnswer: string;   // La réponse correcte
-    points: number;          // Le nombre de points associés à cette question
-  }
-  
+  questionText: string
+  options: string[]
+  correctAnswer?: string
+  correctAnswers?: string[]
+  type: 'single' | 'multiple' | 'code'
+  points: number
+  level: 'basic' | 'intermediate' | 'expert'; // Ajoutez cette ligne
+}
+
+export interface QuizData {
+  testId: string
+  title: string
+  questions: Question[]
+}

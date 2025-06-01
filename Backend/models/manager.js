@@ -1,6 +1,6 @@
 // models/Manager.js
 import mongoose from 'mongoose';
-import User from './models/user.js';
+import User from './user.js';
 const { Schema } = mongoose;
 
 const managerSchema = new Schema({
@@ -12,4 +12,5 @@ const managerSchema = new Schema({
     
 });
 
-module.exports = User.discriminator('Manager', managerSchema);
+export default User.discriminator('Manager', managerSchema);
+

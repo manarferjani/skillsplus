@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -100,6 +102,7 @@
 
   body {
     @apply min-h-svh w-full bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
   }
 
   * {
@@ -241,6 +244,12 @@
 .mount-animation {
   animation: mountEffect 0.5s ease-out;
 }
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
 
+.satisfy-font {
+  font-family: 'Satisfy', cursive;
+}
 
 

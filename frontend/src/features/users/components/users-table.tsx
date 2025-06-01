@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from '@tanstack/react-router'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -26,8 +27,8 @@ import { User } from '../data/schema'
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
 
+
 declare module '@tanstack/react-table' {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ColumnMeta<TData extends RowData, TValue> {
     className: string
   }
@@ -39,6 +40,7 @@ interface DataTableProps {
 }
 
 export function UsersTable({ columns, data }: DataTableProps) {
+  const navigate = useNavigate(); // Ajout de useNavigate
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -65,6 +67,12 @@ export function UsersTable({ columns, data }: DataTableProps) {
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
+
+  // Fonction de gestion du clic sur la ligne
+  const handleRowClick = (user: User) => {
+    navigate({ to: '/userProfile/$userId', params: { userId: user.id } });
+     // Navigation vers /user-profile avec les données de l'utilisateur
+  }
 
   return (
     <div className='space-y-4'>
@@ -99,7 +107,8 @@ export function UsersTable({ columns, data }: DataTableProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className='group/row'
+                  className='group/row cursor-pointer hover:bg-muted'
+                  onClick={() => handleRowClick(row.original)} // Ajout de l'événement de clic
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell

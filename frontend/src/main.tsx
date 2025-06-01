@@ -6,6 +6,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { SidebarProvider } from './context/SidebarContext'; // Import SidebarProvider
+import { SavedCoursesProvider } from '@/components/SavedCoursesContext';
+import { Toaster } from 'react-hot-toast';
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { useAuthStore } from '@/stores/authStore'
 import { handleServerError } from '@/utils/handle-server-error'
@@ -104,11 +107,16 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+          <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
             <FontProvider>
-              <AuthLoading>
-                <RouterProvider router={router} />
-              </AuthLoading>
+              <SidebarProvider> {/* Add SidebarProvider */}
+                <AuthLoading>
+                  <SavedCoursesProvider>
+                    <RouterProvider router={router} />
+                    <Toaster position="top-right" />
+                  </SavedCoursesProvider>
+                </AuthLoading>
+              </SidebarProvider>
             </FontProvider>
           </ThemeProvider>
         </AuthProvider>

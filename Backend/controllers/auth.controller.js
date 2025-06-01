@@ -5,7 +5,7 @@ const router = express.Router();
 import AuthService from '../services/auth.service.js';
 import { auth } from '../middleware/auth.js';
 
-
+import authenticate from '../controllers/authenticator.js'; // Ajustez le chemin
 /**
  * Inscription d'un nouvel utilisateur.
  */
@@ -153,7 +153,21 @@ router.get('/profile', auth, async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
-
+router.get('/me', authenticate(['collaborator', 'manager', 'admin']), (req, res) => {
+  try {
+    console.log('User from token:', req.user);
+    res.status(200).json({
+      success: true,
+      data: {
+        _id: req.user.id,
+        role: req.user.role,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
 /**
  * Met à jour le profil de l'utilisateur authentifié.
  */
