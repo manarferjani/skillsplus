@@ -98,6 +98,8 @@ import performerRoutes from './controllers/performer.controller.js';
 import courseRoutes from './controllers/course.controller.js';
 import chatRoutes from './controllers/chat.controller.js';
 import messageRoutes from './controllers/message.controller.js';
+import notificationRoutes from './controllers/notification.controller.js';
+
 import preferenceRouter from './controllers/preference.controller.js';
 // Test email configuration on startup
 (async () => {
@@ -116,24 +118,78 @@ import preferenceRouter from './controllers/preference.controller.js';
 // Socket.IO - gestion des connexions
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
+  // Associer le socket à l'userId
+  socket.on('register-user', async (userId) => {
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      console.error('Invalid userId:', userId);
+      return;
+    }
+    socket.userId = userId;
+    console.log(`User ${userId} registered with socket ${socket.id}`);
 
+    // Rejoindre toutes les conversations de l'utilisateur
+    try {
+      const conversations = await Conversation.find({ members: userId });
+      conversations.forEach((conv) => {
+        socket.join(conv._id.toString());
+        console.log(`User ${userId} joined conversation ${conv._id}`);
+      });
+    } catch (err) {
+      console.error('Error joining conversations:', err);
+    }
+  });
+
+ // Rejoindre une conversation spécifique
   socket.on('join-conversation', (conversationId) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
     socket.join(conversationId);
-    console.log(`Client ${socket.id} joined conversation ${conversationId}`);
+    console.log(`Client ${socket.userId || socket.id} joined conversation ${conversationId}`);
   });
-
-  socket.on('offer', ({ conversationId, offer }) => {
-    socket.to(conversationId).emit('offer', { offer });
+// Quitter une conversation
+  socket.on('leave-conversation', (conversationId) => {
+    socket.leave(conversationId);
+    console.log(`Client ${socket.userId || socket.id} left conversation ${conversationId}`);
   });
-
+  // Gérer l'événement "offer"
+  socket.on('offer', ({ conversationId, offer, callerId }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(callerId)) {
+      console.error('Invalid conversationId or callerId:', { conversationId, callerId });
+      return;
+    }
+    socket.to(conversationId).emit('offer', { offer, conversationId, callerId });
+    console.log(`Offer sent to conversation ${conversationId} from ${callerId}`);
+  });
+  // Gérer l'événement "answer"
   socket.on('answer', ({ conversationId, answer }) => {
-    socket.to(conversationId).emit('answer', { answer });
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('answer', { answer, conversationId });
+    console.log(`Answer sent to conversation ${conversationId}`);
   });
 
+ // Gérer l'événement "ice-candidate"
   socket.on('ice-candidate', ({ conversationId, candidate }) => {
-    socket.to(conversationId).emit('ice-candidate', { candidate });
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('ice-candidate', { candidate, conversationId });
+    console.log(`ICE candidate sent to conversation ${conversationId}`);
   });
-
+  // Gérer l'événement "reject-call"
+  socket.on('reject-call', ({ conversationId }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('call-rejected');
+    console.log(`Call rejected in conversation ${conversationId}`);
+  });
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id);
   });
@@ -439,6 +495,8 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api', preferenceRouter);
+app.use('/api', notificationRoutes);
+
 // Test endpoints
 app.get('/api/test/public', (req, res) => {
   res.json({

@@ -1,47 +1,85 @@
-import { Outlet } from '@tanstack/react-router'
+"use client"
+
+import { Outlet } from "@tanstack/react-router"
 import {
   IconBrowserCheck,
   IconNotification,
   IconPalette,
   IconTool,
   IconUser,
-} from '@tabler/icons-react'
-import { Separator } from '@/components/ui/separator'
-import { Header } from '@/components/layout/header'
-import { Main } from '@/components/layout/main'
-import { ProfileDropdown } from '@/components/profile-dropdown'
-import { Search } from '@/components/search'
-import { ThemeSwitch } from '@/components/theme-switch'
-import SidebarNav from './components/sidebar-nav'
+  IconSettings,
+} from "@tabler/icons-react"
+import { Header } from "@/components/layout/header"
+import { Main } from "@/components/layout/main"
+import { ProfileDropdown } from "@/components/profile-dropdown"
+import { Search } from "@/components/search"
+import { ThemeSwitch } from "@/components/theme-switch"
+import { Card, CardContent } from "@/components/ui/card"
+import { AnimatedBackground } from "@/features/settings/components/animated-background"
+import CreativeSidebarNav from "@/features/settings/components/creative-sidebar-nav"
 
 export default function Settings() {
   return (
     <>
+      {/* Animated Background */}
+      <AnimatedBackground />
+
       {/* ===== Top Heading ===== */}
       <Header>
         <Search />
-        <div className='ml-auto flex items-center space-x-4'>
+        <div className="ml-auto flex items-center space-x-4">
           <ThemeSwitch />
           <ProfileDropdown />
         </div>
       </Header>
 
       <Main fixed>
-        <div className='space-y-0.5'>
-          <h1 className='text-2xl font-bold tracking-tight md:text-3xl'>
-            Settings
-          </h1>
-          <p className='text-muted-foreground'>
-            Manage your account settings and set e-mail preferences.
-          </p>
+        {/* Hero Section */}
+        <div className="relative overflow-auto rounded-2xl bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10 p-8 mb-8">
+          <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg">
+                <IconSettings size={24} />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent md:text-4xl">
+                  Settings
+                </h1>
+                <p className="text-muted-foreground mt-1">Customize your experience and manage preferences</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <Separator className='my-4 lg:my-6' />
-        <div className='flex flex-1 flex-col space-y-2 overflow-hidden md:space-y-2 lg:flex-row lg:space-x-12 lg:space-y-0'>
-          <aside className='top-0 lg:sticky lg:w-1/5'>
-            <SidebarNav items={sidebarNavItems} />
+
+        {/* Main Content */}
+        <div className="flex flex-1 flex-col space-y-6 overflow-auto lg:flex-row lg:space-x-8 lg:space-y-0">
+          {/* Creative Sidebar */}
+          <aside className="lg:w-80">
+            <Card className="sticky top-0 border-0 shadow-xl bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-950/50">
+              <CardContent className="p-6">
+                <div className="mb-6">
+                  <h3 className="font-semibold text-lg mb-2">Configure your account and preferences</h3>
+                </div>
+                {/* Using the CreativeSidebarNav component */}
+                <CreativeSidebarNav
+                  items={sidebarNavItems.map((item) => ({
+                    ...item,
+                    badge: item.title === "Notifications" ? "3" : undefined,
+                    isNew: item.title === "Display",
+                  }))}
+                />
+              </CardContent>
+            </Card>
           </aside>
-          <div className='flex w-full overflow-y-hidden p-1 pr-4'>
-            <Outlet />
+
+          {/* Content Area */}
+          <div className="flex-1 min-w-0">
+            <Card className="h-full border-0 shadow-xl overflow-auto bg-gradient-to-br from-white via-gray-50/30 to-white dark:from-gray-900 dark:via-gray-950/30 dark:to-gray-900">
+              <CardContent className="p-8 h-full">
+                <Outlet />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </Main>
@@ -51,28 +89,28 @@ export default function Settings() {
 
 const sidebarNavItems = [
   {
-    title: 'Profile',
+    title: "Profile",
     icon: <IconUser size={18} />,
-    href: '/settings',
+    href: "/settings",
   },
   {
-    title: 'Account',
+    title: "Account",
     icon: <IconTool size={18} />,
-    href: '/settings/account',
+    href: "/settings/account",
   },
   {
-    title: 'Appearance',
+    title: "Appearance",
     icon: <IconPalette size={18} />,
-    href: '/settings/appearance',
+    href: "/settings/appearance",
   },
   {
-    title: 'Notifications',
+    title: "Notifications",
     icon: <IconNotification size={18} />,
-    href: '/settings/notifications',
+    href: "/settings/notifications",
   },
   {
-    title: 'Display',
+    title: "Display",
     icon: <IconBrowserCheck size={18} />,
-    href: '/settings/display',
+    href: "/settings/display",
   },
 ]

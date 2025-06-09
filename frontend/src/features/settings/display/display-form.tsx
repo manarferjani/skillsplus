@@ -16,28 +16,28 @@ import {
 
 const items = [
   {
-    id: 'recents',
-    label: 'Recents',
+    id: 'Dashboard',
+    label: 'Dashboard',
   },
   {
-    id: 'home',
-    label: 'Home',
+    id: 'Tasks',
+    label: 'Tasks',
   },
   {
-    id: 'applications',
-    label: 'Applications',
+    id: 'Courses',
+    label: 'Courses',
   },
   {
-    id: 'desktop',
-    label: 'Desktop',
+    id: 'Chats',
+    label: 'Chats',
   },
   {
-    id: 'downloads',
-    label: 'Downloads',
+    id: 'Calendar',
+    label: 'Calendar',
   },
   {
-    id: 'documents',
-    label: 'Documents',
+    id: 'CreatingTests',
+    label: 'CreatingTests',
   },
 ] as const
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from '@tanstack/react-router'
 import { Question } from '@/interfaces/question.interface'
 import { getTestById, updateTest } from '@/services/test.service'
-import { PlusIcon, MinusIcon } from 'lucide-react'
+import { PlusIcon, } from 'lucide-react'
 import {
   FileText,
   User,

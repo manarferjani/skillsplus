@@ -122,13 +122,123 @@ export default function Chats() {
   const localVideoRef = useRef<HTMLVideoElement>(null);
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
-
+const [incomingCall, setIncomingCall] = useState<{ conversationId: string; offer: any; callerId: string } | null>(null);
   // Valider le format ObjectId
   const isValidObjectId = (id: string) => /^[0-9a-fA-F]{24}$/.test(id);
 
   // Vérifier si une conversation est un groupe
   const isGroupConversation = (conv: Conversation) => conv.members.length > 2;
+useEffect(() => {
+  if (!socket) return;
 
+  socket.on("offer", ({ offer, conversationId, callerId }) => {
+    console.log(`Received offer for conversation ${conversationId} from ${callerId}`);
+    setIncomingCall({ conversationId, offer, callerId });
+    toast.success(`Incoming ${callType === "video" ? "video" : "phone"} call from ${callerId}`);
+  });
+
+  socket.on("call-rejected", () => {
+    endCall();
+    toast.error("Call was rejected by the recipient");
+  });
+
+  return () => {
+    socket.off("offer");
+    socket.off("call-rejected");
+  };
+}, [socket, callType]);
+
+const acceptCall = async () => {
+  if (!incomingCall || !socket || !user?.id) {
+    console.error("Cannot accept call: missing incomingCall, socket, or user ID", { incomingCall, socket, userId: user?.id });
+    toast.error("Cannot accept call");
+    return;
+  }
+
+  if (peerConnectionRef.current) {
+    peerConnectionRef.current.close();
+    peerConnectionRef.current = null;
+  }
+
+  const configuration = {
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+  };
+
+  peerConnectionRef.current = new RTCPeerConnection(configuration);
+  console.log("Created new RTCPeerConnection for accepting call");
+
+  // Gérer les candidats ICE
+  peerConnectionRef.current.onicecandidate = (event) => {
+    if (event.candidate) {
+      console.log("Sending ICE candidate from acceptor", event.candidate);
+      socket.emit("ice-candidate", {
+        conversationId: incomingCall.conversationId,
+        candidate: event.candidate,
+      });
+    }
+  };
+
+  // Gérer les flux distants
+  peerConnectionRef.current.ontrack = (event) => {
+    console.log("Received remote track", event);
+    remoteStreamRef.current = event.streams[0];
+    if (remoteVideoRef.current) {
+      remoteVideoRef.current.srcObject = remoteStreamRef.current;
+      console.log("Set remote video stream");
+    }
+  };
+
+  // Suivre l'état de la connexion
+  peerConnectionRef.current.oniceconnectionstatechange = () => {
+    console.log("ICE connection state:", peerConnectionRef.current?.iceConnectionState);
+    if (peerConnectionRef.current?.iceConnectionState === "failed") {
+      toast.error("Call connection failed");
+      endCall();
+    }
+  };
+
+  setCallType(incomingCall.conversationId === selectedConversation?._id ? callType : "video");
+  setIsCallActive(true);
+
+  try {
+    const constraints = { audio: true, video: callType === "video" };
+    console.log("Requesting media with constraints:", constraints);
+    localStreamRef.current = await navigator.mediaDevices.getUserMedia(constraints);
+    console.log("Got local stream:", localStreamRef.current);
+    if (localVideoRef.current && callType === "video") {
+      localVideoRef.current.srcObject = localStreamRef.current;
+      console.log("Set local video stream");
+    }
+    localStreamRef.current.getTracks().forEach((track) => {
+      if (peerConnectionRef.current) {
+        peerConnectionRef.current.addTrack(track, localStreamRef.current!);
+        console.log("Added track to peer connection:", track);
+      }
+    });
+
+    console.log("Setting remote description with offer:", incomingCall.offer);
+    await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(incomingCall.offer));
+    console.log("Creating answer");
+    const answer = await peerConnectionRef.current.createAnswer();
+    console.log("Setting local description with answer:", answer);
+    await peerConnectionRef.current.setLocalDescription(answer);
+    console.log("Emitting answer to conversation:", incomingCall.conversationId);
+    socket.emit("answer", { conversationId: incomingCall.conversationId, answer });
+    setIncomingCall(null);
+    toast.success("Call accepted");
+  } catch (err:any) {
+    console.error("Error accepting call:", err);
+    toast.error(`Failed to accept call: ${err.message}`);
+    endCall();
+  }
+};
+
+const rejectCall = () => {
+  if (incomingCall && socket) {
+    socket.emit("reject-call", { conversationId: incomingCall.conversationId });
+  }
+  setIncomingCall(null);
+};
   // Calculer le nombre de messages non lus
   const getUnreadMessagesCount = () => {
     if (!user?.id) return 0;
@@ -156,59 +266,68 @@ export default function Chats() {
     });
     setSocket(newSocket);
 
-    newSocket.on("connect", () => console.log("Connected to Socket.IO server"));
-    newSocket.on("error", (error) => {
-      console.error("Socket error:", error);
-      toast.error("Socket error occurred");
-    });
-   newSocket.on("connect_error", (err) => {
-  console.error("Socket connection error:", err);
-  toast.error("Failed to connect to chat server. Please try again later.");
-});
-   newSocket.on("receive-message", (message: Message) => {
-  if (message.conversation === selectedConversation?._id) {
-    setMessages((prev) => {
-      if (prev.some((m) => m._id === message._id)) return prev; // Éviter les doublons
-      return [...prev, message];
-    });
-  }
-  // Mise à jour des conversations
-  setConversations((prev) =>
-    prev.map((conv) =>
-      conv._id === message.conversation
-        ? {
-            ...conv,
-            lastMessage: {
-              content: message.message || (message.attachments.length ? "[Attachment]" : ""),
-              sender: message.sender._id,
-              timestamp: message.createdAt,
-            },
-          }
-        : conv
-    )
-  );
-});
+   newSocket.on("connect", () => {
+    console.log("Connected to Socket.IO server");
+    if (user?.id) {
+      newSocket.emit("register-user", user.id); // Associer le socket à l'userId
+      console.log(`Emitted register-user for user ${user.id}`);
+    }
+  });
+
+  newSocket.on("error", (error) => {
+    console.error("Socket error:", error);
+    toast.error("Socket error occurred");
+  });
+
+  newSocket.on("connect_error", (err) => {
+    console.error("Socket connection error:", err);
+    toast.error("Failed to connect to chat server. Please try again later.");
+  });
+ // Gestion des messages (votre code existant)
+  newSocket.on("receive-message", (message: Message) => {
+    if (message.conversation === selectedConversation?._id) {
+      setMessages((prev) => {
+        if (prev.some((m) => m._id === message._id)) return prev;
+        return [...prev, message];
+      });
+    }
+    setConversations((prev) =>
+      prev.map((conv) =>
+        conv._id === message.conversation
+          ? {
+              ...conv,
+              lastMessage: {
+                content: message.message || (message.attachments.length ? "[Attachment]" : ""),
+                sender: message.sender._id,
+                timestamp: message.createdAt,
+              },
+            }
+          : conv
+      )
+    );
+  });
     newSocket.on("delete-message", (messageId: string) => {
-      setMessages((prev) => prev.filter((msg) => msg._id !== messageId));
-    });
-    newSocket.on("last-message-updated", ({ conversationId, lastMessage }) => {
-      setConversations((prev) =>
-        prev.map((conv) =>
-          conv._id === conversationId
-            ? { ...conv, lastMessage: lastMessage || undefined }
-            : conv
-        )
-      );
-    });
-   newSocket.on("conversation-deleted", (conversationId: string) => {
-  setConversations((prev) => prev.filter((conv) => conv._id !== conversationId));
-  setFilteredChatList((prev) => prev.filter((conv) => conv._id !== conversationId));
-  if (selectedConversation?._id === conversationId || mobileSelectedConversation?._id === conversationId) {
-    setSelectedConversation(null);
-    setMobileSelectedConversation(null);
-    setMessages([]);
-  }
-});
+    setMessages((prev) => prev.filter((msg) => msg._id !== messageId));
+  });
+
+  newSocket.on("last-message-updated", ({ conversationId, lastMessage }) => {
+    setConversations((prev) =>
+      prev.map((conv) =>
+        conv._id === conversationId
+          ? { ...conv, lastMessage: lastMessage || undefined }
+          : conv
+      )
+    );
+  });
+ newSocket.on("conversation-deleted", (conversationId: string) => {
+    setConversations((prev) => prev.filter((conv) => conv._id !== conversationId));
+    setFilteredChatList((prev) => prev.filter((conv) => conv._id !== conversationId));
+    if (selectedConversation?._id === conversationId || mobileSelectedConversation?._id === conversationId) {
+      setSelectedConversation(null);
+      setMobileSelectedConversation(null);
+      setMessages([]);
+    }
+  });
 
     return () => {
       newSocket.off("receive-message");
@@ -217,8 +336,7 @@ export default function Chats() {
       newSocket.off("conversation-deleted");
       newSocket.disconnect();
     };
-  }, [selectedConversation]);
-
+}, [selectedConversation, user?.id]);
   // Rejoindre une conversation et gérer WebRTC
   useEffect(() => {
     if (!selectedConversation || !socket) return;
@@ -266,65 +384,69 @@ export default function Chats() {
 
   // Démarrer un appel
   const startCall = async (type: "phone" | "video") => {
-    if (!selectedConversation || !socket) {
-      toast.error("No conversation selected or socket not connected");
-      return;
+  if (!selectedConversation || !socket || !user?.id) {
+    toast.error("No conversation selected or socket not connected");
+    return;
+  }
+
+  setCallType(type);
+  setIsCallActive(true);
+
+  const configuration = {
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+  };
+
+  peerConnectionRef.current = new RTCPeerConnection(configuration);
+
+   try {
+    const constraints = { audio: true, video: type === "video" };
+    localStreamRef.current = await navigator.mediaDevices.getUserMedia(constraints);
+    if (localVideoRef.current && type === "video") {
+      localVideoRef.current.srcObject = localStreamRef.current;
     }
-
-    setCallType(type);
-    setIsCallActive(true);
-
-    const configuration = {
-      iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
-    };
-
-    peerConnectionRef.current = new RTCPeerConnection(configuration);
-
-    try {
-      const constraints = { audio: true, video: type === "video" };
-      localStreamRef.current = await navigator.mediaDevices.getUserMedia(constraints);
-      if (localVideoRef.current && type === "video") {
-        localVideoRef.current.srcObject = localStreamRef.current;
+    localStreamRef.current.getTracks().forEach((track) => {
+      if (peerConnectionRef.current) {
+        peerConnectionRef.current.addTrack(track, localStreamRef.current!);
       }
-      localStreamRef.current.getTracks().forEach((track) => {
-        if (peerConnectionRef.current) {
-          peerConnectionRef.current.addTrack(track, localStreamRef.current!);
-        }
-      });
-    } catch (err) {
-      console.error("Media error:", err);
-      toast.error("Failed to access microphone or camera");
-      endCall();
-      return;
-    }
+    });
+  } catch (err) {
+    console.error("Media error:", err);
+    toast.error("Failed to access microphone or camera");
+    endCall();
+    return;
+  }
 
-    peerConnectionRef.current.ontrack = (event) => {
-      remoteStreamRef.current = event.streams[0];
-      if (remoteVideoRef.current) {
-        remoteVideoRef.current.srcObject = remoteStreamRef.current;
-      }
-    };
-
-    peerConnectionRef.current.onicecandidate = (event) => {
-      if (event.candidate) {
-        socket.emit("ice-candidate", {
-          conversationId: selectedConversation._id,
-          candidate: event.candidate,
-        });
-      }
-    };
-
-    try {
-      const offer = await peerConnectionRef.current.createOffer();
-      await peerConnectionRef.current.setLocalDescription(offer);
-      socket.emit("offer", { conversationId: selectedConversation._id, offer });
-    } catch (err) {
-      console.error("Error creating offer:", err);
-      toast.error("Failed to initiate call");
-      endCall();
+  peerConnectionRef.current.ontrack = (event) => {
+    remoteStreamRef.current = event.streams[0];
+    if (remoteVideoRef.current) {
+      remoteVideoRef.current.srcObject = remoteStreamRef.current;
     }
   };
 
+  peerConnectionRef.current.onicecandidate = (event) => {
+    if (event.candidate) {
+      socket.emit("ice-candidate", {
+        conversationId: selectedConversation._id,
+        candidate: event.candidate,
+      });
+    }
+  };
+
+  try {
+    const offer = await peerConnectionRef.current.createOffer();
+    await peerConnectionRef.current.setLocalDescription(offer);
+    socket.emit("offer", {
+      conversationId: selectedConversation._id,
+      offer,
+      callerId: user.id,
+    });
+    console.log(`Emitted offer for conversation ${selectedConversation._id} from ${user.id}`);
+  } catch (err) {
+    console.error("Error creating offer:", err);
+    toast.error("Failed to initiate call");
+    endCall();
+  }
+};
   const endCall = () => {
     if (peerConnectionRef.current) {
       peerConnectionRef.current.close();
@@ -1694,6 +1816,26 @@ const handleToggleArchive = async (conversationId: string, isArchived: boolean) 
             </div>
           </DialogContent>
         </Dialog>
+        {/* Dialog for incoming call */}
+<Dialog open={!!incomingCall} onOpenChange={rejectCall}>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Incoming Call</DialogTitle>
+    </DialogHeader>
+    <div className="space-y-4">
+      <p>
+        Incoming {callType === "video" ? "video" : "phone"} call from{" "}
+        {users.find((u) => u._id === incomingCall?.callerId)?.name || "Unknown"}
+      </p>
+      <div className="flex justify-end gap-3">
+        <Button variant="destructive" onClick={rejectCall}>
+          Reject
+        </Button>
+        <Button onClick={acceptCall}>Accept</Button>
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
       </Main>
     </>
   );

@@ -109,6 +109,7 @@ if (!rootElement.innerHTML) {
         <AuthProvider>
           <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
             <FontProvider>
+             
               <SidebarProvider> {/* Add SidebarProvider */}
                 <AuthLoading>
                   <SavedCoursesProvider>
