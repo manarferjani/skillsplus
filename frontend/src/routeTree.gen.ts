@@ -15,10 +15,16 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedJwtdecoderImport } from './routes/_authenticated/jwtdecoder'
 import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as auth500Import } from './routes/(auth)/500'
+import { Route as AuthenticatedUserProfileUserIdImport } from './routes/_authenticated/userProfile/$userId'
+import { Route as AuthenticatedTestInterfaceTestIdImport } from './routes/_authenticated/testInterface/$testId'
+import { Route as AuthenticatedEditTestTestIdImport } from './routes/_authenticated/editTest/$testId'
 import { Route as AuthenticatedCoursesHtmlcssintermediairesImport } from './routes/_authenticated/courses/htmlcssintermediaires'
+import { Route as AuthenticatedCollaboratorHistoryUserIdImport } from './routes/_authenticated/collaboratorHistory/$userId'
+import { Route as AuthenticatedReportsTestIdCollaboratorIdImport } from './routes/_authenticated/reports/$testId/$collaboratorId'
 
 // Create Virtual Routes
 
@@ -38,11 +44,11 @@ const AuthenticatedSettingsRouteLazyImport = createFileRoute(
 const AuthenticatedUsersIndexLazyImport = createFileRoute(
   '/_authenticated/users/',
 )()
-const AuthenticatedUserProfileIndexLazyImport = createFileRoute(
-  '/_authenticated/userProfile/',
-)()
 const AuthenticatedTestsIndexLazyImport = createFileRoute(
   '/_authenticated/tests/',
+)()
+const AuthenticatedTestHistoryIndexLazyImport = createFileRoute(
+  '/_authenticated/testHistory/',
 )()
 const AuthenticatedTasksIndexLazyImport = createFileRoute(
   '/_authenticated/tasks/',
@@ -55,6 +61,12 @@ const AuthenticatedPinboardIndexLazyImport = createFileRoute(
 )()
 const AuthenticatedHelpCenterIndexLazyImport = createFileRoute(
   '/_authenticated/help-center/',
+)()
+const AuthenticatedDashboardManagerIndexLazyImport = createFileRoute(
+  '/_authenticated/dashboard-manager/',
+)()
+const AuthenticatedCreateTestsIndexLazyImport = createFileRoute(
+  '/_authenticated/createTests/',
 )()
 const AuthenticatedCoursesIndexLazyImport = createFileRoute(
   '/_authenticated/courses/',
@@ -286,6 +298,7 @@ const AuthenticatedRouteRoute = AuthenticatedRouteImport.update({
 const AuthenticatedIndexRoute = AuthenticatedIndexImport.update({
   id: '/',
   path: '/',
+  component: () => null,
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
@@ -364,6 +377,12 @@ const AuthenticatedSettingsRouteLazyRoute =
     import('./routes/_authenticated/settings/route.lazy').then((d) => d.Route),
   )
 
+const AuthenticatedJwtdecoderRoute = AuthenticatedJwtdecoderImport.update({
+  id: '/jwtdecoder',
+  path: '/jwtdecoder',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+
 const authSignInRoute = authSignInImport.update({
   id: '/(auth)/sign-in',
   path: '/sign-in',
@@ -391,17 +410,6 @@ const AuthenticatedUsersIndexLazyRoute =
     import('./routes/_authenticated/users/index.lazy').then((d) => d.Route),
   )
 
-const AuthenticatedUserProfileIndexLazyRoute =
-  AuthenticatedUserProfileIndexLazyImport.update({
-    id: '/userProfile/',
-    path: '/userProfile/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/_authenticated/userProfile/index.lazy').then(
-      (d) => d.Route,
-    ),
-  )
-
 const AuthenticatedTestsIndexLazyRoute =
   AuthenticatedTestsIndexLazyImport.update({
     id: '/tests/',
@@ -409,6 +417,17 @@ const AuthenticatedTestsIndexLazyRoute =
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
     import('./routes/_authenticated/tests/index.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedTestHistoryIndexLazyRoute =
+  AuthenticatedTestHistoryIndexLazyImport.update({
+    id: '/testHistory/',
+    path: '/testHistory/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/testHistory/index.lazy').then(
+      (d) => d.Route,
+    ),
   )
 
 const AuthenticatedTasksIndexLazyRoute =
@@ -445,6 +464,28 @@ const AuthenticatedHelpCenterIndexLazyRoute =
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
     import('./routes/_authenticated/help-center/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedDashboardManagerIndexLazyRoute =
+  AuthenticatedDashboardManagerIndexLazyImport.update({
+    id: '/dashboard-manager/',
+    path: '/dashboard-manager/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/dashboard-manager/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthenticatedCreateTestsIndexLazyRoute =
+  AuthenticatedCreateTestsIndexLazyImport.update({
+    id: '/createTests/',
+    path: '/createTests/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/createTests/index.lazy').then(
       (d) => d.Route,
     ),
   )
@@ -1217,10 +1258,45 @@ const AuthenticatedCoursesAngularLazyRoute =
     import('./routes/_authenticated/courses/angular.lazy').then((d) => d.Route),
   )
 
+const AuthenticatedUserProfileUserIdRoute =
+  AuthenticatedUserProfileUserIdImport.update({
+    id: '/userProfile/$userId',
+    path: '/userProfile/$userId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedTestInterfaceTestIdRoute =
+  AuthenticatedTestInterfaceTestIdImport.update({
+    id: '/testInterface/$testId',
+    path: '/testInterface/$testId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedEditTestTestIdRoute =
+  AuthenticatedEditTestTestIdImport.update({
+    id: '/editTest/$testId',
+    path: '/editTest/$testId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
 const AuthenticatedCoursesHtmlcssintermediairesRoute =
   AuthenticatedCoursesHtmlcssintermediairesImport.update({
     id: '/courses/htmlcssintermediaires',
     path: '/courses/htmlcssintermediaires',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedCollaboratorHistoryUserIdRoute =
+  AuthenticatedCollaboratorHistoryUserIdImport.update({
+    id: '/collaboratorHistory/$userId',
+    path: '/collaboratorHistory/$userId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+
+const AuthenticatedReportsTestIdCollaboratorIdRoute =
+  AuthenticatedReportsTestIdCollaboratorIdImport.update({
+    id: '/reports/$testId/$collaboratorId',
+    path: '/reports/$testId/$collaboratorId',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
@@ -1255,6 +1331,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/sign-in'
       preLoaderRoute: typeof authSignInImport
       parentRoute: typeof rootRoute
+    }
+    '/_authenticated/jwtdecoder': {
+      id: '/_authenticated/jwtdecoder'
+      path: '/jwtdecoder'
+      fullPath: '/jwtdecoder'
+      preLoaderRoute: typeof AuthenticatedJwtdecoderImport
+      parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/settings': {
       id: '/_authenticated/settings'
@@ -1326,11 +1409,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedIndexImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/collaboratorHistory/$userId': {
+      id: '/_authenticated/collaboratorHistory/$userId'
+      path: '/collaboratorHistory/$userId'
+      fullPath: '/collaboratorHistory/$userId'
+      preLoaderRoute: typeof AuthenticatedCollaboratorHistoryUserIdImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/courses/htmlcssintermediaires': {
       id: '/_authenticated/courses/htmlcssintermediaires'
       path: '/courses/htmlcssintermediaires'
       fullPath: '/courses/htmlcssintermediaires'
       preLoaderRoute: typeof AuthenticatedCoursesHtmlcssintermediairesImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/editTest/$testId': {
+      id: '/_authenticated/editTest/$testId'
+      path: '/editTest/$testId'
+      fullPath: '/editTest/$testId'
+      preLoaderRoute: typeof AuthenticatedEditTestTestIdImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/testInterface/$testId': {
+      id: '/_authenticated/testInterface/$testId'
+      path: '/testInterface/$testId'
+      fullPath: '/testInterface/$testId'
+      preLoaderRoute: typeof AuthenticatedTestInterfaceTestIdImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/userProfile/$userId': {
+      id: '/_authenticated/userProfile/$userId'
+      path: '/userProfile/$userId'
+      fullPath: '/userProfile/$userId'
+      preLoaderRoute: typeof AuthenticatedUserProfileUserIdImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/courses/angular': {
@@ -1844,6 +1955,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCoursesIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/createTests/': {
+      id: '/_authenticated/createTests/'
+      path: '/createTests'
+      fullPath: '/createTests'
+      preLoaderRoute: typeof AuthenticatedCreateTestsIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/dashboard-manager/': {
+      id: '/_authenticated/dashboard-manager/'
+      path: '/dashboard-manager'
+      fullPath: '/dashboard-manager'
+      preLoaderRoute: typeof AuthenticatedDashboardManagerIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/help-center/': {
       id: '/_authenticated/help-center/'
       path: '/help-center'
@@ -1872,6 +1997,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTasksIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/testHistory/': {
+      id: '/_authenticated/testHistory/'
+      path: '/testHistory'
+      fullPath: '/testHistory'
+      preLoaderRoute: typeof AuthenticatedTestHistoryIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/tests/': {
       id: '/_authenticated/tests/'
       path: '/tests'
@@ -1879,18 +2011,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTestsIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
-    '/_authenticated/userProfile/': {
-      id: '/_authenticated/userProfile/'
-      path: '/userProfile'
-      fullPath: '/userProfile'
-      preLoaderRoute: typeof AuthenticatedUserProfileIndexLazyImport
-      parentRoute: typeof AuthenticatedRouteImport
-    }
     '/_authenticated/users/': {
       id: '/_authenticated/users/'
       path: '/users'
       fullPath: '/users'
       preLoaderRoute: typeof AuthenticatedUsersIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/reports/$testId/$collaboratorId': {
+      id: '/_authenticated/reports/$testId/$collaboratorId'
+      path: '/reports/$testId/$collaboratorId'
+      fullPath: '/reports/$testId/$collaboratorId'
+      preLoaderRoute: typeof AuthenticatedReportsTestIdCollaboratorIdImport
       parentRoute: typeof AuthenticatedRouteImport
     }
   }
@@ -1925,9 +2057,14 @@ const AuthenticatedSettingsRouteLazyRouteWithChildren =
   )
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedJwtdecoderRoute: typeof AuthenticatedJwtdecoderRoute
   AuthenticatedSettingsRouteLazyRoute: typeof AuthenticatedSettingsRouteLazyRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedCollaboratorHistoryUserIdRoute: typeof AuthenticatedCollaboratorHistoryUserIdRoute
   AuthenticatedCoursesHtmlcssintermediairesRoute: typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  AuthenticatedEditTestTestIdRoute: typeof AuthenticatedEditTestTestIdRoute
+  AuthenticatedTestInterfaceTestIdRoute: typeof AuthenticatedTestInterfaceTestIdRoute
+  AuthenticatedUserProfileUserIdRoute: typeof AuthenticatedUserProfileUserIdRoute
   AuthenticatedCoursesAngularLazyRoute: typeof AuthenticatedCoursesAngularLazyRoute
   AuthenticatedCoursesAngularadvancedLazyRoute: typeof AuthenticatedCoursesAngularadvancedLazyRoute
   AuthenticatedCoursesAngulardebutanteLazyRoute: typeof AuthenticatedCoursesAngulardebutanteLazyRoute
@@ -1997,20 +2134,29 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedChallengesIndexLazyRoute: typeof AuthenticatedChallengesIndexLazyRoute
   AuthenticatedChatsIndexLazyRoute: typeof AuthenticatedChatsIndexLazyRoute
   AuthenticatedCoursesIndexLazyRoute: typeof AuthenticatedCoursesIndexLazyRoute
+  AuthenticatedCreateTestsIndexLazyRoute: typeof AuthenticatedCreateTestsIndexLazyRoute
+  AuthenticatedDashboardManagerIndexLazyRoute: typeof AuthenticatedDashboardManagerIndexLazyRoute
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
   AuthenticatedPinboardIndexLazyRoute: typeof AuthenticatedPinboardIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
+  AuthenticatedTestHistoryIndexLazyRoute: typeof AuthenticatedTestHistoryIndexLazyRoute
   AuthenticatedTestsIndexLazyRoute: typeof AuthenticatedTestsIndexLazyRoute
-  AuthenticatedUserProfileIndexLazyRoute: typeof AuthenticatedUserProfileIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
+  AuthenticatedReportsTestIdCollaboratorIdRoute: typeof AuthenticatedReportsTestIdCollaboratorIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedJwtdecoderRoute: AuthenticatedJwtdecoderRoute,
   AuthenticatedSettingsRouteLazyRoute:
     AuthenticatedSettingsRouteLazyRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedCollaboratorHistoryUserIdRoute:
+    AuthenticatedCollaboratorHistoryUserIdRoute,
   AuthenticatedCoursesHtmlcssintermediairesRoute:
     AuthenticatedCoursesHtmlcssintermediairesRoute,
+  AuthenticatedEditTestTestIdRoute: AuthenticatedEditTestTestIdRoute,
+  AuthenticatedTestInterfaceTestIdRoute: AuthenticatedTestInterfaceTestIdRoute,
+  AuthenticatedUserProfileUserIdRoute: AuthenticatedUserProfileUserIdRoute,
   AuthenticatedCoursesAngularLazyRoute: AuthenticatedCoursesAngularLazyRoute,
   AuthenticatedCoursesAngularadvancedLazyRoute:
     AuthenticatedCoursesAngularadvancedLazyRoute,
@@ -2129,13 +2275,19 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedChallengesIndexLazyRoute: AuthenticatedChallengesIndexLazyRoute,
   AuthenticatedChatsIndexLazyRoute: AuthenticatedChatsIndexLazyRoute,
   AuthenticatedCoursesIndexLazyRoute: AuthenticatedCoursesIndexLazyRoute,
+  AuthenticatedCreateTestsIndexLazyRoute:
+    AuthenticatedCreateTestsIndexLazyRoute,
+  AuthenticatedDashboardManagerIndexLazyRoute:
+    AuthenticatedDashboardManagerIndexLazyRoute,
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
   AuthenticatedPinboardIndexLazyRoute: AuthenticatedPinboardIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
+  AuthenticatedTestHistoryIndexLazyRoute:
+    AuthenticatedTestHistoryIndexLazyRoute,
   AuthenticatedTestsIndexLazyRoute: AuthenticatedTestsIndexLazyRoute,
-  AuthenticatedUserProfileIndexLazyRoute:
-    AuthenticatedUserProfileIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
+  AuthenticatedReportsTestIdCollaboratorIdRoute:
+    AuthenticatedReportsTestIdCollaboratorIdRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -2146,6 +2298,7 @@ export interface FileRoutesByFullPath {
   '/500': typeof errors500LazyRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/jwtdecoder': typeof AuthenticatedJwtdecoderRoute
   '/settings': typeof AuthenticatedSettingsRouteLazyRouteWithChildren
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
@@ -2155,7 +2308,11 @@ export interface FileRoutesByFullPath {
   '/404': typeof errors404LazyRoute
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
+  '/collaboratorHistory/$userId': typeof AuthenticatedCollaboratorHistoryUserIdRoute
   '/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/editTest/$testId': typeof AuthenticatedEditTestTestIdRoute
+  '/testInterface/$testId': typeof AuthenticatedTestInterfaceTestIdRoute
+  '/userProfile/$userId': typeof AuthenticatedUserProfileUserIdRoute
   '/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
   '/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
   '/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
@@ -2229,19 +2386,23 @@ export interface FileRoutesByFullPath {
   '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
   '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/courses': typeof AuthenticatedCoursesIndexLazyRoute
+  '/createTests': typeof AuthenticatedCreateTestsIndexLazyRoute
+  '/dashboard-manager': typeof AuthenticatedDashboardManagerIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/pinboard': typeof AuthenticatedPinboardIndexLazyRoute
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/testHistory': typeof AuthenticatedTestHistoryIndexLazyRoute
   '/tests': typeof AuthenticatedTestsIndexLazyRoute
-  '/userProfile': typeof AuthenticatedUserProfileIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/reports/$testId/$collaboratorId': typeof AuthenticatedReportsTestIdCollaboratorIdRoute
 }
 
 export interface FileRoutesByTo {
   '/500': typeof errors500LazyRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/jwtdecoder': typeof AuthenticatedJwtdecoderRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
   '/sign-up': typeof authSignUpLazyRoute
@@ -2250,7 +2411,11 @@ export interface FileRoutesByTo {
   '/404': typeof errors404LazyRoute
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
+  '/collaboratorHistory/$userId': typeof AuthenticatedCollaboratorHistoryUserIdRoute
   '/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/editTest/$testId': typeof AuthenticatedEditTestTestIdRoute
+  '/testInterface/$testId': typeof AuthenticatedTestInterfaceTestIdRoute
+  '/userProfile/$userId': typeof AuthenticatedUserProfileUserIdRoute
   '/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
   '/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
   '/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
@@ -2324,13 +2489,16 @@ export interface FileRoutesByTo {
   '/challenges': typeof AuthenticatedChallengesIndexLazyRoute
   '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/courses': typeof AuthenticatedCoursesIndexLazyRoute
+  '/createTests': typeof AuthenticatedCreateTestsIndexLazyRoute
+  '/dashboard-manager': typeof AuthenticatedDashboardManagerIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/pinboard': typeof AuthenticatedPinboardIndexLazyRoute
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/testHistory': typeof AuthenticatedTestHistoryIndexLazyRoute
   '/tests': typeof AuthenticatedTestsIndexLazyRoute
-  '/userProfile': typeof AuthenticatedUserProfileIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
+  '/reports/$testId/$collaboratorId': typeof AuthenticatedReportsTestIdCollaboratorIdRoute
 }
 
 export interface FileRoutesById {
@@ -2339,6 +2507,7 @@ export interface FileRoutesById {
   '/(auth)/500': typeof auth500Route
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
+  '/_authenticated/jwtdecoder': typeof AuthenticatedJwtdecoderRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRouteLazyRouteWithChildren
   '/(auth)/forgot-password': typeof authForgotPasswordLazyRoute
   '/(auth)/sign-in-2': typeof authSignIn2LazyRoute
@@ -2349,7 +2518,11 @@ export interface FileRoutesById {
   '/(errors)/500': typeof errors500LazyRoute
   '/(errors)/503': typeof errors503LazyRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/_authenticated/collaboratorHistory/$userId': typeof AuthenticatedCollaboratorHistoryUserIdRoute
   '/_authenticated/courses/htmlcssintermediaires': typeof AuthenticatedCoursesHtmlcssintermediairesRoute
+  '/_authenticated/editTest/$testId': typeof AuthenticatedEditTestTestIdRoute
+  '/_authenticated/testInterface/$testId': typeof AuthenticatedTestInterfaceTestIdRoute
+  '/_authenticated/userProfile/$userId': typeof AuthenticatedUserProfileUserIdRoute
   '/_authenticated/courses/angular': typeof AuthenticatedCoursesAngularLazyRoute
   '/_authenticated/courses/angularadvanced': typeof AuthenticatedCoursesAngularadvancedLazyRoute
   '/_authenticated/courses/angulardebutante': typeof AuthenticatedCoursesAngulardebutanteLazyRoute
@@ -2423,13 +2596,16 @@ export interface FileRoutesById {
   '/_authenticated/challenges/': typeof AuthenticatedChallengesIndexLazyRoute
   '/_authenticated/chats/': typeof AuthenticatedChatsIndexLazyRoute
   '/_authenticated/courses/': typeof AuthenticatedCoursesIndexLazyRoute
+  '/_authenticated/createTests/': typeof AuthenticatedCreateTestsIndexLazyRoute
+  '/_authenticated/dashboard-manager/': typeof AuthenticatedDashboardManagerIndexLazyRoute
   '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexLazyRoute
   '/_authenticated/pinboard/': typeof AuthenticatedPinboardIndexLazyRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
+  '/_authenticated/testHistory/': typeof AuthenticatedTestHistoryIndexLazyRoute
   '/_authenticated/tests/': typeof AuthenticatedTestsIndexLazyRoute
-  '/_authenticated/userProfile/': typeof AuthenticatedUserProfileIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
+  '/_authenticated/reports/$testId/$collaboratorId': typeof AuthenticatedReportsTestIdCollaboratorIdRoute
 }
 
 export interface FileRouteTypes {
@@ -2439,6 +2615,7 @@ export interface FileRouteTypes {
     | '/500'
     | '/otp'
     | '/sign-in'
+    | '/jwtdecoder'
     | '/settings'
     | '/forgot-password'
     | '/sign-in-2'
@@ -2448,7 +2625,11 @@ export interface FileRouteTypes {
     | '/404'
     | '/503'
     | '/'
+    | '/collaboratorHistory/$userId'
     | '/courses/htmlcssintermediaires'
+    | '/editTest/$testId'
+    | '/testInterface/$testId'
+    | '/userProfile/$userId'
     | '/courses/angular'
     | '/courses/angularadvanced'
     | '/courses/angulardebutante'
@@ -2522,18 +2703,22 @@ export interface FileRouteTypes {
     | '/challenges'
     | '/chats'
     | '/courses'
+    | '/createTests'
+    | '/dashboard-manager'
     | '/help-center'
     | '/pinboard'
     | '/settings/'
     | '/tasks'
+    | '/testHistory'
     | '/tests'
-    | '/userProfile'
     | '/users'
+    | '/reports/$testId/$collaboratorId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/500'
     | '/otp'
     | '/sign-in'
+    | '/jwtdecoder'
     | '/forgot-password'
     | '/sign-in-2'
     | '/sign-up'
@@ -2542,7 +2727,11 @@ export interface FileRouteTypes {
     | '/404'
     | '/503'
     | '/'
+    | '/collaboratorHistory/$userId'
     | '/courses/htmlcssintermediaires'
+    | '/editTest/$testId'
+    | '/testInterface/$testId'
+    | '/userProfile/$userId'
     | '/courses/angular'
     | '/courses/angularadvanced'
     | '/courses/angulardebutante'
@@ -2616,19 +2805,23 @@ export interface FileRouteTypes {
     | '/challenges'
     | '/chats'
     | '/courses'
+    | '/createTests'
+    | '/dashboard-manager'
     | '/help-center'
     | '/pinboard'
     | '/settings'
     | '/tasks'
+    | '/testHistory'
     | '/tests'
-    | '/userProfile'
     | '/users'
+    | '/reports/$testId/$collaboratorId'
   id:
     | '__root__'
     | '/_authenticated'
     | '/(auth)/500'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
+    | '/_authenticated/jwtdecoder'
     | '/_authenticated/settings'
     | '/(auth)/forgot-password'
     | '/(auth)/sign-in-2'
@@ -2639,7 +2832,11 @@ export interface FileRouteTypes {
     | '/(errors)/500'
     | '/(errors)/503'
     | '/_authenticated/'
+    | '/_authenticated/collaboratorHistory/$userId'
     | '/_authenticated/courses/htmlcssintermediaires'
+    | '/_authenticated/editTest/$testId'
+    | '/_authenticated/testInterface/$testId'
+    | '/_authenticated/userProfile/$userId'
     | '/_authenticated/courses/angular'
     | '/_authenticated/courses/angularadvanced'
     | '/_authenticated/courses/angulardebutante'
@@ -2713,13 +2910,16 @@ export interface FileRouteTypes {
     | '/_authenticated/challenges/'
     | '/_authenticated/chats/'
     | '/_authenticated/courses/'
+    | '/_authenticated/createTests/'
+    | '/_authenticated/dashboard-manager/'
     | '/_authenticated/help-center/'
     | '/_authenticated/pinboard/'
     | '/_authenticated/settings/'
     | '/_authenticated/tasks/'
+    | '/_authenticated/testHistory/'
     | '/_authenticated/tests/'
-    | '/_authenticated/userProfile/'
     | '/_authenticated/users/'
+    | '/_authenticated/reports/$testId/$collaboratorId'
   fileRoutesById: FileRoutesById
 }
 
@@ -2780,9 +2980,14 @@ export const routeTree = rootRoute
     "/_authenticated": {
       "filePath": "_authenticated/route.tsx",
       "children": [
+        "/_authenticated/jwtdecoder",
         "/_authenticated/settings",
         "/_authenticated/",
+        "/_authenticated/collaboratorHistory/$userId",
         "/_authenticated/courses/htmlcssintermediaires",
+        "/_authenticated/editTest/$testId",
+        "/_authenticated/testInterface/$testId",
+        "/_authenticated/userProfile/$userId",
         "/_authenticated/courses/angular",
         "/_authenticated/courses/angularadvanced",
         "/_authenticated/courses/angulardebutante",
@@ -2852,12 +3057,15 @@ export const routeTree = rootRoute
         "/_authenticated/challenges/",
         "/_authenticated/chats/",
         "/_authenticated/courses/",
+        "/_authenticated/createTests/",
+        "/_authenticated/dashboard-manager/",
         "/_authenticated/help-center/",
         "/_authenticated/pinboard/",
         "/_authenticated/tasks/",
+        "/_authenticated/testHistory/",
         "/_authenticated/tests/",
-        "/_authenticated/userProfile/",
-        "/_authenticated/users/"
+        "/_authenticated/users/",
+        "/_authenticated/reports/$testId/$collaboratorId"
       ]
     },
     "/(auth)/500": {
@@ -2868,6 +3076,10 @@ export const routeTree = rootRoute
     },
     "/(auth)/sign-in": {
       "filePath": "(auth)/sign-in.tsx"
+    },
+    "/_authenticated/jwtdecoder": {
+      "filePath": "_authenticated/jwtdecoder.tsx",
+      "parent": "/_authenticated"
     },
     "/_authenticated/settings": {
       "filePath": "_authenticated/settings/route.lazy.tsx",
@@ -2908,8 +3120,24 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/index.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/collaboratorHistory/$userId": {
+      "filePath": "_authenticated/collaboratorHistory/$userId.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/courses/htmlcssintermediaires": {
       "filePath": "_authenticated/courses/htmlcssintermediaires.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/editTest/$testId": {
+      "filePath": "_authenticated/editTest/$testId.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/testInterface/$testId": {
+      "filePath": "_authenticated/testInterface/$testId.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/userProfile/$userId": {
+      "filePath": "_authenticated/userProfile/$userId.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/courses/angular": {
@@ -3204,6 +3432,14 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/courses/index.lazy.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/createTests/": {
+      "filePath": "_authenticated/createTests/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/dashboard-manager/": {
+      "filePath": "_authenticated/dashboard-manager/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/help-center/": {
       "filePath": "_authenticated/help-center/index.lazy.tsx",
       "parent": "/_authenticated"
@@ -3220,16 +3456,20 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/tasks/index.lazy.tsx",
       "parent": "/_authenticated"
     },
+    "/_authenticated/testHistory/": {
+      "filePath": "_authenticated/testHistory/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
     "/_authenticated/tests/": {
       "filePath": "_authenticated/tests/index.lazy.tsx",
       "parent": "/_authenticated"
     },
-    "/_authenticated/userProfile/": {
-      "filePath": "_authenticated/userProfile/index.lazy.tsx",
-      "parent": "/_authenticated"
-    },
     "/_authenticated/users/": {
       "filePath": "_authenticated/users/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/reports/$testId/$collaboratorId": {
+      "filePath": "_authenticated/reports/$testId/$collaboratorId.tsx",
       "parent": "/_authenticated"
     }
   }

@@ -7,10 +7,13 @@ export interface FormattedParticipation {
 }
 
 export interface TestRecord {
+  status: string;
   id: string;
   title: string;
+  level:string;
   technologie: string;
   duration: number;
+  TestMaxScore: number;
   scheduledDate: Date | null;
   averageScore: number;
   averageSuccessRate: number;
@@ -22,4 +25,18 @@ export interface TimeSpentRadialProps {
   maxTime: number;                 // Temps maximum de référence pour le test
   collaborateurFilter: string;     // Valeur du filtre collaborateur passée en prop
   technologieFilter: string;       // Valeur du filtre technologie passée en prop
+}
+export interface ScheduledTest {
+  _id: string;
+  title: string;
+  scheduledDate: string; // ou Date selon ce que tu envoies
+  joinable: boolean;
+  startTime: string;
+  endTime: string;
+  timeRange: string;
+  duration?: number;
+  technology?: {
+    _id: string;
+    name: string; // Ajoutez cette propriété
+  };
 }

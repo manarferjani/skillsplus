@@ -1,16 +1,20 @@
-import Cookies from 'js-cookie'
 import { create } from 'zustand'
+import Cookies from 'js-cookie'
+import { jwtDecode } from 'jwt-decode'
 
 const ACCESS_TOKEN = 'access_token'
 const REFRESH_TOKEN = 'refresh_token'
+
+
+
 
 interface AuthUser {
   id: string
   name: string
   email: string
-  role: number // 1=admin, 2=manager, 3=collaborator
-  roleName: string
-  clerkId?: string
+  role: string
+  level?: string
+  profileImage?: string
 }
 
 interface AuthState {
@@ -24,7 +28,7 @@ interface AuthState {
     resetAccessToken: () => void
     reset: () => void
     isAuthenticated: () => boolean
-    hasRole: (requiredRole: number) => boolean
+    hasRole: (requiredRole: string) => boolean
     isLoading: boolean
     setIsLoading: (isLoading: boolean) => void
     initialized: boolean
@@ -32,86 +36,116 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>()((set, get) => {
-  // Initialize with a loading state
-  const initializing = true
-
-  // Try to get tokens from cookies
   const cookieToken = Cookies.get(ACCESS_TOKEN)
   const cookieRefreshToken = Cookies.get(REFRESH_TOKEN)
   const initToken = cookieToken || ''
   const initRefreshToken = cookieRefreshToken || ''
+  const decoded = initToken ? jwtDecode(initToken) as any : null
   
-  // Once we've checked cookies, we're initialized
+  
+  
+
   setTimeout(() => {
-    set((state) => ({ 
-      ...state, 
-      auth: { 
-        ...state.auth, 
+    set((state) => ({
+      ...state,
+      auth: {
+        ...state.auth,
         isLoading: false,
         initialized: true
-      } 
+      }
     }))
   }, 0)
   
   return {
     auth: {
-      user: null,
-      isLoading: initializing,
+      user: decoded
+        ? {
+            id: decoded.id,
+            name: decoded.name ?? '',
+            email: decoded.email ?? '',
+            role: decoded.role,
+            level: decoded.level,
+            profileImage: decoded.profileImage,
+          }
+        : null,
+      isLoading: true,
       initialized: false,
       setUser: (user) =>
         set((state) => ({ ...state, auth: { ...state.auth, user } })),
+
       accessToken: initToken,
-      setAccessToken: (accessToken) =>
-        set((state) => {
-          Cookies.set(ACCESS_TOKEN, accessToken, { expires: 1 }) // Expires in 1 day
-          return { ...state, auth: { ...state.auth, accessToken } }
-        }),
-      refreshToken: initRefreshToken,
-      setRefreshToken: (refreshToken) =>
-        set((state) => {
-          Cookies.set(REFRESH_TOKEN, refreshToken, { expires: 7 }) // Expires in 7 days
-          return { ...state, auth: { ...state.auth, refreshToken } }
-        }),
-      resetAccessToken: () =>
-        set((state) => {
-          Cookies.remove(ACCESS_TOKEN)
-          return { ...state, auth: { ...state.auth, accessToken: '' } }
-        }),
-      reset: () =>
-        set((state) => {
-          Cookies.remove(ACCESS_TOKEN)
-          Cookies.remove(REFRESH_TOKEN)
-          return {
-            ...state,
-            auth: { 
-              ...state.auth, 
-              user: null, 
-              accessToken: '', 
-              refreshToken: '' 
-            },
+      setAccessToken: (accessToken) => {
+        console.log("[AuthStore] Nouveau token reçu:", accessToken) 
+        Cookies.set(ACCESS_TOKEN, accessToken, { expires: 1 })
+        const decoded = jwtDecode(accessToken) as any
+        console.log("[AuthStore] Utilisateur décodé:", decoded)
+        set((state) => ({
+          ...state,
+          auth: {
+            ...state.auth,
+            accessToken,
+            user: {
+              id: decoded.id,
+              name: decoded.name ?? '',
+              email: decoded.email ?? '',
+              role: decoded.role,
+              level: decoded.level,
+              profileImage: decoded.profileImage,
+            }
           }
-        }),
+        }))
+      },
+
+      refreshToken: initRefreshToken,
+      setRefreshToken: (refreshToken) => {
+        Cookies.set(REFRESH_TOKEN, refreshToken, { expires: 7 })
+        set((state) => ({
+          ...state,
+          auth: { ...state.auth, refreshToken }
+        }))
+      },
+
+      resetAccessToken: () => {
+        Cookies.remove(ACCESS_TOKEN)
+        set((state) => ({
+          ...state,
+          auth: { ...state.auth, accessToken: '' }
+        }))
+      },
+
+      reset: () => {
+        Cookies.remove(ACCESS_TOKEN)
+        Cookies.remove(REFRESH_TOKEN)
+        set((state) => ({
+          ...state,
+          auth: {
+            ...state.auth,
+            user: null,
+            accessToken: '',
+            refreshToken: ''
+          }
+        }))
+      },
+
       isAuthenticated: () => {
         const state = get()
         return !!state.auth.accessToken && !!state.auth.user
       },
-      hasRole: (requiredRole) => {
+
+      hasRole: (requiredRole: string) => {
         const state = get()
-        if (!state.auth.user) return false
-        
-        // Lower role numbers have more privileges
-        // 1=admin, 2=manager, 3=collaborator
-        return state.auth.user.role <= requiredRole
+        return state.auth.user?.role === requiredRole
       },
+
       setIsLoading: (isLoading) =>
-        set((state) => ({ 
-          ...state, 
-          auth: { 
-            ...state.auth, 
-            isLoading 
-          } 
+        set((state) => ({
+          ...state,
+          auth: {
+            ...state.auth,
+            isLoading
+          }
         }))
-    },
+    }
   }
 })
 

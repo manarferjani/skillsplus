@@ -44,7 +44,7 @@ export default function Dashboard() {
         >
           <div className='w-full overflow-x-auto pb-2'>
             <TabsList>
-              <TabsTrigger value='overview'>Overview</TabsTrigger>
+              {/*<TabsTrigger value='overview'>Overview</TabsTrigger>*/}
               <TabsTrigger value='analytics' disabled>
                 Analytics
               </TabsTrigger>

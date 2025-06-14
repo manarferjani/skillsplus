@@ -1,7 +1,7 @@
 // services/auth.service.js
-import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
-import User from '../models/user.js';
+import jwt from "jsonwebtoken";
+import crypto from "crypto";
+import User from "../models/user.js";
 
 class AuthService {
   /**
@@ -22,12 +22,21 @@ class AuthService {
       name: data.name,
       email: data.email,
       password: data.password,
-      role: data.role || 3,       // Default: collaborator (3)
-      clerkId: data.clerkId || null
+      role: data.role || "unspecified",
+      jobPosition: data.jobPosition || "unspecified",
+      gender: data.gender || "unspecified",
+      level: data.level || "junior", // si tu veux une valeur par défaut
+      bio: data.bio || "",
+      profileImage:
+        data.gender === "Female"
+          ? "/images/default_female.png"
+          : "/images/default_male.png",
     });
 
     const savedUser = await user.save();
     const tokens = this.generateTokens(savedUser);
+    savedUser.refreshToken = tokens.refreshToken;
+    await savedUser.save();
 
     return {
       success: true,
@@ -36,10 +45,12 @@ class AuthService {
       user: {
         id: savedUser._id,
         name: savedUser.name,
+        username: user.username,
         email: savedUser.email,
         role: savedUser.role,
-        roleName: savedUser.getRoleName()
-      }
+        level: user.level,
+        profileImage: user.profileImage,
+      },
     };
   }
 
@@ -51,15 +62,30 @@ class AuthService {
    */
   async signin(data) {
     const { email, password } = data;
-    const user = await User.findOne({ email });
+    console.log("Tentative de connexion pour", email);
+
+    // Trouver l'utilisateur et inclure le mot de passe (select +password)
+    const user = await User.findOne({ email }).select("+password");
     if (!user) {
+      console.log("Utilisateur non trouvé pour", email);
       throw new Error("Invalid credentials");
     }
+
+    // Vérifier que le mot de passe correspond au hash stocké
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
+      console.log("Mot de passe incorrect pour", email);
       throw new Error("Invalid credentials");
     }
+
+    // Générer les tokens JWT
     const tokens = this.generateTokens(user);
+
+    // Sauvegarder le refresh token dans la base (pour gestion logout, refresh)
+    user.refreshToken = tokens.refreshToken;
+    await user.save();
+
+    // Retourner réponse sans mot de passe
     return {
       success: true,
       token: tokens.accessToken,
@@ -67,10 +93,12 @@ class AuthService {
       user: {
         id: user._id,
         name: user.name,
+        username: user.username,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName()
-      }
+        level: user.level,
+        profileImage: user.profileImage,
+      },
     };
   }
 
@@ -93,14 +121,14 @@ class AuthService {
         await user.save();
       } else {
         user = new User({
-          name: name || email.split('@')[0],
+          name: name || email.split("@")[0],
           email: email,
           // Génère un mot de passe aléatoire pour un login via Clerk
           password:
             Math.random().toString(36).slice(-12) +
             Math.random().toString(36).slice(-12),
           clerkId,
-          role: 3
+          role: 3,
         });
         await user.save();
       }
@@ -116,8 +144,8 @@ class AuthService {
         email: user.email,
         role: user.role,
         roleName: user.getRoleName(),
-        clerkId: user.clerkId
-      }
+        clerkId: user.clerkId,
+      },
     };
   }
 
@@ -127,30 +155,50 @@ class AuthService {
    * @returns {Promise<Object>} Un objet avec success et le nouveau token.
    * @throws {Error} Si le refresh token est invalide.
    */
-  async refreshToken(refreshToken) {
-    if (!refreshToken) {
+  async refreshToken(oldRefreshToken) {
+    if (!oldRefreshToken) {
       throw new Error("Refresh token is required");
     }
+
     try {
       const decoded = jwt.verify(
-        refreshToken,
-        process.env.JWT_REFRESH_SECRET || 'your_refresh_jwt_secret'
+        oldRefreshToken,
+        process.env.JWT_REFRESH_SECRET ||
+          "skills_plus_refresh_token_secret_key_2024"
       );
-      const user = await User.findById(decoded.id);
-      if (!user) {
+
+      const user = await User.findById(decoded.id).select("+refreshToken");
+
+      if (!user || user.refreshToken !== oldRefreshToken) {
         throw new Error("Invalid refresh token");
       }
-      const accessToken = jwt.sign(
-        { id: user._id, role: user.role },
-        process.env.JWT_SECRET || 'your_jwt_secret',
-        { expiresIn: '1h' }
+
+      // Générer un nouveau refresh token
+      const newRefreshToken = jwt.sign(
+        { id: user._id },
+        process.env.JWT_REFRESH_SECRET ||
+          "skills_plus_refresh_token_secret_key_2024",
+        { expiresIn: "7d" }
       );
+
+      // Générer un nouvel access token
+      const newAccessToken = jwt.sign(
+        { id: user._id, role: user.role },
+        process.env.JWT_SECRET || "skills_plus_super_secret_jwt_key_2024",
+        { expiresIn: "1h" }
+      );
+
+      // Sauvegarder le nouveau refresh token dans la base
+      user.refreshToken = newRefreshToken;
+      await user.save();
+
       return {
         success: true,
-        token: accessToken
+        token: newAccessToken,
+        refreshToken: newRefreshToken,
       };
     } catch (error) {
-      throw new Error("Invalid refresh token");
+      throw new Error("Invalid or expired refresh token");
     }
   }
 
@@ -160,16 +208,28 @@ class AuthService {
    * @returns {Object} Un objet contenant accessToken et refreshToken.
    */
   generateTokens(user) {
+    const payload = {
+      id: user._id,
+      name: user.name,
+      role: user.role,
+      email: user.email,
+      profileImage: user.profileImage,
+      level: user.level,
+    };
+    //console.log("JWT Payload:", payload);
+
     const accessToken = jwt.sign(
-      { id: user._id, role: user.role },
-      process.env.JWT_SECRET || 'your_jwt_secret',
-      { expiresIn: '1h' }
+      payload,
+      process.env.JWT_SECRET || "skills_plus_super_secret_jwt_key_2024",
+      { expiresIn: "8h" }
     );
+
     const refreshToken = jwt.sign(
       { id: user._id },
-      process.env.JWT_REFRESH_SECRET || 'your_refresh_jwt_secret',
-      { expiresIn: '7d' }
+      process.env.JWT_REFRESH_SECRET || "skills_plus_super_secret_jwt_key_2024",
+      { expiresIn: "7d" }
     );
+
     return { accessToken, refreshToken };
   }
 
@@ -193,7 +253,7 @@ class AuthService {
     return {
       success: true,
       message: "Password reset token generated",
-      resetToken
+      resetToken,
     };
   }
 
@@ -207,7 +267,7 @@ class AuthService {
   async resetPassword(resetToken, newPassword) {
     const user = await User.findOne({
       resetPasswordToken: resetToken,
-      resetPasswordExpires: { $gt: Date.now() }
+      resetPasswordExpires: { $gt: Date.now() },
     });
     if (!user) {
       throw new Error("Password reset token is invalid or has expired");
@@ -218,7 +278,7 @@ class AuthService {
     await user.save();
     return {
       success: true,
-      message: "Password has been reset"
+      message: "Password has been reset",
     };
   }
 
@@ -235,9 +295,9 @@ class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName(),
-        createdAt: user.createdAt
-      }
+
+        createdAt: user.createdAt,
+      },
     };
   }
 
@@ -260,8 +320,7 @@ class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
-        roleName: user.getRoleName()
-      }
+      },
     };
   }
 
@@ -282,18 +341,26 @@ class AuthService {
     await user.save();
     return {
       success: true,
-      message: "Password changed successfully"
+      message: "Password changed successfully",
     };
   }
 
   /**
-   * Logout: En JWT, le logout se fait côté client.
-   * @returns {Object} Un message indiquant que la déconnexion est à réaliser côté client.
+   * Logout: Invalidate refresh token server-side and advise client to remove tokens.
+   * @param {string} userId - ID of the user to logout
+   * @returns {Object} Confirmation of logout.
    */
-  logout() {
+  async logout(userId) {
+    const user = await User.findById(userId);
+
+    if (user) {
+      user.refreshToken = null; // Or optionally: delete user.refreshToken;
+      await user.save();
+    }
+
     return {
       success: true,
-      message: "To complete logout, remove tokens from client storage"
+      message: "Logout successful. Please remove tokens from client storage.",
     };
   }
 }

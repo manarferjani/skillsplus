@@ -13,6 +13,8 @@ const auth = async (req, res, next) => {
         const token =
             req.header('Authorization')?.replace('Bearer ', '') ||
             req.cookies?.token;
+            console.log('>> Token reçu:', token);
+
         
         if (!token) {
             return res.status(401).json({ 
@@ -24,7 +26,7 @@ const auth = async (req, res, next) => {
         // Vérifier le token et gérer les erreurs spécifiques
         let decoded;
         try {
-            decoded = jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret');
+            decoded = jwt.verify(token, process.env.JWT_SECRET || 'skills_plus_super_secret_jwt_key_2024');
         } catch (error) {
             console.error('JWT verification error:', error);
             if (error.name === 'TokenExpiredError') {
@@ -60,6 +62,7 @@ const auth = async (req, res, next) => {
         req.user = user;
         req.userId = decoded.id;
         req.userRole = user.role;
+        req.userName = user.name;   // Le rôle de l'utilisateur est maintenant une chaîne
 
         // Passage au middleware suivant ou à l'endpoint
         next();
@@ -73,10 +76,10 @@ const auth = async (req, res, next) => {
 };
 
 /**
- * Middleware to check if user is admin (role=1)
+ * Middleware to check if user is admin ('admin' role)
  */
 const isAdmin = (req, res, next) => {
-    if (req.userRole !== 1) {
+    if (req.userRole !== 'admin') {
         return res.status(403).json({ 
             success: false,
             message: 'Access denied. Admin privileges required' 
@@ -86,10 +89,10 @@ const isAdmin = (req, res, next) => {
 };
 
 /**
- * Middleware to check if user is manager (role 1 or 2)
+ * Middleware to check if user is manager ('manager' or 'admin' role)
  */
 const isManager = (req, res, next) => {
-    if (req.userRole > 2) { // Only roles 1 and 2 are allowed
+    if (!['manager', 'admin'].includes(req.userRole)) {  // Vérifie si le rôle est manager ou admin
         return res.status(403).json({ 
             success: false,
             message: 'Access denied. Manager privileges required' 
@@ -99,19 +102,41 @@ const isManager = (req, res, next) => {
 };
 
 /**
+ * Middleware to check if user is collaborator ('collaborator' role)
+ */
+const isCollaborator = (req, res, next) => {
+    
+    if (req.userRole !== 'collaborator') {
+        return res.status(403).json({
+            success: false,
+            message: 'Access denied. Collaborator role required'
+        });
+    }
+    next();
+};
+
+/**
  * Middleware to check if user has a specific role or higher.
+ * The function compares the user's role to the required role in the hierarchy.
+ * Roles order: ['collaborator', 'manager', 'admin']
  */
 const hasRole = (roleRequired) => {
     return (req, res, next) => {
-        if (req.userRole > roleRequired) {
-            return res.status(403).json({ 
-                success: false,
-                message: 'Access denied. Insufficient privileges' 
-            });
-        }
-        next();
+      const roleHierarchy = ['collaborator', 'manager', 'admin'];
+      const userRoleIndex = roleHierarchy.indexOf(req.userRole);
+      const requiredRoleIndex = roleHierarchy.indexOf(roleRequired);
+  
+      if (userRoleIndex < requiredRoleIndex) {
+        return res.status(403).json({
+          success: false,
+          message: `Access denied. ${roleRequired.charAt(0).toUpperCase() + roleRequired.slice(1)} or higher privileges required`
+        });
+      }
+  
+      next();
     };
-};
+  };
+  
 
-// Exportation des middlewares en tant qu'exportations nommées
-export { auth, isAdmin, isManager, hasRole };
+// Exportation des middlewares
+export { auth, isAdmin, isManager, isCollaborator, hasRole };

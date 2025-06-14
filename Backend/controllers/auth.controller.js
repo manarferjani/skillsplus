@@ -82,13 +82,16 @@ router.post('/signup', async (req, res) => {
  *         description: Invalid credentials
  */
 router.post('/signin', async (req, res) => {
+  console.log('POST /signin reçu avec body:', req.body);
   try {
     const result = await AuthService.signin(req.body);
     res.status(200).json(result);
   } catch (error) {
+    console.log('Erreur signin:', error.message);
     res.status(400).json({ success: false, message: error.message });
   }
 });
+
 
 /**
  * Authentification via Clerk.
@@ -180,15 +183,68 @@ router.post('/change-password', auth, async (req, res) => {
 });
 
 /**
- * Déconnexion (logout) – pour JWT, la déconnexion se gère côté client.
+ * Déconnexion sécurisée : supprime le refreshToken côté serveur.
  */
-router.post('/logout', (req, res) => {
+router.post("/logout", auth, async (req, res) => {
   try {
-    const result = AuthService.logout();
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    const userId = req.userId; // injecté par ton middleware `auth`
+    const result = await authService.logout(userId);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Logout failed",
+      error: err.message,
+    });
   }
+  router.post('/forgot-password', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Vérifier que email est fourni
+    if (!email) {
+      return res.status(400).json({ success: false, message: 'Email is required' });
+    }
+
+    // Chercher l'utilisateur dans la base
+    const user = await User.findOne({ email });
+    if (!user) {
+      // Pour sécurité, on ne dit pas que l'email n'existe pas
+      return res.status(200).json({ success: true, message: 'If that email is registered, you will receive a reset link shortly.' });
+    }
+
+    // Générer un token de réinitialisation (random hex string)
+    const resetToken = crypto.randomBytes(32).toString('hex');
+
+    // Calculer date d'expiration (ex: 1h)
+    const resetTokenExpiry = Date.now() + 3600000; // 1 heure en ms
+
+    // Sauvegarder token et expiration dans l'utilisateur
+    user.resetPasswordToken = resetToken;
+    user.resetPasswordExpires = resetTokenExpiry;
+    await user.save();
+
+    // Construire l’URL de réinitialisation (à adapter à ton front)
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
+
+    // Préparer email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'Password reset request',
+      text: `You requested a password reset. Please click the link to reset your password: ${resetUrl} \n\nIf you did not request this, please ignore this email.`,
+      html: `<p>You requested a password reset.</p><p>Click <a href="${resetUrl}">here</a> to reset your password.</p><p>If you did not request this, ignore this email.</p>`,
+    };
+
+    // Envoyer email
+    await transporter.sendMail(mailOptions);
+
+    res.json({ success: true, message: 'Reset password email sent' });
+  } catch (err) {
+    console.error('Forgot password error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
 });
 
 export default router;

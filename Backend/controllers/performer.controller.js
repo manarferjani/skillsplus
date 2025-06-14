@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router();
 import PerformerService from '../services/performer.service.js';
 import GlobalStats from '../models/globalStats.js';
+import { auth } from "../middleware/auth.js";
 
 // Met à jour les performers of the week
 router.post('/updatePerformersOfTheWeek', async (req, res) => {
@@ -31,5 +32,7 @@ router.get('/getPerformersOfTheWeek', async (req, res) => {
     res.status(500).json({ message: "Erreur serveur lors de la récupération des performers.", error: error.message });
   }
 });
+
+
 
 export default router;

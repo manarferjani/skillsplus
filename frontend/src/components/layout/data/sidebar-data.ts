@@ -26,12 +26,17 @@ import { type SidebarData } from '../types'
 import { IconOnlineCourse } from "@/components/CourseIccon";
 
 export const sidebarData: SidebarData = {
+
+  platform: {
+    name: 'SkillBloom',
+    logo: 'url("/images/skLogo.png")', // ou un composant React si c’est une icône
+  },
   user: {
     name: 'satnaing',
     email: 'satnaingdev@gmail.com',
     avatar: '/avatars/shadcn.jpg',
   },
-  teams: [
+  /*teams: [
     {
       name: 'Shadcn Admin',
       logo: Command,
@@ -47,31 +52,32 @@ export const sidebarData: SidebarData = {
       logo: AudioWaveform,
       plan: 'Startup',
     },
-  ],
+  ],*/
   navGroups: [
     {
       title: 'General',
       items: [
         {
-          title: 'Dashboard',
+          title: 'Analytics',
           url: '/',
           icon: IconLayoutDashboard,
         },
-        {
+        /*{
           title: 'Tasks',
           url: '/tasks',
           icon: IconChecklist,
-        },
+        },*/
         {
           title: 'Courses',
           url: '/courses',
           icon: IconOnlineCourse,
         },
-        {
+        /*{
           title: 'Apps',
           url: '/apps',
           icon: IconPackages,
-        },
+          visible: ["admin", "manager"], // limité
+        },*/
         {
           title: 'Chats',
           url: '/chats',
@@ -82,6 +88,7 @@ export const sidebarData: SidebarData = {
           title: 'Users',
           url: '/users',
           icon: IconUsers,
+          visible: ["admin"], // réservé aux admins
         },
         {
           title: 'Calendar',
@@ -89,9 +96,10 @@ export const sidebarData: SidebarData = {
           icon: IconCalendar,
         },
         {
-          title: 'Pinboard',
-          url: '/pinboard',
+          title: 'CreatingTests',
+          url: '/createTests',
           icon: IconChecklist,
+          visible: ["admin", "manager"],
         },
       ],
     },
@@ -101,6 +109,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Auth',
           icon: IconLockAccess,
+          visible: ["admin", "manager"], // pas utile pour users
           items: [
             {
               title: 'Sign In',
@@ -127,6 +136,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Errors',
           icon: IconBug,
+          visible: ["admin"], // erreurs visibles seulement pour admin/dev
           items: [
             {
               title: 'Unauthorized',
@@ -163,6 +173,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Settings',
           icon: IconSettings,
+          visible: ["admin", "manager"], // config avancée
           items: [
             {
               title: 'Profile',

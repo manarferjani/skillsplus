@@ -1,69 +1,192 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
-
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        lowercase: true
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      validate: {
+        validator: (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+        message: "Invalid email format",
+      },
     },
+    level: {
+      type: String,
+      enum: ["junior", "intermediate", "senior"],
+      default: "junior",
+    },
+    bio: {
+      type: String,
+      maxlength: 500,
+      default: "hello",
+      trim: true,
+    },
+    gender: {
+      type: String,
+      enum: ["male", "female"],
+      default: "male",
+    },
+
+    profileImage: {
+      type: String, // URL de l'image (par défaut ou uploadée)
+      default: function () {
+        // Valeur par défaut en fonction du genre
+        return this.gender === "female"
+          ? "/images/default_female.png"
+          : "/images/default_male.png";
+      },
+    },
+
+    urls: [
+      {
+        label: {
+          type: String,
+          trim: true,
+          maxlength: 50,
+        },
+        url: {
+          type: String,
+          trim: true,
+          validate: {
+            validator: (v) =>
+              /^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/.test(
+                v
+              ),
+            message: "Invalid URL format",
+          },
+        },
+      },
+    ],
+
     password: {
-        type: String,
-        required: true,
-        minlength: 6
+      type: String,
+      required: true,
+      minlength: 6,
+      select: false, // Prevents password from being returned in queries by default
+    },
+    username: {
+      type: String,
+      unique: true,
+      minlength: 3,
+      maxlength: 30,
+      match: /^[a-zA-Z0-9._-]+$/,
+      sparse: true, // Allows multiple null values despite unique index
     },
     role: {
-        type: Number,
-        enum: [1, 2, 3], // 1=admin, 2=manager, 3=collaborator
-        default: 3 // default to collaborator
+      type: String,
+      enum: ["admin", "manager", "collaborator", "unspecified"],
+      default: "unspecified",
+    },
+    jobPosition: {
+      type: String,
+      default: "unspecified",
+    },
+    status: {
+      type: String,
+      enum: ["active", "inactive", "suspended", "blocked", "pending"],
+      default: "pending",
     },
     clerkId: {
-        type: String,
-        sparse: true
+      type: String,
+      sparse: true,
     },
     resetPasswordToken: {
-        type: String
+      type: String,
+      select: false,
     },
     resetPasswordExpires: {
-        type: Date
+      type: Date,
+      select: false,
     },
-    
-}, {
-    timestamps: true
-});
+    refreshToken: {
+      type: String,
+      select: false,
+    },
+  },
+  {
+    timestamps: true,
+    discriminatorKey: "__t", // Discriminator key for inheritance
+    toJSON: {
+      virtuals: true,
+      transform: function (doc, ret) {
+        delete ret.password; // Always remove password from JSON output
+        delete ret.__v; // Remove version key
+        return ret;
+      },
+    },
+    toObject: {
+      virtuals: true,
+      transform: function (doc, ret) {
+        delete ret.password; // Always remove password from Object output
+        delete ret.__v; // Remove version key
+        return ret;
+      },
+    },
+  }
+);
 
-// Hash password before saving
-userSchema.pre('save', async function(next) {
-    const user = this;
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 10);
+// Password hashing and username generation in a single pre-save hook
+userSchema.pre("save", async function (next) {
+  try {
+    // Only hash the password if it's modified (or new)
+    if (this.isModified("password")) {
+      if (!this.password) {
+        throw new Error("Password is required");
+      }
+      this.password = await bcrypt.hash(this.password, 10);
+    }
+
+    // Generate username if not provided
+    if (!this.username && this.email) {
+      let baseUsername = this.email
+        .split("@")[0]
+        .replace(/[^a-zA-Z0-9.-]/g, "");
+      let username = baseUsername;
+      let counter = 1;
+      let existingUser;
+
+      // Ensure username is unique
+      do {
+        existingUser = await mongoose.model("User").findOne({ username });
+        if (
+          existingUser &&
+          existingUser._id.toString() !== this._id.toString()
+        ) {
+          username = `${baseUsername}_${counter}`;
+          counter++;
+        }
+      } while (
+        existingUser &&
+        existingUser._id.toString() !== this._id.toString()
+      );
+
+      this.username = username;
     }
     next();
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Method to compare password for login
-userSchema.methods.comparePassword = async function(candidatePassword) {
-    return await bcrypt.compare(candidatePassword, this.password);
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
 };
 
-// Helper method to get role name from role number
-userSchema.methods.getRoleName = function() {
-    const roleMap = {
-        1: 'admin',
-        2: 'manager',
-        3: 'collaborator'
-    };
-    return roleMap[this.role] || 'unknown';
-};
+// Virtual for user's full profile URL
+userSchema.virtual("profileUrl").get(function () {
+  return `/users/${this.username || this._id}`;
+});
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

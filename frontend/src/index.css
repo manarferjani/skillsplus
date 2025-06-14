@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -100,6 +102,7 @@
 
   body {
     @apply min-h-svh w-full bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
   }
 
   * {
@@ -240,6 +243,53 @@
 
 .mount-animation {
   animation: mountEffect 0.5s ease-out;
+}
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.satisfy-font {
+  font-family: 'Satisfy', cursive;
+}
+/* styles.css ou dans votre composant */
+:-webkit-full-screen .quiz-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+:-moz-full-screen .quiz-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+:-ms-fullscreen .quiz-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+:fullscreen .quiz-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Masquer le message "Appuyez sur Échap" */
+:-webkit-full-screen::backdrop {
+  background-color: white !important;
+}
+
+/* par exemple dans styles/globals.css ou équivalent */
+.custom-overlay {
+  background-color: rgba(0, 0, 0, 0.2); /* 0.2 = faible opacité */
+}
+.font-matangi {
+  font-family: 'Matangi', sans-serif;
+}
+.lora {
+  font-family: 'Lora', serif;
 }
 
 

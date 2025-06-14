@@ -33,9 +33,9 @@ export default function Dashboard() {
       <Main>
         <div className='mb-2 flex items-center justify-between space-y-2'>
           <h1 className='text-2xl font-bold tracking-tight'>Dashboard</h1>
-          <div className='flex items-center space-x-2'>
+          {/*<div className='flex items-center space-x-2'>
             <Button>Download</Button>
-          </div>
+          </div>*/}
         </div>
         <Tabs
           orientation='vertical'
