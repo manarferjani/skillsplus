@@ -83,36 +83,17 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-<<<<<<< HEAD
       enum: ["admin", "manager", "collaborator", "unspecified"],
       default: "unspecified",
     },
     jobPosition: {
       type: String,
-=======
-      enum: ["admin", "manager", "collaborator"],
-      default: "collaborator",
-    },
-    jobPosition: {
-      type: String,
-      enum: [
-        "fullStackDeveloper",
-        "frontendDeveloper",
-        "backendDeveloper",
-        "unspecified",
-      ],
->>>>>>> origin/branch2
       default: "unspecified",
     },
     status: {
       type: String,
-<<<<<<< HEAD
       enum: ["active", "inactive", "suspended", "blocked", "pending"],
       default: "pending",
-=======
-      enum: ["active", "inactive", "suspended"],
-      default: "inactive",
->>>>>>> origin/branch2
     },
     clerkId: {
       type: String,
@@ -126,7 +107,6 @@ const userSchema = new mongoose.Schema(
       type: Date,
       select: false,
     },
-<<<<<<< HEAD
     refreshToken: {
       type: String,
       select: false,
@@ -135,16 +115,6 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
     discriminatorKey: "__t", // Discriminator key for inheritance
-=======
-    assignedLevels: [{
-    courseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
-    levelId: { type: mongoose.Schema.Types.ObjectId }
-  }], // New field
-  },
-  {
-    timestamps: true,
-    discriminatorKey: '__t', // ⬅️ AJOUTER CETTE LIGNE
->>>>>>> origin/branch2
     toJSON: {
       virtuals: true,
       transform: function (doc, ret) {
@@ -177,13 +147,9 @@ userSchema.pre("save", async function (next) {
 
     // Generate username if not provided
     if (!this.username && this.email) {
-<<<<<<< HEAD
       let baseUsername = this.email
         .split("@")[0]
         .replace(/[^a-zA-Z0-9.-]/g, "");
-=======
-      let baseUsername = this.email.split("@")[0].replace(/[^a-zA-Z0-9._-]/g, "_");
->>>>>>> origin/branch2
       let username = baseUsername;
       let counter = 1;
       let existingUser;
@@ -191,7 +157,6 @@ userSchema.pre("save", async function (next) {
       // Ensure username is unique
       do {
         existingUser = await mongoose.model("User").findOne({ username });
-<<<<<<< HEAD
         if (
           existingUser &&
           existingUser._id.toString() !== this._id.toString()
@@ -203,13 +168,6 @@ userSchema.pre("save", async function (next) {
         existingUser &&
         existingUser._id.toString() !== this._id.toString()
       );
-=======
-        if (existingUser && existingUser._id.toString() !== this._id.toString()) {
-          username = `${baseUsername}_${counter}`;
-          counter++;
-        }
-      } while (existingUser && existingUser._id.toString() !== this._id.toString());
->>>>>>> origin/branch2
 
       this.username = username;
     }
@@ -224,19 +182,11 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-<<<<<<< HEAD
 // Virtual for user's full profile URL
-=======
-// Virtual for user's full profile URL (example)
->>>>>>> origin/branch2
 userSchema.virtual("profileUrl").get(function () {
   return `/users/${this.username || this._id}`;
 });
 
 const User = mongoose.model("User", userSchema);
 
-<<<<<<< HEAD
 export default User;
-=======
-export default User;
->>>>>>> origin/branch2

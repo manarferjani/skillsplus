@@ -3,7 +3,7 @@ import Course from '../models/course.model.js';
 import User from '../models/user.js';
 import Admin from '../models/admin.js';
 import Manager from '../models/manager.js';
-import Collaborator from '../models/collaborator.js';
+import {Collaborator} from '../models/collaborator.js';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';

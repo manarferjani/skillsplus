@@ -12,20 +12,15 @@ import http from 'http';
 import { Server } from 'socket.io';
 import multer from 'multer';
 import cookieParser from 'cookie-parser';
+import { EventEmitter } from 'events';
+EventEmitter.defaultMaxListeners = 20;
 
-import express from "express";
-import cors from "cors";
-import swaggerUi from "swagger-ui-express";
-import swaggerSpecs from "./config/swagger.js";
-import mongoose from "mongoose";
-import "./cronTask.js";
-import http from "http";
-import { Server } from "socket.io";
+
 // Préparer le changement dans Mongoose 7
 mongoose.set('strictQuery', false);
 
 // Connexion à la base de données
-import { connectDB } from './config/connect.js';
+import  connectDB  from './config/connect.js';
 connectDB();
 
 // Préparer le changement dans Mongoose 7
@@ -247,17 +242,10 @@ app.use(cookieParser());
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
 
-// Import des middlewares d'authentification
-import { auth, isAdmin, isManager } from './middleware/auth.js';
 
-// Importation des routes
-import authRoutes from './controllers/auth.controller.js';
-import userRoutes from './controllers/user.controller.js';
-import collaboratorRoutes from './controllers/collaborator.controller.js';
-import testRoutes from './controllers/test.controller.js';
-import technologieRoutes from './controllers/technology.controller.js';
-import submissionRoutes from './controllers/submission.controller.js';
-import performerRoutes from './controllers/performer.controller.js';
+
+
+
 import courseRoutes from './controllers/course.controller.js';
 import chatRoutes from './controllers/chat.controller.js';
 import messageRoutes from './controllers/message.controller.js';
