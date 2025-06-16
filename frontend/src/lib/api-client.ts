@@ -1,73 +1,54 @@
 import axios from 'axios';
 import { useAuthStore } from '@/stores/authStore';
+import { log } from 'console';
+import { useNavigate } from 'react-router-dom';
 
-// Create an axios instance with default configuration
+console.log("API URL utilisée:", import.meta.env.VITE_API_URL);
+
+
+// Définition du type pour les données signup
+type SignUpData = {
+  name: string;
+  email: string;
+  password: string;
+  role?: string;
+  gender?: string;
+  jobPosition?: string;
+};
+
+
+
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: "http://localhost:5000",
 });
 
-// Add a request interceptor to add the auth token to requests
+// Request interceptor for adding auth token
 apiClient.interceptors.request.use(
   (config) => {
-    const auth = useAuthStore.getState().auth;
-    if (auth.accessToken) {
-      config.headers['Authorization'] = `Bearer ${auth.accessToken}`;
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Add a response interceptor to handle token refresh
+// Response interceptor for error handling
 apiClient.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
-    const originalRequest = error.config;
-    const auth = useAuthStore.getState().auth;
-
-    // If the error is 401 and we haven't tried to refresh the token yet
-    if (
-      error.response?.status === 401 &&
-      !originalRequest._retry &&
-      auth.refreshToken
-    ) {
-      originalRequest._retry = true;
-
-      try {
-        // Try to refresh the token
-        const response = await axios.post(
-          `${apiClient.defaults.baseURL}/api/auth/refresh-token`,
-          {
-            refreshToken: auth.refreshToken,
-          }
-        );
-
-        // If we got a new token, update the auth store and retry the request
-        if (response.data.token) {
-          auth.setAccessToken(response.data.token);
-          originalRequest.headers['Authorization'] = `Bearer ${response.data.token}`;
-          return apiClient(originalRequest);
-        }
-      } catch (refreshError) {
-        // If refresh fails, reset auth state and reject the promise
-        auth.reset();
-        return Promise.reject(refreshError);
-      }
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Clear auth tokens
+      localStorage.removeItem("token");
+      // Redirect to login
+      window.location.href = "/sign-in";
     }
-
     return Promise.reject(error);
   }
 );
 
-export default apiClient;
+export default apiClient
 
 // Helper functions for common API operations
 export const authAPI = {
@@ -80,69 +61,55 @@ export const authAPI = {
       // Return a formatted error object instead of throwing
       return {
         success: false,
-        message: error.response?.data?.message || 
-                 `Authentication failed: ${error.message || 'Server unreachable'}`
+        message: error.response?.data?.message ||
+          `Authentication failed: ${error.message || 'Server unreachable'}`
       };
     }
   },
-  
-  signUp: async (name: string, email: string, password: string) => {
+
+  signUp: async (data: SignUpData) => {
     try {
-      const response = await apiClient.post('/api/auth/signup', { name, email, password });
+      const response = await apiClient.post('/api/auth/signup', data);
       return response.data;
     } catch (error: any) {
       console.error('Sign-up API error:', error);
-      // Return a formatted error object instead of throwing
       return {
         success: false,
-        message: error.response?.data?.message || 
-                 `Registration failed: ${error.message || 'Server unreachable'}`
+        message:
+          error.response?.data?.message ||
+          `Registration failed: ${error.message || 'Server unreachable'}`,
       };
     }
   },
-  
-  signUpWithSocial: async (name: string, email: string, clerkId: string, provider: string) => {
-    const response = await apiClient.post('/api/auth/clerk', { 
-      name, 
-      email, 
-      clerkId,
-      provider 
-    });
-    return response.data;
-  },
-  
-  signInWithSocial: async (email: string, clerkId: string, provider: string) => {
-    const response = await apiClient.post('/api/auth/clerk', { 
-      email, 
-      clerkId,
-      provider 
-    });
-    return response.data;
-  },
-  
-  exchangeGitHubCode: async (code: string) => {
+
+  logout: async () => {
+    const authStore = useAuthStore.getState(); // Récupère le store complet
+    const auth = authStore.auth; // Accède à l'objet auth
+
     try {
-      // This would make a call to your backend to exchange the GitHub code
-      // for an access token and user info without exposing your client secret on the frontend
-      const response = await apiClient.post('/api/auth/github', { code });
-      return response.data;
+      await apiClient.post('/api/auth/logout', {
+        refreshToken: auth.refreshToken,
+      });
     } catch (error) {
-      console.error('GitHub code exchange error:', error);
-      // For now, we'll throw an error since the backend endpoint isn't implemented yet
-      throw new Error('GitHub authentication is not fully implemented on the backend yet');
+      console.warn("Erreur lors de la déconnexion backend:", error);
     }
+
+    authStore.auth.reset(); // Réinitialisation correcte
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    //window.location.href = '/login';
   },
-  
+
   getProfile: async () => {
     const response = await apiClient.get('/api/auth/profile');
     return response.data;
   },
-  
+
   updateProfile: async (profileData: { name?: string }) => {
     const response = await apiClient.put('/api/auth/profile', profileData);
     return response.data;
   },
-  
+
   changePassword: async (currentPassword: string, newPassword: string) => {
     const response = await apiClient.post('/api/auth/change-password', {
       currentPassword,
@@ -150,12 +117,22 @@ export const authAPI = {
     });
     return response.data;
   },
-  
-  forgotPassword: async (email: string) => {
-    const response = await apiClient.post('/api/auth/forgot-password', { email });
-    return response.data;
+
+  forgotPassword: async (email: string): Promise<{ success: boolean; message?: string }> => {
+    try {
+      const response = await apiClient.post('/api/auth/forgot-password', { email });
+      return response.data;
+    } catch (error: any) {
+      console.error('Forgot password API error:', error);
+      return {
+        success: false,
+        message:
+          error.response?.data?.message ||
+          `Failed to send reset email: ${error.message || 'Server unreachable'}`,
+      };
+    }
   },
-  
+
   resetPassword: async (resetToken: string, newPassword: string) => {
     const response = await apiClient.post('/api/auth/reset-password', {
       resetToken,
@@ -163,4 +140,5 @@ export const authAPI = {
     });
     return response.data;
   }
+
 }; 

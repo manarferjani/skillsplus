@@ -8,6 +8,7 @@ import { User } from '../data/schema'
 import UserPendingModal from './pendingModal'
 // adapte le chemin à ton projet
 import { UsersTable } from './users-table'
+import apiClient from '@/lib/api-client'
 
 // ou le bon chemin vers ton fichier
 interface DecisionData {
@@ -49,8 +50,7 @@ export default function PendingRequests() {
       if (!token) throw new Error('Token d’authentification manquant')
 
       // Appel à DELETE /api/users/delete/${userId}
-      await axios.delete(`/api/users/delete/${userId}`, {
-        headers: { authorization: `Bearer ${token}` },
+      await apiClient.delete(`/api/users/delete/${userId}`, {
       })
 
       setPendingUsers((prev) => prev.filter((u) => u.id !== userId))

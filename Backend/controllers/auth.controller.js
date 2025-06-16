@@ -5,7 +5,6 @@ const router = express.Router();
 import AuthService from '../services/auth.service.js';
 import { auth } from '../middleware/auth.js';
 
-
 /**
  * Inscription d'un nouvel utilisateur.
  */
@@ -92,7 +91,6 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-
 /**
  * Authentification via Clerk.
  */
@@ -156,7 +154,6 @@ router.get('/profile', auth, async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
-
 /**
  * Met à jour le profil de l'utilisateur authentifié.
  */

@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, CheckCircle2, AlertCircle } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useAuth } from '@/context/authContext'
-import { useRequireAuth } from '@/hooks/useRequireAuth'
 import { quizSchema } from '@/features/TestParticipation/validation/quizSchema'
+import { useAuthStore } from '@/stores/authStore'
 
 // Interfaces
 export interface Question {
@@ -40,7 +40,15 @@ interface QuizInterfaceProps {
 }
 
 const QuizInterface: React.FC<QuizInterfaceProps> = ({ testId }) => {
-  //const token = useRequireAuth()
+      const navigate = useNavigate()
+      const token = useAuthStore((state) => state.auth.accessToken)
+  
+    useEffect(() => {
+      if (!token) {
+        navigate({ to: '/sign-in' })
+      }
+    }, [token, navigate])
+
 
   //if (!token) return null
   const [quiz, setQuiz] = useState<QuizData | null>(null)
@@ -53,7 +61,6 @@ const QuizInterface: React.FC<QuizInterfaceProps> = ({ testId }) => {
   const [timeLeft, setTimeLeft] = useState(30)
   const [isValidated, setIsValidated] = useState(false)
   const [isTimeUp, setIsTimeUp] = useState(false)
-  const navigate = useNavigate()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasAnswered, setHasAnswered] = useState(false)
   const [isNavigating, setIsNavigating] = useState(false)

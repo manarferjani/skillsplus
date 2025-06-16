@@ -23,6 +23,7 @@ import Reminder from '@/components/reminder'
 import { Event } from '@/features/calendar/calendar-app/data/calendar.ts'
 import { eventsData } from '@/features/calendar/calendar-app/data/eventsdata.ts'
 import TestCard from './data/TestCard'
+import { useAuthStore } from '@/stores/authStore'
 
 type MyState = {
   wasKickedOut?: boolean
@@ -89,6 +90,15 @@ const Calendar = () => {
   console.log('User ID (userId) :', userId)
 
   const location = useLocation()
+    const token = useAuthStore((state) => state.auth.accessToken)
+
+  useEffect(() => {
+    if (!token) {
+      navigate({ to: '/sign-in-2' })
+    }
+  }, [token, navigate])
+
+  if (!token) return null
 
 
   // Typage sécurisé

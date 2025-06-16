@@ -1,76 +1,73 @@
-//frontend/src/services/collaborator.service.tsx
-import axios from "axios";
+import apiClient from "@/lib/api-client";// adapte le chemin selon ton arborescence
 
-// Assurez-vous d'avoir inclus axios dans votre projet (via une balise <script> ou en l'installant via npm/yarn)
-async function fetchTests() {
-    try {
-      // La méthode axios.get() envoie une requête GET à l'URL spécifiée
-      const response = await axios.get('/api/collaborators/getTests');
-      
-      // Avec axios, la réponse attendue se trouve dans response.data
-      const tests = response.data;
-      
-      // Affichage ou traitement des tests dans l'interface
-      console.log(tests);
-    } catch (error) {
-      console.error("Erreur lors de la récupération des tests :", error);
-      // Gestion d'erreur côté utilisateur (affichage d'un message, etc.)
-    }
-  }
-
-  async function getCollaboratorResults(testId: string, collaboratorId: string): Promise<any> {
-    try {
-      // Faire une requête GET pour récupérer les résultats
-      const response = await fetch(`/api/collaborator/results/${testId}/${collaboratorId}`);
-  
-      if (!response.ok) {
-        throw new Error('Erreur lors de la récupération des résultats');
-      }
-  
-      // Convertir la réponse en JSON
-      const result = await response.json();
-  
-      // Afficher ou utiliser les résultats dans le frontend
-      console.log('Score:', result.score);
-      console.log('Taux de réussite:', result.successRate);
-      console.log('Temps passé:', result.timeSpent);
-      console.log('Score par niveau de difficulté :', {
-        basicScore: result.basicScore,
-        intermediateScore: result.intermediateScore,
-        expertScore: result.expertScore
-      });
-  
-      // Vous pouvez maintenant utiliser ces résultats dans votre UI
-      return result;
-    } catch (error) {
-      console.error(error);
-      throw error; // Ajouter cette ligne pour propager l'erreur
-    }
-  }
-  
-  // Exemple d'appel à la fonction
-  const testId = 'test123'; // L'ID du test
-  const collaboratorId = 'collab123'; // L'ID du collaborateur
-  getCollaboratorResults(testId, collaboratorId);
-
-  
-  // New function to call the API for time spent
-async function getTimeSpent(testId: string, collaboratorId: string): Promise<number> {
+// ✅ Fonction pour récupérer tous les tests
+export async function fetchTests(): Promise<any[]> {
   try {
-    const response = await axios.get(`/api/collaborator/timeSpent/${testId}/${collaboratorId}`);
-    
-    if (response.status === 200) {
-      // Assuming the time spent is in the response body
-      return response.data.timeSpent;
-    } else {
-      throw new Error('Impossible de récupérer le temps passé');
-    }
+    const response = await apiClient.get('/api/collaborators/getTests');
+    const tests = response.data;
+    console.log(tests);
+    return tests;
   } catch (error) {
-    console.error('Erreur lors de la récupération du temps passé:', error);
-    throw error; // Rethrow for further handling if needed
+    console.error("Erreur lors de la récupération des tests :", error);
+    throw error;
   }
 }
-  
-  // Appel de la fonction au chargement de la page ou suite à une action de l'utilisateur
-  fetchTests();
-  
+
+// ✅ Fonction pour récupérer les résultats d'un test pour un collaborateur
+export async function getCollaboratorResults(testId: string, collaboratorId: string): Promise<any> {
+  try {
+    const response = await apiClient.get(`/api/collaborators/results/${testId}/${collaboratorId}`);
+    const result = response.data;
+
+    console.log('Score:', result.score);
+    console.log('Taux de réussite:', result.successRate);
+    console.log('Temps passé:', result.timeSpent);
+    console.log('Score par niveau :', {
+      basicScore: result.basicScore,
+      intermediateScore: result.intermediateScore,
+      expertScore: result.expertScore
+    });
+
+    return result;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des résultats:', error);
+    throw error;
+  }
+}
+
+// ✅ Fonction pour récupérer le temps passé sur un test
+export async function getTimeSpent(testId: string, collaboratorId: string): Promise<number> {
+  try {
+    const response = await apiClient.get(`/api/collaborators/timeSpent/${testId}/${collaboratorId}`);
+    return response.data.timeSpent;
+  } catch (error) {
+    console.error('Erreur lors de la récupération du temps passé:', error);
+    throw error;
+  }
+}
+
+// ✅ Fonction pour récupérer l’historique du taux de réussite par technologie
+export async function getSuccessHistory(collaboratorId: string, technologyId: string): Promise<any[]> {
+  try {
+    const response = await apiClient.get(`/api/collaborators/${collaboratorId}/technology/${technologyId}/success-history`);
+    const history = response.data;
+    console.log("Historique du taux de réussite :", history);
+    return history;
+  } catch (error) {
+    console.error("Erreur lors de la récupération de l'historique :", error);
+    throw error;
+  }
+}
+
+// ✅ Fonction pour récupérer tous les collaborateurs
+export async function getAllCollaborators(): Promise<any[]> {
+  try {
+    const response = await apiClient.get('/api/collaborators/basic');
+    const collaborators = response.data;
+    console.log("Collaborateurs récupérés :", collaborators);
+    return collaborators;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des collaborateurs :", error);
+    throw error;
+  }
+}

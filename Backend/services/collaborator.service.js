@@ -172,7 +172,6 @@ class CollaboratorService {
       if (!collaborator) {
         throw new Error("Collaborateur non trouvé");
       }
-
       console.log(
         "Liste des tech success rates :",
         collaborator.technology_success_rate.map((item) => ({

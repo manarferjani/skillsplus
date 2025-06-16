@@ -12,7 +12,7 @@ export default {
   safelist: fonts.map((font) => `font-${font}`),
   theme: {
     container: {
-      center: 'true',
+      center: true,
       padding: '2rem',
       screens: {
         '2xl': '1400px',
@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         inter: ['Inter', ...fontFamily.sans],
         manrope: ['Manrope', ...fontFamily.sans],
+        'dancing-script': ['"Dancing Script"', 'cursive'],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -29,8 +30,16 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        background: 'hsl(var(--background))',
+        //background: 'hsl(232 100% 97%)',
+        background: 'hsl(222 53% 96%)',
         foreground: 'hsl(var(--foreground))',
+        calendarBg: '#fff7ed',
+        brandBlue: '#219ebc',
+        brandBeige: '#DDCDC2',
+        cardColor : '#f8faff',
+        customGreen: '#57cc99',
+        'dialog-overlay': 'rgba(0,0,0,0.2)',
+        
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

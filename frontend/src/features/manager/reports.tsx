@@ -9,6 +9,8 @@ import { useRequireAuth } from '@/hooks/useRequireAuth'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
+import { useNavigate } from '@tanstack/react-router'
+import { useAuthStore } from '@/stores/authStore'
 
 interface ReportPageProps {
   testId: string
@@ -19,9 +21,14 @@ export default function ReportPage({
   testId,
   collaboratorId,
 }: ReportPageProps) {
-  //const token = useRequireAuth()
+  const token = useAuthStore((state) => state.auth.accessToken)
+  const navigate = useNavigate()
 
-  //if (!token) return null
+  useEffect(() => {
+    if (!token) {
+      navigate({ to: '/sign-in' })
+    }
+  }, [token, navigate])
 
   const [submission, setSubmission] = useState<Submission | null>(null)
   const [loading, setLoading] = useState(true)

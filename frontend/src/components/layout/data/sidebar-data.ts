@@ -18,17 +18,25 @@ import {
   IconUserCog,
   IconUserOff,
   IconUsers,
+  IconCalendar,
+
 } from '@tabler/icons-react'
 import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
 import { type SidebarData } from '../types'
+import { IconOnlineCourse } from "@/components/CourseIccon";
 
 export const sidebarData: SidebarData = {
+
+  platform: {
+    name: 'SkillBloom',
+    logo: 'url("/images/skLogo.png")', // ou un composant React si c’est une icône
+  },
   user: {
     name: 'satnaing',
     email: 'satnaingdev@gmail.com',
     avatar: '/avatars/shadcn.jpg',
   },
-  teams: [
+  /*teams: [
     {
       name: 'Shadcn Admin',
       logo: Command,
@@ -44,26 +52,32 @@ export const sidebarData: SidebarData = {
       logo: AudioWaveform,
       plan: 'Startup',
     },
-  ],
+  ],*/
   navGroups: [
     {
       title: 'General',
       items: [
         {
-          title: 'Dashboard',
-          url: '/',
+          title: 'Analytics',
+          url: '/dashboard-manager',
           icon: IconLayoutDashboard,
         },
-        {
+        /*{
           title: 'Tasks',
           url: '/tasks',
           icon: IconChecklist,
-        },
+        },*/
         {
+          title: 'Courses',
+          url: '/courses',
+          icon: IconOnlineCourse,
+        },
+        /*{
           title: 'Apps',
           url: '/apps',
           icon: IconPackages,
-        },
+          visible: ["admin", "manager"], // limité
+        },*/
         {
           title: 'Chats',
           url: '/chats',
@@ -74,11 +88,18 @@ export const sidebarData: SidebarData = {
           title: 'Users',
           url: '/users',
           icon: IconUsers,
+          visible: ["admin"], // réservé aux admins
         },
         {
-          title: 'Pinboard',
-          url: '/pinboard',
+          title: 'Calendar',
+          url: '/calendar',
+          icon: IconCalendar,
+        },
+        {
+          title: 'CreatingTests',
+          url: '/createTests',
           icon: IconChecklist,
+          visible: ["admin", "manager"],
         },
       ],
     },
@@ -88,6 +109,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Auth',
           icon: IconLockAccess,
+          visible: ["admin", "manager"], // pas utile pour users
           items: [
             {
               title: 'Sign In',
@@ -114,6 +136,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Errors',
           icon: IconBug,
+          visible: ["admin"], // erreurs visibles seulement pour admin/dev
           items: [
             {
               title: 'Unauthorized',
@@ -150,6 +173,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Settings',
           icon: IconSettings,
+          visible: ["admin", "manager"], // config avancée
           items: [
             {
               title: 'Profile',

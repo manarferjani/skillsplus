@@ -1,5 +1,17 @@
 import dotenv from "dotenv";
 dotenv.config();
+import { fileURLToPath } from 'url';
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpecs from './config/swagger.js';
+import mongoose from 'mongoose';
+import './cronTask.js';
+import http from 'http';
+import { Server } from 'socket.io';
+import multer from 'multer';
+import cookieParser from 'cookie-parser';
 
 import express from "express";
 import cors from "cors";
@@ -9,6 +21,12 @@ import mongoose from "mongoose";
 import "./cronTask.js";
 import http from "http";
 import { Server } from "socket.io";
+// Préparer le changement dans Mongoose 7
+mongoose.set('strictQuery', false);
+
+// Connexion à la base de données
+import { connectDB } from './config/connect.js';
+connectDB();
 
 // Préparer le changement dans Mongoose 7
 mongoose.set("strictQuery", false); // ou true, selon ce que tu préfères
@@ -33,7 +51,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:5173", // Frontend React Vite
-    methods: ["GET", "POST"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
   },
 });
 export { io };
@@ -148,6 +167,7 @@ app.get("/", (req, res) => {
 // Endpoints pour la base de données
 
 // 1. Vérifier le statut de la connexion à MongoDB
+// 1. Vérifier le statut de la connexion à MongoDB
 app.get("/api/db/status", (req, res) => {
   try {
     const state = mongoose.connection.readyState;
@@ -162,6 +182,221 @@ app.get("/api/db/status", (req, res) => {
     const dbName = mongoose.connection.name || "No database name available";
     const dbHost = mongoose.connection.host || "No host information available";
     const dbPort = mongoose.connection.port || "No port information available";
+
+    res.json({
+      status: states[state],
+      connected,
+      dbName,
+      dbHost,
+      dbPort,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Erreur lors de la vérification de la connexion à la base de données",
+      details: err.message,
+    });
+  }
+});  // <-- Ici se trouvait la parenthèse manquante
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Configuration multer pour upload fichiers
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, 'Uploads'));
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
+
+app.set('io', io);
+
+// Middleware parsing : sauf sur /upload (géré par multer)
+app.use((req, res, next) => {
+  if (req.path === '/upload') return next();
+  express.json()(req, res, () => {
+    express.urlencoded({ extended: true })(req, res, next);
+  });
+});
+
+// Route upload utilisant multer
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'Fichier manquant' });
+  }
+
+  const { conversationId, senderId, messageType } = req.body;
+
+  return res.json({
+    message: 'Upload OK',
+    file: req.file.filename,
+    conversationId,
+    senderId,
+    messageType,
+  });
+});
+
+// Dossier statique pour fichiers uploadés
+app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
+
+app.use(cookieParser());
+
+// Swagger Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, { explorer: true }));
+
+// Import des middlewares d'authentification
+import { auth, isAdmin, isManager } from './middleware/auth.js';
+
+// Importation des routes
+import authRoutes from './controllers/auth.controller.js';
+import userRoutes from './controllers/user.controller.js';
+import collaboratorRoutes from './controllers/collaborator.controller.js';
+import testRoutes from './controllers/test.controller.js';
+import technologieRoutes from './controllers/technology.controller.js';
+import submissionRoutes from './controllers/submission.controller.js';
+import performerRoutes from './controllers/performer.controller.js';
+import courseRoutes from './controllers/course.controller.js';
+import chatRoutes from './controllers/chat.controller.js';
+import messageRoutes from './controllers/message.controller.js';
+import notificationRoutes from './controllers/notification.controller.js';
+
+import preferenceRouter from './controllers/preference.controller.js';
+// Test email configuration on startup
+(async () => {
+  try {
+    const isEmailConfigValid = await testEmailConfiguration();
+    if (!isEmailConfigValid) {
+      console.error('Email configuration is invalid. Please check your SMTP settings.');
+    } else {
+      console.log('Email configuration verified successfully.');
+    }
+  } catch (error) {
+    console.error('Error checking email configuration:', error.message);
+  }
+})();
+
+// Socket.IO - gestion des connexions
+io.on('connection', (socket) => {
+  console.log('New client connected:', socket.id);
+  // Associer le socket à l'userId
+  socket.on('register-user', async (userId) => {
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      console.error('Invalid userId:', userId);
+      return;
+    }
+    socket.userId = userId;
+    console.log(`User ${userId} registered with socket ${socket.id}`);
+
+    // Rejoindre toutes les conversations de l'utilisateur
+    try {
+      const conversations = await Conversation.find({ members: userId });
+      conversations.forEach((conv) => {
+        socket.join(conv._id.toString());
+        console.log(`User ${userId} joined conversation ${conv._id}`);
+      });
+    } catch (err) {
+      console.error('Error joining conversations:', err);
+    }
+  });
+
+ // Rejoindre une conversation spécifique
+  socket.on('join-conversation', (conversationId) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.join(conversationId);
+    console.log(`Client ${socket.userId || socket.id} joined conversation ${conversationId}`);
+  });
+// Quitter une conversation
+  socket.on('leave-conversation', (conversationId) => {
+    socket.leave(conversationId);
+    console.log(`Client ${socket.userId || socket.id} left conversation ${conversationId}`);
+  });
+  // Gérer l'événement "offer"
+  socket.on('offer', ({ conversationId, offer, callerId }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(callerId)) {
+      console.error('Invalid conversationId or callerId:', { conversationId, callerId });
+      return;
+    }
+    socket.to(conversationId).emit('offer', { offer, conversationId, callerId });
+    console.log(`Offer sent to conversation ${conversationId} from ${callerId}`);
+  });
+  // Gérer l'événement "answer"
+  socket.on('answer', ({ conversationId, answer }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('answer', { answer, conversationId });
+    console.log(`Answer sent to conversation ${conversationId}`);
+  });
+
+ // Gérer l'événement "ice-candidate"
+  socket.on('ice-candidate', ({ conversationId, candidate }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('ice-candidate', { candidate, conversationId });
+    console.log(`ICE candidate sent to conversation ${conversationId}`);
+  });
+  // Gérer l'événement "reject-call"
+  socket.on('reject-call', ({ conversationId }) => {
+    if (!mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.error('Invalid conversationId:', conversationId);
+      return;
+    }
+    socket.to(conversationId).emit('call-rejected');
+    console.log(`Call rejected in conversation ${conversationId}`);
+  });
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
+});
+
+// Route racine
+app.get('/', (req, res) => {
+  res.json({
+    name: 'SkillsPlus API',
+    version: '1.0.0',
+    description: 'Backend API for SkillsPlus application',
+    documentation: `${req.protocol}://${req.get('host')}/api-docs`,
+    endpoints: {
+      auth: '/api/auth',
+      user: '/api/users',
+      test: '/api/test',
+    },
+    environments: {
+      development: 'http://localhost:5000',
+      production: process.env.PRODUCTION_URL || 'Not configured',
+    },
+    authKeys: {
+      'CLERK_PUBLISHABLE_KEY': process.env.CLERK_PUBLISHABLE_KEY ? 'Configured' : 'Not configured',
+      'CLERK_SECRET_KEY': process.env.CLERK_SECRET_KEY ? 'Configured' : 'Not configured',
+      'JWT_SECRET': process.env.JWT_SECRET ? 'Configured' : 'Not configured',
+    },
+  });
+});
+
+// MongoDB status endpoint
+app.get('/api/db/status', (req, res) => {
+  try {
+    const state = mongoose.connection.readyState;
+    const states = {
+      0: 'disconnected',
+      1: 'connected',
+      2: 'connecting',
+      3: 'disconnecting',
+    };
+
+    const connected = state === 1;
+    const dbName = mongoose.connection.name || 'No database name available';
+    const dbHost = mongoose.connection.host || 'No host information available';
+    const dbPort = mongoose.connection.port || 'No port information available';
     let collections = [];
     if (connected) {
       try {
@@ -190,6 +425,7 @@ app.get("/api/db/status", (req, res) => {
           collections.length > 0
             ? collections
             : "No collections info available",
+        collections: collections.length > 0 ? collections : 'No collections info available',
       },
     });
   } catch (error) {
@@ -319,7 +555,7 @@ app.post("/api/db/test-operations", async (req, res) => {
     const TestModel = mongoose.connection.model(`DBTest_${testId}`, testSchema);
 
     try {
-      // 1. CREATE TEST
+      // CREATE TEST
       const createStart = Date.now();
       const newDocument = new TestModel({
         value: "test value",
@@ -336,7 +572,7 @@ app.post("/api/db/test-operations", async (req, res) => {
         docId: newDocument._id,
       });
 
-      // 2. READ TEST
+      // READ TEST
       const readStart = Date.now();
       const readDocument = await TestModel.findById(newDocument._id);
       if (readDocument && readDocument.value === "test value") {
@@ -350,7 +586,7 @@ app.post("/api/db/test-operations", async (req, res) => {
         throw new Error("Failed to read document correctly");
       }
 
-      // 3. UPDATE TEST
+      // UPDATE TEST
       const updateStart = Date.now();
       readDocument.value = "updated value";
       await readDocument.save();
@@ -368,7 +604,7 @@ app.post("/api/db/test-operations", async (req, res) => {
         throw new Error("Failed to update document correctly");
       }
 
-      // 4. DELETE TEST
+      // DELETE TEST
       const deleteStart = Date.now();
       await TestModel.findByIdAndDelete(newDocument._id);
       const verifyDelete = await TestModel.findById(newDocument._id);
@@ -522,3 +758,4 @@ server.listen(PORT, () => {
     `API Documentation available at http://localhost:${PORT}/api-docs`
   );
 });
+

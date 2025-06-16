@@ -626,7 +626,6 @@ class TestService {
     if (validParticipations > 0) {
       averages.averageScore = totalScores / validParticipations;
       averages.averageSuccessRate = totalSuccessRates / validParticipations;
-
       // Mettre à jour le test
       test.averageScore = averages.averageScore;
       test.averageSuccessRate = averages.averageSuccessRate;

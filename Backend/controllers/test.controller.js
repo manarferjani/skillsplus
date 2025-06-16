@@ -203,6 +203,8 @@ router.post("/add", auth, async (req, res) => {
   }
 });
 
+
+
 // Récupère tous les tests
 router.get("/getallTests", async (req, res) => {
   try {
@@ -263,8 +265,6 @@ router.get("/getFormattedTests", async (req, res) => {
     // Appel du service avec ou sans userId
     const formattedTests = await TestService.getFormattedTests(userId);
 
-    console.log("Tests récupérés:", formattedTests.length);
-
     res.json({
       success: true,
       count: formattedTests.length,
@@ -272,6 +272,7 @@ router.get("/getFormattedTests", async (req, res) => {
     });
   } catch (error) {
     console.error("Erreur détaillée:", error);
+    console.error("Erreur détaillée:", error); // Log complet de l'erreur
     res.status(500).json({
       success: false,
       message:
@@ -488,6 +489,8 @@ router.get("/averages", async (req, res) => {
     res.status(500).json({
       message: "Erreur serveur lors de la récupération des moyennes de tests.",
     });
+    console.error("Erreur lors de la récupération des moyennes de tests :", error);
+    res.status(500).json({ message: "Erreur serveur lors de la récupération des moyennes de tests." });
   }
 });
 
@@ -495,14 +498,14 @@ router.get("/averages", async (req, res) => {
  * POST /tests/:id/calculate-statistics
  * Calcule les statistiques d'un test (moyenne des scores et taux de réussite)
  */
-router.post("/:id/calculate-statistics", async (req, res) => {
+router.post('/:id/calculate-statistics', async (req, res) => {
   try {
     const testId = req.params.id;
     const statistics = await TestService.calculateTestStatistics(testId);
-
+    
     res.json({
       success: true,
-      data: statistics,
+      data: statistics
     });
   } catch (error) {
     console.error("Erreur lors du calcul des statistiques:", error);

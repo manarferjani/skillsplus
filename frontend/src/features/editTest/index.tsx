@@ -3,6 +3,8 @@ import { useNavigate } from '@tanstack/react-router'
 import { Question } from '@/interfaces/question.interface'
 import { getTestById, updateTest } from '@/services/test.service'
 import { PlusIcon, MinusIcon } from 'lucide-react'
+import { useAuthStore } from '@/stores/authStore'
+
 import {
   FileText,
   User,
@@ -30,9 +32,16 @@ interface Technology {
 }
 
 const EditTestForm: React.FC<EditTestFormProps> = ({ testId }) => {
-  //const token = useRequireAuth()
 
-  //if (!token) return null
+  const navigate = useNavigate()
+      const token = useAuthStore((state) => state.auth.accessToken)
+  
+    useEffect(() => {
+      if (!token) {
+        navigate({ to: '/sign-in-2' })
+      }
+    }, [token, navigate])
+  
   const DEFAULT_MAX_SCORE = 100
   const DEFAULT_MAX_QUESTIONS = 20
 
@@ -50,7 +59,7 @@ const EditTestForm: React.FC<EditTestFormProps> = ({ testId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const { user } = useAuth()
-  const navigate = useNavigate()
+
 
   const remainingScore =
     maxScore - questions.reduce((sum, q) => sum + q.points, 0)

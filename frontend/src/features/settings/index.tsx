@@ -13,8 +13,16 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import SidebarNav from './components/sidebar-nav'
+import { useAuth } from '@/context/authContext'
+import { Notification } from '@/interfaces/notification.interface'
+import NotificationBell from '@/features/manager/components/notificationsBell'
+import { useState } from 'react'
 
 export default function Settings() {
+  const { user } = useAuth()
+  const [notifications, setNotifications] = useState<Notification[]>([])
+  const unreadCount = notifications.filter((n) => !n.read).length
+  const userId = user?.id
   return (
     <>
       {/* ===== Top Heading ===== */}
@@ -22,6 +30,9 @@ export default function Settings() {
         <Search />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
+          {userId && (
+            <NotificationBell unreadCount={unreadCount} userId={userId} />
+          )}
           <ProfileDropdown />
         </div>
       </Header>
@@ -40,7 +51,7 @@ export default function Settings() {
           <aside className='top-0 lg:sticky lg:w-1/5'>
             <SidebarNav items={sidebarNavItems} />
           </aside>
-          <div className='flex w-full overflow-y-hidden p-1 pr-4'>
+          <div className='flex w-[50%] overflow-y-hidden rounded-2xl bg-white p-1 pr-4'>
             <Outlet />
           </div>
         </div>

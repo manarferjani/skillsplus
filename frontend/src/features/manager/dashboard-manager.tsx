@@ -3,7 +3,6 @@ import { fetchUsers } from '@/services/users.service'
 import Dialog from '@mui/material/Dialog'
 import { ThemeProvider } from '@mui/material/styles'
 import { useAuth } from '@/context/authContext'
-import { useRequireAuth } from '@/hooks/useRequireAuth'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Header } from '@/components/layout/header'
@@ -27,16 +26,14 @@ import SuccessHistoryChart from './components/successHistoryChart'
 import TaskManager from './components/taskManager'
 import { Test1 } from './components/test1'
 import WorstTechnologyCard from './components/worstTechnologyCard'
+import withAuth from '@/utils/withAuth'
+
 
 // adapte selon ton arborescence
 
-export default function ManagerDashboard() {
-  const token = useRequireAuth()
 
-  if (!token) return null
-  // Pour la section TimeSpentRadial
-  const [collaborateurFilterTime, setCollaborateurFilterTime] = useState('')
-  const [technologieFilterTime, setTechnologieFilterTime] = useState('')
+const ManagerDashboard: React.FC = () => {
+
   const { isLoading } = useAuth()
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [displayName, setDisplayName] = useState('')
@@ -364,3 +361,4 @@ const topNav = [
     disabled: false,
   },
 ]
+export default withAuth(ManagerDashboard, ["manager", "admin","collaborator"]);

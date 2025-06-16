@@ -1,3 +1,4 @@
+//\frontend\src\routes\_authenticated\route.tsx
 import Cookies from 'js-cookie'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'

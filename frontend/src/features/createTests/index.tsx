@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { Question } from '@/interfaces/question.interface'
 import { PlusIcon } from 'lucide-react'
 import {
@@ -18,6 +17,8 @@ import { useRequireAuth } from '@/hooks/useRequireAuth'
 import { useAuth } from '../../context/authContext'
 import TechnologyService from '../../services/technology.service'
 import QuestionItem from './components/questionItem'
+import { useNavigate } from '@tanstack/react-router'
+import { useAuthStore } from '@/stores/authStore'
 
 interface Technology {
   name: string
@@ -25,10 +26,15 @@ interface Technology {
 }
 
 const AddTestForm: React.FC = () => {
-  //const token = useRequireAuth()
-
-  //if (!token) return null
+  const navigate = useNavigate()
+      const token = useAuthStore((state) => state.auth.accessToken)
   
+    useEffect(() => {
+      if (!token) {
+        navigate({ to: '/sign-in-2' })
+      }
+    }, [token, navigate])
+
   // Constantes de configuration
   const DEFAULT_MAX_SCORE = 100
   const DEFAULT_MAX_QUESTIONS = 20

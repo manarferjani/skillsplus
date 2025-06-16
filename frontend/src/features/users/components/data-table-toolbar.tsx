@@ -8,10 +8,12 @@ import { DataTableViewOptions } from './data-table-view-options'
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
+  isPendingView?: boolean
 }
 
 export function DataTableToolbar<TData>({
   table,
+  isPendingView = false,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
@@ -26,29 +28,48 @@ export function DataTableToolbar<TData>({
           onChange={(event) =>
             table.getColumn('username')?.setFilterValue(event.target.value)
           }
-          className='h-8 w-[150px] lg:w-[250px]'
+          className='h-8 w-[150px] lg:w-[250px] rounded-3xl'
         />
         <div className='flex gap-x-2'>
-          {table.getColumn('status') && (
-            <DataTableFacetedFilter
-              column={table.getColumn('status')}
-              title='Status'
-              options={[
-                { label: 'Active', value: 'active' },
-                { label: 'Inactive', value: 'inactive' },
-                { label: 'Invited', value: 'invited' },
-                { label: 'Suspended', value: 'suspended' },
-              ]}
-            />
-          )}
-          {table.getColumn('role') && (
-            <DataTableFacetedFilter
-              column={table.getColumn('role')}
-              title='Role'
-              options={userTypes.map((t) => ({ ...t }))}
-            />
+          {isPendingView ? (
+            // Affiche le filtre Position si on est sur la vue pending
+            table.getColumn('jobPosition') && (
+              <DataTableFacetedFilter
+                column={table.getColumn('jobPosition')}
+                title='Position'
+                options={[
+                  { label: 'Manager', value: 'manager' },
+                  { label: 'Developer', value: 'developer' },
+                  { label: 'Designer', value: 'designer' },
+                  { label: 'Intern', value: 'intern' },
+                ]}
+              />
+            )
+          ) : (
+            <>
+              {table.getColumn('status') && (
+                <DataTableFacetedFilter
+                  column={table.getColumn('status')}
+                  title='Status'
+                  options={[
+                    { label: 'Active', value: 'active' },
+                    { label: 'Inactive', value: 'inactive' },
+                    { label: 'Invited', value: 'invited' },
+                    { label: 'Suspended', value: 'suspended' },
+                  ]}
+                />
+              )}
+              {table.getColumn('role') && (
+                <DataTableFacetedFilter
+                  column={table.getColumn('role')}
+                  title='Role'
+                  options={userTypes.map((t) => ({ ...t }))}
+                />
+              )}
+            </>
           )}
         </div>
+
         {isFiltered && (
           <Button
             variant='ghost'
@@ -60,6 +81,7 @@ export function DataTableToolbar<TData>({
           </Button>
         )}
       </div>
+
       <DataTableViewOptions table={table} />
     </div>
   )

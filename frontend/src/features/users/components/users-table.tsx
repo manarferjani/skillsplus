@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from '@tanstack/react-router'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -26,19 +27,23 @@ import { User } from '../data/schema'
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
 
+
 declare module '@tanstack/react-table' {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface ColumnMeta<TData extends RowData, TValue> {
     className: string
   }
 }
 
-interface DataTableProps {
+interface UsersTableProps {
   columns: ColumnDef<User>[]
   data: User[]
+  isPendingView?: boolean
+  onRowClick?: (user: User) => void
 }
 
-export function UsersTable({ columns, data }: DataTableProps) {
+export function UsersTable({ columns, data, isPendingView = false ,onRowClick}: UsersTableProps) {
+
+  const navigate = useNavigate(); // Ajout de useNavigate
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -66,10 +71,11 @@ export function UsersTable({ columns, data }: DataTableProps) {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
+
   return (
     <div className='space-y-4'>
-      <DataTableToolbar table={table} />
-      <div className='rounded-md border'>
+      <DataTableToolbar table={table} isPendingView={isPendingView} />
+      <div className='rounded-3xl border'>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -99,7 +105,8 @@ export function UsersTable({ columns, data }: DataTableProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className='group/row'
+                  className='group/row cursor-pointer hover:bg-muted rounded-3xl'
+                  onClick={() => onRowClick?.(row.original)} 
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell

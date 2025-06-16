@@ -6,7 +6,7 @@ import { fetchFormattedTests } from '@/services/test.service'
 import { useFloating, offset, shift, flip } from '@floating-ui/react-dom'
 import AutoSizeInput from 'react-input-autosize'
 import { useAuth } from '@/context/authContext'
-import { useRequireAuth } from '@/hooks/useRequireAuth'
+import { useAuthStore } from '@/stores/authStore'
 
 export default function TestsHistory() {
   //const token = useRequireAuth()
@@ -20,7 +20,14 @@ export default function TestsHistory() {
   const [error, setError] = useState<string | null>(null)
 
   const { user } = useAuth()
-  const navigate = useNavigate()
+    const navigate = useNavigate()
+    const token = useAuthStore((state) => state.auth.accessToken)
+
+  useEffect(() => {
+    if (!token) {
+      navigate({ to: '/sign-in' })
+    }
+  }, [token, navigate])
 
   // Récupération des données
   useEffect(() => {

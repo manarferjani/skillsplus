@@ -7,16 +7,19 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useAuthStore } from '@/stores/authStore'
 import { handleServerError } from '@/utils/handle-server-error'
 import { toast } from '@/hooks/use-toast'
 import { AuthLoading } from '@/components/auth/AuthLoading'
+import NotificationProvider from '@/components/notifications/NotificationProvider'
+import { AuthProvider } from './context/authContext'
 import { FontProvider } from './context/font-context'
 import { ThemeProvider } from './context/theme-context'
 import './index.css'
 // Generated Routes
 import { routeTree } from './routeTree.gen'
-import { AuthProvider } from './context/authContext'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -92,6 +95,18 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
+const userId = useAuthStore.getState().auth.user?.id
+console.log('👤 userId récupéré depuis useAuthStore :', userId)
+
+function RootApp({ router }: { router: any }) {
+  const auth = useAuthStore((state) => state.auth)
+
+  return (
+    <NotificationProvider userId={auth.user?.id ?? ''}>
+      <RouterProvider router={router} />
+    </NotificationProvider>
+  )
+}
 
 // Render the app
 const rootElement = document.getElementById('root')!
@@ -104,7 +119,7 @@ if (!rootElement.innerHTML) {
           <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
             <FontProvider>
               <AuthLoading>
-                <RouterProvider router={router} />
+                <RootApp router={router} />
               </AuthLoading>
             </FontProvider>
           </ThemeProvider>

@@ -3,67 +3,96 @@ import { SignUpForm } from './components/sign-up-form'
 
 export default function SignUp() {
   return (
-    <div className='container relative grid h-svh flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0' style={{ fontFamily: "'Montserrat', sans-serif" }}>
+    <div
+      className='container relative grid h-svh flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0'
+      style={{ fontFamily: "'Montserrat', sans-serif" }}
+    >
       <div className='relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex'>
-        <div 
-          className='absolute inset-0 bg-cover bg-center bg-no-repeat' 
-          style={{ 
-            backgroundImage: 'url("/images/login_bg.png")',
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{
+            backgroundImage: 'url("/images/loginn.jpeg")',
             backgroundSize: 'cover',
-            filter: 'brightness(0.6) contrast(1.2)'
-          }} 
+            //filter: 'brightness(1) contrast(1.2)',
+          }}
         />
-        <div className='relative z-20 flex items-center text-lg font-medium'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            className='mr-2 h-6 w-6'
-          >
-            <path d='M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3' />
-          </svg>
-          <span style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}>Skillsplus</span>
+        <div className='relative z-20 ml-[-2rem] mt-[-3rem] flex items-center pt-0 text-lg font-medium'>
+          <img
+            src='/images/skLogo.png'
+            alt='SkillBloom Logo'
+            style={{ height: '10rem' }}
+            className='h-28 w-auto'
+          />
         </div>
 
         <div className='relative z-20 mt-auto'>
           <blockquote className='space-y-2'>
-            <p className='text-lg' style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}>
-              &ldquo;This platform has helped me improve my skills and connect with like-minded professionals.&rdquo;
+            <p
+              className='text-lg'
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 500,
+              }}
+            >
+              &ldquo;We all need people who will give us feedback. That's how we
+              improve.&rdquo;
             </p>
-            <footer className='text-sm' style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>Sarah Johnson</footer>
+            <footer
+              className='text-sm'
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 300,
+              }}
+            >
+              Bill Gates
+            </footer>
           </blockquote>
         </div>
       </div>
-      <div className='h-full text-white' style={{ backgroundColor: '#1a1a1a' }}>
-        <div className='mx-auto flex h-full w-full flex-col justify-center space-y-2 sm:w-[350px] p-8'>
+      <div className='h-full text-white' style={{ backgroundColor: '#bee1e6' }}>
+        <div className='mx-auto flex h-full w-full flex-col justify-center space-y-2 p-8 sm:w-[350px]'>
           <div className='flex flex-col space-y-2 text-left'>
-            <h1 className='text-lg text-center font-semibold tracking-tight text-white' style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
+            <h1
+              className='text-left text-lg font-bold tracking-tight text-white'
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 400,
+              }}
+            >
               Create an account
             </h1>
-            <p className='text-sm text-gray-400' style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>
-              Enter your email and password to create an account. 
+            <p
+              className='text-sm text-gray-800'
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 300,
+              }}
+            >
+              Enter your email and password to create an account.
             </p>
           </div>
           <SignUpForm />
-          <div className='flex flex-col text-center text-sm space-y-2 text-left'>
-            <p className='text-sm text-gray-400' style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400 }}>
-              
+          <div className='flex flex-col space-y-2 text-left text-sm'>
+            <p
+              className='text-center text-sm text-gray-800'
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 400,
+              }}
+            >
               Already have an account?{' '}
               <Link
                 to='/sign-in-2'
-                className='underline underline-offset-4 hover:text-blue-400 text-gray-300'
+                className='text-gray-400 underline underline-offset-4 hover:text-blue-400'
               >
                 Sign In
-              </Link><br />
+              </Link>
+              <br />
               <a
-              href='/terms'
-              className='underline underline-offset-4 hover:text-blue-400 text-gray-300'
+                href='/terms'
+                className='text-gray-400 underline underline-offset-4 hover:text-blue-400'
               >
-              Terms of Service
+                Terms of Service
               </a>
             </p>
           </div>

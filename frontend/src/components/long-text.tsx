@@ -1,11 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -16,70 +11,60 @@ interface Props {
   children: React.ReactNode
   className?: string
   contentClassName?: string
+  asChild?: boolean
+  threshold?: number
 }
 
 export default function LongText({
   children,
   className = '',
   contentClassName = '',
+  asChild = false,
+  threshold = 15,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isOverflown, setIsOverflown] = useState(false)
+  const [needsTooltip, setNeedsTooltip] = useState(false)
 
   useEffect(() => {
-    if (checkOverflow(ref.current)) {
-      setIsOverflown(true)
-      return
+    if (ref.current) {
+      // Vérifie le débordement visuel ET/OU la longueur du texte
+      const isOverflown = 
+        ref.current.scrollWidth > ref.current.clientWidth || 
+        ref.current.scrollHeight > ref.current.clientHeight
+      
+      const isLongText = typeof children === 'string' && children.length > threshold
+      
+      setNeedsTooltip(isOverflown || isLongText)
     }
-
-    setIsOverflown(false)
-  }, [])
-
-  if (!isOverflown)
-    return (
-      <div ref={ref} className={cn('truncate', className)}>
-        {children}
-      </div>
-    )
+  }, [children, threshold])
 
   return (
-    <>
-      <div className='hidden sm:block'>
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div ref={ref} className={cn('truncate', className)}>
-                {children}
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p className={contentClassName}>{children}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-      <div className='sm:hidden'>
-        <Popover>
-          <PopoverTrigger asChild>
-            <div ref={ref} className={cn('truncate', className)}>
-              {children}
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className={cn('w-fit', contentClassName)}>
-            <p>{children}</p>
-          </PopoverContent>
-        </Popover>
-      </div>
-    </>
+    <TooltipProvider delayDuration={300}>
+      <Tooltip disableHoverableContent={!needsTooltip}>
+        <TooltipTrigger asChild={asChild}>
+          <div
+            ref={ref}
+            className={cn(
+              'truncate overflow-hidden text-ellipsis whitespace-nowrap',
+              className
+            )}
+          >
+            {children}
+          </div>
+        </TooltipTrigger>
+        {needsTooltip && (
+          <TooltipContent 
+            side="top" 
+            align="center" 
+            className={cn(
+              'max-w-[300px] break-words text-sm',
+              contentClassName
+            )}
+          >
+            {children}
+          </TooltipContent>
+        )}
+      </Tooltip>
+    </TooltipProvider>
   )
-}
-
-const checkOverflow = (textContainer: HTMLDivElement | null) => {
-  if (textContainer) {
-    return (
-      textContainer.offsetHeight < textContainer.scrollHeight ||
-      textContainer.offsetWidth < textContainer.scrollWidth
-    )
-  }
-  return false
 }

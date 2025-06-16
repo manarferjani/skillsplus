@@ -1,10 +1,16 @@
 import { LinkProps } from '@tanstack/react-router'
 
-interface User {
-  name: string
-  email: string
-  avatar: string
+
+export interface User {
+  name: string;
+  username: string;
+  email: string;
+  profileImage: string; // correspond à "profileImage" dans la base
+  id: string;
+  role: string;
+  level: string
 }
+
 
 interface Team {
   name: string
@@ -16,6 +22,7 @@ interface BaseNavItem {
   title: string
   badge?: string
   icon?: React.ElementType
+  visible?: string[] 
 }
 
 type NavLink = BaseNavItem & {
@@ -42,3 +49,5 @@ interface SidebarData {
 }
 
 export type { SidebarData, NavGroup, NavItem, NavCollapsible, NavLink }
+
+

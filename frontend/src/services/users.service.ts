@@ -1,15 +1,12 @@
-import axios from "axios";
 import { userListSchema, userSchema } from '../features/users/data/schema';
 import { UserStatus, userStatuses } from '@/types/types'
+import apiClient from "@/lib/api-client";
 
 
 export async function fetchUsers() {
   console.log("fetchUsers called");
   try {
-    const token = localStorage.getItem('token');
-    const response = await axios.get('/api/users/getallUsers', {
-      headers: { authorization: `Bearer ${token}` }
-    });
+    const response = await apiClient.get('/api/users/getallUsers');
 
     const rawUsers = response.data.data;
 
@@ -54,7 +51,7 @@ export async function fetchUsers() {
 }
 
 export const getMainAdminId = async () => {
-  const { data } = await axios.get<{ adminId: string }>("/api/admins/get-main-admin")
+  const { data } = await apiClient.get<{ adminId: string }>("/api/admins/get-main-admin")
   return data.adminId
 }
 
@@ -70,7 +67,7 @@ export async function addUserWithEmail(userData: {
   try {
     console.log('Données envoyées:', userData); // Vérifiez ce qui est réellement envoyé
     const token = localStorage.getItem('token');
-    const response = await axios.post('/api/users/addWithEmail', userData, {
+    const response = await apiClient.post('/api/users/addWithEmail', userData, {
       headers: { authorization: `Bearer ${token}` }
     });
     return response.data;
@@ -93,10 +90,7 @@ export async function getUserById(id: string) {
     }
 
     // Requête API pour récupérer l'utilisateur
-    const response = await axios.get(`/api/users/getUserById/${id}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
+    const response = await apiClient.get(`/api/users/getUserById/${id}`, {
     });
 
     if (!response.data || !response.data.data) {
@@ -185,7 +179,7 @@ export async function updateUser(
     if (!token) throw new Error('Token d\'authentification manquant');
 
     // Requête API
-    const { data } = await axios.put(`/api/users/update/${id}`, payload, {
+    const { data } = await apiClient.put(`/api/users/update/${id}`, payload, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -251,8 +245,8 @@ export async function fetchUserStatsLevelInPercentage() {
     const token = localStorage.getItem('token');
     if (!token) throw new Error('Token d’authentification manquant');
 
-    const response = await axios.get('/api/users/stats/levels', {
-      headers: { authorization: `Bearer ${token}` }
+    const response = await apiClient.get('/api/users/stats/levels', {
+
     });
 
     const stats = response.data?.data as Record<string, number>; // 👈 on précise ici que les valeurs sont des nombres
