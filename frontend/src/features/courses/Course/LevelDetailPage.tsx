@@ -262,7 +262,7 @@ const [isSavedDialogOpen, setIsSavedDialogOpen] = useState(false); // Nouvel ét
       const data = await response.json();
       setUserRole(data.data.role);
       setUser({
-        _id: data.data._id,
+        id: data.data._id,
         name: data.data.name,
         email: data.data.email,
         role: data.data.role,
