@@ -1,0 +1,2470 @@
+.gitignore
+Backend/.env
+Backend/.gitignore
+Backend/README.md
+Backend/config/connect.js
+Backend/config/swagger.js
+Backend/controllers/auth.controller.js
+Backend/controllers/authenticator.js
+Backend/controllers/chat.controller.js
+Backend/controllers/collaborator.controller.js
+Backend/controllers/course.controller.js
+Backend/controllers/message.controller.js
+Backend/controllers/notification.controller.js
+Backend/controllers/performer.controller.js
+Backend/controllers/preference.controller.js
+Backend/controllers/recommandation.controller.js
+Backend/controllers/submission.controller.js
+Backend/controllers/technology.controller.js
+Backend/controllers/test.controller.js
+Backend/controllers/user.controller.js
+Backend/cronTask.js
+Backend/docs/ROLES.md
+Backend/images/1.png
+Backend/images/default.png
+Backend/middleware/auth.js
+Backend/middleware/upload.js
+Backend/models/admin.js
+Backend/models/collaborator.js
+Backend/models/conversation.model.js
+Backend/models/course.model.js
+Backend/models/globalStats.js
+Backend/models/manager.js
+Backend/models/message.model.js
+Backend/models/notification.model.js
+Backend/models/participation.js
+Backend/models/participations.js
+Backend/models/preference.model.js
+Backend/models/question.js
+Backend/models/recommandation.js
+Backend/models/sidebar.model.js
+Backend/models/submission.js
+Backend/models/technology.js
+Backend/models/test.js
+Backend/models/user.js
+Backend/mongo-test.js
+Backend/node_modules - Copy/.bin/browserslist
+Backend/node_modules - Copy/.bin/browserslist.cmd
+Backend/node_modules - Copy/.bin/browserslist.ps1
+Backend/node_modules - Copy/.bin/color-support
+Backend/node_modules - Copy/.bin/color-support.cmd
+Backend/node_modules - Copy/.bin/color-support.ps1
+Backend/node_modules - Copy/.bin/create-jest
+Backend/node_modules - Copy/.bin/create-jest.cmd
+Backend/node_modules - Copy/.bin/create-jest.ps1
+Backend/node_modules - Copy/.bin/esparse
+Backend/node_modules - Copy/.bin/esparse.cmd
+Backend/node_modules - Copy/.bin/esparse.ps1
+Backend/node_modules - Copy/.bin/esvalidate
+Backend/node_modules - Copy/.bin/esvalidate.cmd
+Backend/node_modules - Copy/.bin/esvalidate.ps1
+Backend/node_modules - Copy/.bin/fxparser
+Backend/node_modules - Copy/.bin/fxparser.cmd
+Backend/node_modules - Copy/.bin/fxparser.ps1
+Backend/node_modules - Copy/.bin/import-local-fixture
+Backend/node_modules - Copy/.bin/import-local-fixture.cmd
+Backend/node_modules - Copy/.bin/import-local-fixture.ps1
+Backend/node_modules - Copy/.bin/jest
+Backend/node_modules - Copy/.bin/jest.cmd
+Backend/node_modules - Copy/.bin/jest.ps1
+Backend/node_modules - Copy/.bin/js-yaml
+Backend/node_modules - Copy/.bin/js-yaml.cmd
+Backend/node_modules - Copy/.bin/js-yaml.ps1
+Backend/node_modules - Copy/.bin/jsesc
+Backend/node_modules - Copy/.bin/jsesc.cmd
+Backend/node_modules - Copy/.bin/jsesc.ps1
+Backend/node_modules - Copy/.bin/json5
+Backend/node_modules - Copy/.bin/json5.cmd
+Backend/node_modules - Copy/.bin/json5.ps1
+Backend/node_modules - Copy/.bin/mime
+Backend/node_modules - Copy/.bin/mime.cmd
+Backend/node_modules - Copy/.bin/mime.ps1
+Backend/node_modules - Copy/.bin/mkdirp
+Backend/node_modules - Copy/.bin/mkdirp.cmd
+Backend/node_modules - Copy/.bin/mkdirp.ps1
+Backend/node_modules - Copy/.bin/node-pre-gyp
+Backend/node_modules - Copy/.bin/node-pre-gyp.cmd
+Backend/node_modules - Copy/.bin/node-pre-gyp.ps1
+Backend/node_modules - Copy/.bin/node-which
+Backend/node_modules - Copy/.bin/node-which.cmd
+Backend/node_modules - Copy/.bin/node-which.ps1
+Backend/node_modules - Copy/.bin/nodemon
+Backend/node_modules - Copy/.bin/nodemon.cmd
+Backend/node_modules - Copy/.bin/nodemon.ps1
+Backend/node_modules - Copy/.bin/nodetouch
+Backend/node_modules - Copy/.bin/nodetouch.cmd
+Backend/node_modules - Copy/.bin/nodetouch.ps1
+Backend/node_modules - Copy/.bin/nopt
+Backend/node_modules - Copy/.bin/nopt.cmd
+Backend/node_modules - Copy/.bin/nopt.ps1
+Backend/node_modules - Copy/.bin/parser
+Backend/node_modules - Copy/.bin/parser.cmd
+Backend/node_modules - Copy/.bin/parser.ps1
+Backend/node_modules - Copy/.bin/resolve
+Backend/node_modules - Copy/.bin/resolve.cmd
+Backend/node_modules - Copy/.bin/resolve.ps1
+Backend/node_modules - Copy/.bin/rimraf
+Backend/node_modules - Copy/.bin/rimraf.cmd
+Backend/node_modules - Copy/.bin/rimraf.ps1
+Backend/node_modules - Copy/.bin/semver
+Backend/node_modules - Copy/.bin/semver.cmd
+Backend/node_modules - Copy/.bin/semver.ps1
+Backend/node_modules - Copy/.bin/swagger-jsdoc
+Backend/node_modules - Copy/.bin/swagger-jsdoc.cmd
+Backend/node_modules - Copy/.bin/swagger-jsdoc.ps1
+Backend/node_modules - Copy/.bin/update-browserslist-db
+Backend/node_modules - Copy/.bin/update-browserslist-db.cmd
+Backend/node_modules - Copy/.bin/update-browserslist-db.ps1
+Backend/node_modules - Copy/.bin/uuid
+Backend/node_modules - Copy/.bin/uuid.cmd
+Backend/node_modules - Copy/.bin/uuid.ps1
+Backend/node_modules - Copy/.bin/z-schema
+Backend/node_modules - Copy/.bin/z-schema.cmd
+Backend/node_modules - Copy/.bin/z-schema.ps1
+Backend/node_modules - Copy/.package-lock.json
+Backend/node_modules - Copy/@ampproject/remapping/LICENSE
+Backend/node_modules - Copy/@ampproject/remapping/README.md
+Backend/node_modules - Copy/@ampproject/remapping/package.json
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/LICENSE
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/README.md
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/bundle.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/dereference.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/index.d.ts
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/index.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/normalize-args.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/options.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/parse.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/parsers/binary.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/parsers/json.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/parsers/text.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/parsers/yaml.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/pointer.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/ref.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/refs.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/resolve-external.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/resolvers/file.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/resolvers/http.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/util/errors.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/util/plugins.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/lib/util/url.js
+Backend/node_modules - Copy/@apidevtools/json-schema-ref-parser/package.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/CHANGELOG.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/LICENSE
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/README.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/index.d.ts
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/index.js
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/index.js.map
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/json-schema.d.ts
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/json-schema.js
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/lib/json-schema.js.map
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/package.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/README.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/apiDeclaration.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/authorizationObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/dataType.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/dataTypeBase.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/infoObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/modelsObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/oauth2GrantType.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/operationObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/parameterObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/resourceListing.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v1.2/resourceObject.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v2.0/README.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v2.0/schema.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.0/README.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.0/schema.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.0/schema.yaml
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/README.md
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/dialect/base.schema.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/meta/base.schema.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/schema-base.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/schema-base.yaml
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/schema.json
+Backend/node_modules - Copy/@apidevtools/openapi-schemas/schemas/v3.1/schema.yaml
+Backend/node_modules - Copy/@apidevtools/swagger-methods/CHANGELOG.md
+Backend/node_modules - Copy/@apidevtools/swagger-methods/LICENSE
+Backend/node_modules - Copy/@apidevtools/swagger-methods/README.md
+Backend/node_modules - Copy/@apidevtools/swagger-methods/lib/index.js
+Backend/node_modules - Copy/@apidevtools/swagger-methods/package.json
+Backend/node_modules - Copy/@apidevtools/swagger-parser/CHANGELOG.md
+Backend/node_modules - Copy/@apidevtools/swagger-parser/LICENSE
+Backend/node_modules - Copy/@apidevtools/swagger-parser/README.md
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/index.d.ts
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/index.js
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/options.js
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/util.js
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/validators/schema.js
+Backend/node_modules - Copy/@apidevtools/swagger-parser/lib/validators/spec.js
+Backend/node_modules - Copy/@apidevtools/swagger-parser/package.json
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/CHANGELOG.md
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/LICENSE
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/README.md
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/package.json
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/src/constants.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/src/crossPlatformSha256.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/src/index.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/src/isEmptyData.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/src/webCryptoSha256.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/tsconfig.json
+Backend/node_modules - Copy/@aws-crypto/sha256-browser/tsconfig.module.json
+Backend/node_modules - Copy/@aws-crypto/sha256-js/CHANGELOG.md
+Backend/node_modules - Copy/@aws-crypto/sha256-js/LICENSE
+Backend/node_modules - Copy/@aws-crypto/sha256-js/README.md
+Backend/node_modules - Copy/@aws-crypto/sha256-js/package.json
+Backend/node_modules - Copy/@aws-crypto/sha256-js/src/RawSha256.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-js/src/constants.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-js/src/index.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-js/src/jsSha256.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-js/src/knownHashes.fixture.ts
+Backend/node_modules - Copy/@aws-crypto/sha256-js/tsconfig.json
+Backend/node_modules - Copy/@aws-crypto/sha256-js/tsconfig.module.json
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/CHANGELOG.md
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/LICENSE
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/README.md
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/package.json
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/src/index.ts
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/src/supportsWebCrypto.ts
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/tsconfig.json
+Backend/node_modules - Copy/@aws-crypto/supports-web-crypto/tsconfig.module.json
+Backend/node_modules - Copy/@aws-crypto/util/CHANGELOG.md
+Backend/node_modules - Copy/@aws-crypto/util/LICENSE
+Backend/node_modules - Copy/@aws-crypto/util/README.md
+Backend/node_modules - Copy/@aws-crypto/util/package.json
+Backend/node_modules - Copy/@aws-crypto/util/src/convertToBuffer.ts
+Backend/node_modules - Copy/@aws-crypto/util/src/index.ts
+Backend/node_modules - Copy/@aws-crypto/util/src/isEmptyData.ts
+Backend/node_modules - Copy/@aws-crypto/util/src/numToUint8.ts
+Backend/node_modules - Copy/@aws-crypto/util/src/uint32ArrayFrom.ts
+Backend/node_modules - Copy/@aws-crypto/util/tsconfig.json
+Backend/node_modules - Copy/@aws-crypto/util/tsconfig.module.json
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/LICENSE
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/README.md
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-cjs/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/CognitoIdentity.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/CognitoIdentityClient.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/auth/httpAuthExtensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/CreateIdentityPoolCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/DeleteIdentitiesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/DeleteIdentityPoolCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/DescribeIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/DescribeIdentityPoolCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetCredentialsForIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetIdCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetIdentityPoolRolesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetOpenIdTokenCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetOpenIdTokenForDeveloperIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/GetPrincipalTagAttributeMapCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/ListIdentitiesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/ListIdentityPoolsCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/ListTagsForResourceCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/LookupDeveloperIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/MergeDeveloperIdentitiesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/SetIdentityPoolRolesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/SetPrincipalTagAttributeMapCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/TagResourceCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/UnlinkDeveloperIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/UnlinkIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/UntagResourceCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/UpdateIdentityPoolCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/commands/index.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/endpoint/EndpointParameters.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/extensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/models/CognitoIdentityServiceException.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/models/index.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/models/models_0.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/pagination/Interfaces.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/pagination/ListIdentityPoolsPaginator.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/pagination/index.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/protocols/Aws_json1_1.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-es/runtimeExtensions.js
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/CognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/CognitoIdentityClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/CreateIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/DeleteIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/DeleteIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/DescribeIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/DescribeIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetCredentialsForIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetIdCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetIdentityPoolRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetOpenIdTokenCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetOpenIdTokenForDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/GetPrincipalTagAttributeMapCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/ListIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/ListIdentityPoolsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/ListTagsForResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/LookupDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/MergeDeveloperIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/SetIdentityPoolRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/SetPrincipalTagAttributeMapCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/TagResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/UnlinkDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/UnlinkIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/UntagResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/UpdateIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/models/CognitoIdentityServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/pagination/Interfaces.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/pagination/ListIdentityPoolsPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/pagination/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/protocols/Aws_json1_1.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/CognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/CognitoIdentityClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/CreateIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/DeleteIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/DeleteIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/DescribeIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/DescribeIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetCredentialsForIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetIdCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetIdentityPoolRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetOpenIdTokenCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetOpenIdTokenForDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/GetPrincipalTagAttributeMapCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/ListIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/ListIdentityPoolsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/ListTagsForResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/LookupDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/MergeDeveloperIdentitiesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/SetIdentityPoolRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/SetPrincipalTagAttributeMapCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/TagResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/UnlinkDeveloperIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/UnlinkIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/UntagResourceCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/UpdateIdentityPoolCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/models/CognitoIdentityServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/pagination/Interfaces.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/pagination/ListIdentityPoolsPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/pagination/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/protocols/Aws_json1_1.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/dist-types/ts3.4/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-cognito-identity/package.json
+Backend/node_modules - Copy/@aws-sdk/client-sso/LICENSE
+Backend/node_modules - Copy/@aws-sdk/client-sso/README.md
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-cjs/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/SSO.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/SSOClient.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/auth/httpAuthExtensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/commands/GetRoleCredentialsCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/commands/ListAccountRolesCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/commands/ListAccountsCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/commands/LogoutCommand.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/commands/index.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/endpoint/EndpointParameters.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/extensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/models/SSOServiceException.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/models/index.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/models/models_0.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/pagination/Interfaces.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/pagination/ListAccountRolesPaginator.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/pagination/ListAccountsPaginator.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/pagination/index.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/protocols/Aws_restJson1.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-es/runtimeExtensions.js
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/SSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/SSOClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/commands/GetRoleCredentialsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/commands/ListAccountRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/commands/ListAccountsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/commands/LogoutCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/models/SSOServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/pagination/Interfaces.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/pagination/ListAccountRolesPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/pagination/ListAccountsPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/pagination/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/protocols/Aws_restJson1.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/SSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/SSOClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/commands/GetRoleCredentialsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/commands/ListAccountRolesCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/commands/ListAccountsCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/commands/LogoutCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/models/SSOServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/pagination/Interfaces.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/pagination/ListAccountRolesPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/pagination/ListAccountsPaginator.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/pagination/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/protocols/Aws_restJson1.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/dist-types/ts3.4/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/client-sso/package.json
+Backend/node_modules - Copy/@aws-sdk/core/README.md
+Backend/node_modules - Copy/@aws-sdk/core/account-id-endpoint.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/account-id-endpoint.js
+Backend/node_modules - Copy/@aws-sdk/core/client.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/client.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-cjs/submodules/account-id-endpoint/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-cjs/submodules/client/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-cjs/submodules/httpAuthSchemes/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-cjs/submodules/protocols/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/account-id-endpoint/AccountIdEndpointModeConfigResolver.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/account-id-endpoint/AccountIdEndpointModeConstants.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/account-id-endpoint/NodeAccountIdEndpointModeConfigOptions.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/account-id-endpoint/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/client/emitWarningIfUnsupportedVersion.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/client/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/client/setCredentialFeature.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/client/setFeature.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4ASigner.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4Signer.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4AConfig.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/utils/getDateHeader.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/utils/getSkewCorrectedDate.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/utils/getUpdatedSystemClockOffset.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/utils/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/utils/isClockSkewed.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/coercing-serializers.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/common.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/index.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/json/awsExpectUnion.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/json/parseJsonBody.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-es/submodules/protocols/xml/parseXmlBody.js
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/api-extractor-type-index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/account-id-endpoint/AccountIdEndpointModeConfigResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/account-id-endpoint/AccountIdEndpointModeConstants.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/account-id-endpoint/NodeAccountIdEndpointModeConfigOptions.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/account-id-endpoint/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/client/emitWarningIfUnsupportedVersion.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/client/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/client/setCredentialFeature.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/client/setFeature.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4ASigner.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4Signer.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/aws_sdk/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4AConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/utils/getDateHeader.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/utils/getSkewCorrectedDate.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/utils/getUpdatedSystemClockOffset.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/utils/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/httpAuthSchemes/utils/isClockSkewed.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/coercing-serializers.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/common.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/json/awsExpectUnion.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/json/parseJsonBody.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/submodules/protocols/xml/parseXmlBody.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/api-extractor-type-index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/account-id-endpoint/AccountIdEndpointModeConfigResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/account-id-endpoint/AccountIdEndpointModeConstants.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/account-id-endpoint/NodeAccountIdEndpointModeConfigOptions.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/account-id-endpoint/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/client/emitWarningIfUnsupportedVersion.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/client/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/client/setCredentialFeature.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/client/setFeature.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4ASigner.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/aws_sdk/AwsSdkSigV4Signer.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/aws_sdk/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4AConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/utils/getDateHeader.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/utils/getSkewCorrectedDate.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/utils/getUpdatedSystemClockOffset.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/utils/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/httpAuthSchemes/utils/isClockSkewed.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/coercing-serializers.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/common.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/json/awsExpectUnion.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/json/parseJsonBody.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/dist-types/ts3.4/submodules/protocols/xml/parseXmlBody.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/httpAuthSchemes.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/httpAuthSchemes.js
+Backend/node_modules - Copy/@aws-sdk/core/package.json
+Backend/node_modules - Copy/@aws-sdk/core/protocols.d.ts
+Backend/node_modules - Copy/@aws-sdk/core/protocols.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/CognitoProviderParameters.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/InMemoryStorage.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/IndexedDbStorage.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/Logins.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/Storage.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentity.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/fromCognitoIdentityPool.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/loadCognitoIdentity.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/localStorage.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-es/resolveLogins.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/CognitoProviderParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/InMemoryStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/IndexedDbStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/Logins.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/Storage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/fromCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/fromCognitoIdentityPool.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/loadCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/localStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/resolveLogins.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/CognitoProviderParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/InMemoryStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/IndexedDbStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/Logins.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/Storage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/fromCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/fromCognitoIdentityPool.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/loadCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/localStorage.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/dist-types/ts3.4/resolveLogins.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-cognito-identity/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-es/fromEnv.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-types/fromEnv.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-types/ts3.4/fromEnv.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-env/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/checkUrl.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/fromHttp.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/fromHttp.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/fromHttpTypes.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/requestHelpers.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/fromHttp/retry-wrapper.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/index.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/checkUrl.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/fromHttp.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/fromHttp.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/fromHttpTypes.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/requestHelpers.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/fromHttp/retry-wrapper.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/index.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/checkUrl.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/fromHttp.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/fromHttp.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/fromHttpTypes.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/requestHelpers.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/fromHttp/retry-wrapper.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/index.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/checkUrl.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/fromHttp.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/fromHttp.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/fromHttpTypes.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/requestHelpers.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/fromHttp/retry-wrapper.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/index.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-http/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/fromIni.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveAssumeRoleCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveCredentialSource.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveProcessCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveProfileData.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveSsoCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveStaticCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-es/resolveWebIdentityCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/fromIni.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveAssumeRoleCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveCredentialSource.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveProfileData.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveSsoCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveStaticCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/resolveWebIdentityCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/fromIni.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveAssumeRoleCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveCredentialSource.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveProfileData.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveSsoCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveStaticCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/dist-types/ts3.4/resolveWebIdentityCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-ini/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-es/defaultProvider.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-es/remoteProvider.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/defaultProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/remoteProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/ts3.4/defaultProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/dist-types/ts3.4/remoteProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-node/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-es/ProcessCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-es/fromProcess.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-es/getValidatedProcessCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-es/resolveProcessCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/fromProcess.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/getValidatedProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/resolveProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ts3.4/ProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ts3.4/fromProcess.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ts3.4/getValidatedProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/dist-types/ts3.4/resolveProcessCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-process/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/fromSSO.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/isSsoProfile.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/loadSso.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/resolveSSOCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/types.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-es/validateSsoProfile.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/fromSSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/isSsoProfile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/loadSso.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/resolveSSOCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/fromSSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/isSsoProfile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/loadSso.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/resolveSSOCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/types.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/ts3.4/validateSsoProfile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/types.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/dist-types/validateSsoProfile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-sso/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-cjs/fromTokenFile.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-cjs/fromWebToken.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-es/fromTokenFile.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-es/fromWebToken.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/fromTokenFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/fromWebToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/ts3.4/fromTokenFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/ts3.4/fromWebToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-provider-web-identity/package.json
+Backend/node_modules - Copy/@aws-sdk/credential-providers/LICENSE
+Backend/node_modules - Copy/@aws-sdk/credential-providers/README.md
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/createCredentialChain.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromCognitoIdentity.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromCognitoIdentityPool.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromContainerMetadata.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromEnv.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromIni.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromInstanceMetadata.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromNodeProviderChain.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromProcess.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromSSO.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromTemporaryCredentials.base.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromTemporaryCredentials.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromTemporaryCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromTokenFile.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/fromWebToken.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/index.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-cjs/loadSts.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/createCredentialChain.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromCognitoIdentity.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromCognitoIdentityPool.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromContainerMetadata.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromEnv.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromIni.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromInstanceMetadata.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromNodeProviderChain.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromProcess.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromSSO.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromTemporaryCredentials.base.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromTemporaryCredentials.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromTemporaryCredentials.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromTokenFile.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/fromWebToken.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/index.browser.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-es/loadSts.js
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/createCredentialChain.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromCognitoIdentityPool.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromContainerMetadata.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromEnv.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromIni.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromInstanceMetadata.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromNodeProviderChain.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromProcess.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromSSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromTemporaryCredentials.base.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromTemporaryCredentials.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromTemporaryCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromTokenFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/fromWebToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/index.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/loadSts.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/createCredentialChain.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromCognitoIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromCognitoIdentityPool.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromContainerMetadata.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromEnv.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromIni.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromInstanceMetadata.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromNodeProviderChain.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromProcess.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromSSO.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromTemporaryCredentials.base.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromTemporaryCredentials.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromTemporaryCredentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromTokenFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/fromWebToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/index.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/dist-types/ts3.4/loadSts.d.ts
+Backend/node_modules - Copy/@aws-sdk/credential-providers/package.json
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/LICENSE
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/README.md
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-host-header/package.json
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/LICENSE
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/README.md
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-es/loggerMiddleware.js
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-types/loggerMiddleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/dist-types/ts3.4/loggerMiddleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-logger/package.json
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/LICENSE
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/README.md
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-recursion-detection/package.json
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/LICENSE
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/README.md
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/check-features.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/configurations.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/constants.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/encode-features.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-es/user-agent-middleware.js
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/check-features.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/configurations.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/constants.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/encode-features.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/check-features.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/configurations.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/constants.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/encode-features.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/ts3.4/user-agent-middleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/dist-types/user-agent-middleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/middleware-user-agent/package.json
+Backend/node_modules - Copy/@aws-sdk/nested-clients/README.md
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sso-oidc/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/STSClient.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/auth/httpAuthExtensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/endpoint/EndpointParameters.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-cjs/submodules/sts/runtimeExtensions.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/SSOOIDC.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/SSOOIDCClient.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/auth/httpAuthExtensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/commands/CreateTokenCommand.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/commands/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/endpoint/EndpointParameters.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/extensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/models/SSOOIDCServiceException.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/models/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/models/models_0.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/protocols/Aws_restJson1.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sso-oidc/runtimeExtensions.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/STS.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/STSClient.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/auth/httpAuthExtensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/auth/httpAuthSchemeProvider.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/commands/AssumeRoleCommand.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/commands/AssumeRoleWithWebIdentityCommand.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/commands/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/defaultRoleAssumers.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/defaultStsRoleAssumers.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/endpoint/EndpointParameters.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/endpoint/endpointResolver.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/endpoint/ruleset.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/extensionConfiguration.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/models/STSServiceException.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/models/index.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/models/models_0.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/protocols/Aws_query.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/runtimeConfig.browser.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/runtimeConfig.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/runtimeConfig.native.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/runtimeConfig.shared.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-es/submodules/sts/runtimeExtensions.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/SSOOIDC.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/SSOOIDCClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/commands/CreateTokenCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/models/SSOOIDCServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/protocols/Aws_restJson1.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sso-oidc/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/STS.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/STSClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/commands/AssumeRoleCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/commands/AssumeRoleWithWebIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/defaultRoleAssumers.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/defaultStsRoleAssumers.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/models/STSServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/protocols/Aws_query.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/submodules/sts/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/SSOOIDC.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/SSOOIDCClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/commands/CreateTokenCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/models/SSOOIDCServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/protocols/Aws_restJson1.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sso-oidc/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/STS.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/STSClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/auth/httpAuthExtensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/auth/httpAuthSchemeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/commands/AssumeRoleCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/commands/AssumeRoleWithWebIdentityCommand.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/commands/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/defaultRoleAssumers.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/defaultStsRoleAssumers.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/endpoint/EndpointParameters.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/endpoint/endpointResolver.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/endpoint/ruleset.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/extensionConfiguration.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/models/STSServiceException.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/models/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/models/models_0.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/protocols/Aws_query.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/runtimeConfig.browser.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/runtimeConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/runtimeConfig.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/runtimeConfig.shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/dist-types/ts3.4/submodules/sts/runtimeExtensions.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/package.json
+Backend/node_modules - Copy/@aws-sdk/nested-clients/sso-oidc.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/sso-oidc.js
+Backend/node_modules - Copy/@aws-sdk/nested-clients/sts.d.ts
+Backend/node_modules - Copy/@aws-sdk/nested-clients/sts.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/LICENSE
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/README.md
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/extensions/index.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/regionConfig/config.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/regionConfig/getRealRegion.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/regionConfig/index.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/regionConfig/isFipsRegion.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-es/regionConfig/resolveRegionConfig.js
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/extensions/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/regionConfig/config.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/regionConfig/getRealRegion.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/regionConfig/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/regionConfig/isFipsRegion.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/regionConfig/resolveRegionConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/extensions/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/regionConfig/config.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/regionConfig/getRealRegion.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/regionConfig/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/regionConfig/isFipsRegion.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/dist-types/ts3.4/regionConfig/resolveRegionConfig.d.ts
+Backend/node_modules - Copy/@aws-sdk/region-config-resolver/package.json
+Backend/node_modules - Copy/@aws-sdk/token-providers/LICENSE
+Backend/node_modules - Copy/@aws-sdk/token-providers/README.md
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/constants.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/fromSso.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/fromStatic.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/getNewSsoOidcToken.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/getSsoOidcClient.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/nodeProvider.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/validateTokenExpiry.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/validateTokenKey.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-es/writeSSOTokenToFile.js
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/constants.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/fromSso.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/fromStatic.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/getNewSsoOidcToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/getSsoOidcClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/nodeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/constants.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/fromSso.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/fromStatic.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/getNewSsoOidcToken.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/getSsoOidcClient.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/nodeProvider.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/validateTokenExpiry.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/validateTokenKey.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/ts3.4/writeSSOTokenToFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/validateTokenExpiry.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/validateTokenKey.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/dist-types/writeSSOTokenToFile.d.ts
+Backend/node_modules - Copy/@aws-sdk/token-providers/package.json
+Backend/node_modules - Copy/@aws-sdk/types/LICENSE
+Backend/node_modules - Copy/@aws-sdk/types/README.md
+Backend/node_modules - Copy/@aws-sdk/types/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/abort.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/auth.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/blob/blob-types.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/checksum.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/client.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/command.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/connection.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/credentials.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/crypto.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/dns.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/encode.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/endpoint.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/eventStream.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/extensions/index.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/feature-ids.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/function.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/http.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/AnonymousIdentity.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/AwsCredentialIdentity.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/Identity.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/LoginIdentity.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/TokenIdentity.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/identity/index.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/logger.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/middleware.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/pagination.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/profile.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/request.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/response.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/retry.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/serde.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/shapes.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/signature.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/stream.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/token.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/transfer.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/uri.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/util.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-es/waiter.js
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/abort.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/auth.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/blob/blob-types.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/checksum.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/client.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/command.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/connection.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/credentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/crypto.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/dns.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/encode.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/endpoint.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/eventStream.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/extensions/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/feature-ids.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/function.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/http.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/AnonymousIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/AwsCredentialIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/Identity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/LoginIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/TokenIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/identity/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/logger.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/middleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/pagination.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/profile.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/request.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/response.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/retry.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/serde.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/shapes.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/signature.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/stream.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/token.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/transfer.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/abort.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/auth.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/blob/blob-types.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/checksum.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/client.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/command.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/connection.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/credentials.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/crypto.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/dns.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/encode.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/endpoint.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/eventStream.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/extensions/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/feature-ids.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/function.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/http.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/AnonymousIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/AwsCredentialIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/Identity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/LoginIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/TokenIdentity.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/identity/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/logger.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/middleware.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/pagination.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/profile.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/request.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/response.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/retry.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/serde.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/shapes.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/signature.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/stream.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/token.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/transfer.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/uri.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/util.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/ts3.4/waiter.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/uri.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/util.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/dist-types/waiter.d.ts
+Backend/node_modules - Copy/@aws-sdk/types/package.json
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/LICENSE
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/README.md
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-cjs/lib/aws/partitions.json
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/aws.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/aws/index.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/aws/isVirtualHostableS3Bucket.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/aws/parseArn.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/aws/partition.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/aws/partitions.json
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/lib/isIpAddress.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/resolveEndpoint.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/EndpointError.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/EndpointRuleObject.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/ErrorRuleObject.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/RuleSetObject.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/TreeRuleObject.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/index.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-es/types/shared.js
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/aws.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/lib/aws/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/lib/aws/isVirtualHostableS3Bucket.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/lib/aws/parseArn.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/lib/aws/partition.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/lib/isIpAddress.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/resolveEndpoint.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/aws.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/lib/aws/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/lib/aws/isVirtualHostableS3Bucket.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/lib/aws/parseArn.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/lib/aws/partition.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/lib/isIpAddress.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/resolveEndpoint.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/EndpointError.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/EndpointRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/ErrorRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/RuleSetObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/TreeRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/ts3.4/types/shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/EndpointError.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/EndpointRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/ErrorRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/RuleSetObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/TreeRuleObject.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/dist-types/types/shared.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-endpoints/package.json
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/LICENSE
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/README.md
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-locate-window/package.json
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/LICENSE
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/README.md
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-cjs/configurations.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-cjs/index.native.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-es/configurations.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-es/index.native.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/configurations.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/index.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/ts3.4/configurations.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/dist-types/ts3.4/index.native.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-browser/package.json
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/LICENSE
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/README.md
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-cjs/index.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-es/crt-availability.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-es/defaultUserAgent.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-es/index.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-es/is-crt-available.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-es/nodeAppIdConfigOptions.js
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/crt-availability.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/defaultUserAgent.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/is-crt-available.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/nodeAppIdConfigOptions.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/ts3.4/crt-availability.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/ts3.4/defaultUserAgent.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/ts3.4/index.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/ts3.4/is-crt-available.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/dist-types/ts3.4/nodeAppIdConfigOptions.d.ts
+Backend/node_modules - Copy/@aws-sdk/util-user-agent-node/package.json
+Backend/node_modules - Copy/@babel/code-frame/LICENSE
+Backend/node_modules - Copy/@babel/code-frame/README.md
+Backend/node_modules - Copy/@babel/code-frame/lib/index.js
+Backend/node_modules - Copy/@babel/code-frame/lib/index.js.map
+Backend/node_modules - Copy/@babel/code-frame/package.json
+Backend/node_modules - Copy/@babel/compat-data/LICENSE
+Backend/node_modules - Copy/@babel/compat-data/README.md
+Backend/node_modules - Copy/@babel/compat-data/corejs2-built-ins.js
+Backend/node_modules - Copy/@babel/compat-data/corejs3-shipped-proposals.js
+Backend/node_modules - Copy/@babel/compat-data/data/corejs2-built-ins.json
+Backend/node_modules - Copy/@babel/compat-data/data/corejs3-shipped-proposals.json
+Backend/node_modules - Copy/@babel/compat-data/data/native-modules.json
+Backend/node_modules - Copy/@babel/compat-data/data/overlapping-plugins.json
+Backend/node_modules - Copy/@babel/compat-data/data/plugin-bugfixes.json
+Backend/node_modules - Copy/@babel/compat-data/data/plugins.json
+Backend/node_modules - Copy/@babel/compat-data/native-modules.js
+Backend/node_modules - Copy/@babel/compat-data/overlapping-plugins.js
+Backend/node_modules - Copy/@babel/compat-data/package.json
+Backend/node_modules - Copy/@babel/compat-data/plugin-bugfixes.js
+Backend/node_modules - Copy/@babel/compat-data/plugins.js
+Backend/node_modules - Copy/@babel/core/LICENSE
+Backend/node_modules - Copy/@babel/core/README.md
+Backend/node_modules - Copy/@babel/core/cjs-proxy.cjs
+Backend/node_modules - Copy/@babel/core/lib/config/cache-contexts.js
+Backend/node_modules - Copy/@babel/core/lib/config/cache-contexts.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/caching.js
+Backend/node_modules - Copy/@babel/core/lib/config/caching.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/config-chain.js
+Backend/node_modules - Copy/@babel/core/lib/config/config-chain.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/config-descriptors.js
+Backend/node_modules - Copy/@babel/core/lib/config/config-descriptors.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/configuration.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/configuration.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/import.cjs
+Backend/node_modules - Copy/@babel/core/lib/config/files/import.cjs.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/index-browser.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/index-browser.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/index.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/index.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/module-types.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/module-types.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/package.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/package.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/plugins.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/plugins.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/types.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/types.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/files/utils.js
+Backend/node_modules - Copy/@babel/core/lib/config/files/utils.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/full.js
+Backend/node_modules - Copy/@babel/core/lib/config/full.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/config-api.js
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/config-api.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/deep-array.js
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/deep-array.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/environment.js
+Backend/node_modules - Copy/@babel/core/lib/config/helpers/environment.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/index.js
+Backend/node_modules - Copy/@babel/core/lib/config/index.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/item.js
+Backend/node_modules - Copy/@babel/core/lib/config/item.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/partial.js
+Backend/node_modules - Copy/@babel/core/lib/config/partial.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/pattern-to-regex.js
+Backend/node_modules - Copy/@babel/core/lib/config/pattern-to-regex.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/plugin.js
+Backend/node_modules - Copy/@babel/core/lib/config/plugin.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/printer.js
+Backend/node_modules - Copy/@babel/core/lib/config/printer.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/resolve-targets-browser.js
+Backend/node_modules - Copy/@babel/core/lib/config/resolve-targets-browser.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/resolve-targets.js
+Backend/node_modules - Copy/@babel/core/lib/config/resolve-targets.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/util.js
+Backend/node_modules - Copy/@babel/core/lib/config/util.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/validation/option-assertions.js
+Backend/node_modules - Copy/@babel/core/lib/config/validation/option-assertions.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/validation/options.js
+Backend/node_modules - Copy/@babel/core/lib/config/validation/options.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/validation/plugins.js
+Backend/node_modules - Copy/@babel/core/lib/config/validation/plugins.js.map
+Backend/node_modules - Copy/@babel/core/lib/config/validation/removed.js
+Backend/node_modules - Copy/@babel/core/lib/config/validation/removed.js.map
+Backend/node_modules - Copy/@babel/core/lib/errors/config-error.js
+Backend/node_modules - Copy/@babel/core/lib/errors/config-error.js.map
+Backend/node_modules - Copy/@babel/core/lib/errors/rewrite-stack-trace.js
+Backend/node_modules - Copy/@babel/core/lib/errors/rewrite-stack-trace.js.map
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/async.js
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/async.js.map
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/fs.js
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/fs.js.map
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/functional.js
+Backend/node_modules - Copy/@babel/core/lib/gensync-utils/functional.js.map
+Backend/node_modules - Copy/@babel/core/lib/index.js
+Backend/node_modules - Copy/@babel/core/lib/index.js.map
+Backend/node_modules - Copy/@babel/core/lib/parse.js
+Backend/node_modules - Copy/@babel/core/lib/parse.js.map
+Backend/node_modules - Copy/@babel/core/lib/parser/index.js
+Backend/node_modules - Copy/@babel/core/lib/parser/index.js.map
+Backend/node_modules - Copy/@babel/core/lib/parser/util/missing-plugin-helper.js
+Backend/node_modules - Copy/@babel/core/lib/parser/util/missing-plugin-helper.js.map
+Backend/node_modules - Copy/@babel/core/lib/tools/build-external-helpers.js
+Backend/node_modules - Copy/@babel/core/lib/tools/build-external-helpers.js.map
+Backend/node_modules - Copy/@babel/core/lib/transform-ast.js
+Backend/node_modules - Copy/@babel/core/lib/transform-ast.js.map
+Backend/node_modules - Copy/@babel/core/lib/transform-file-browser.js
+Backend/node_modules - Copy/@babel/core/lib/transform-file-browser.js.map
+Backend/node_modules - Copy/@babel/core/lib/transform-file.js
+Backend/node_modules - Copy/@babel/core/lib/transform-file.js.map
+Backend/node_modules - Copy/@babel/core/lib/transform.js
+Backend/node_modules - Copy/@babel/core/lib/transform.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/block-hoist-plugin.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/block-hoist-plugin.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/babel-7-helpers.cjs
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/babel-7-helpers.cjs.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/file.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/file.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/generate.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/generate.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/merge-map.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/file/merge-map.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/index.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/index.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/normalize-file.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/normalize-file.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/normalize-opts.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/normalize-opts.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/plugin-pass.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/plugin-pass.js.map
+Backend/node_modules - Copy/@babel/core/lib/transformation/util/clone-deep.js
+Backend/node_modules - Copy/@babel/core/lib/transformation/util/clone-deep.js.map
+Backend/node_modules - Copy/@babel/core/lib/vendor/import-meta-resolve.js
+Backend/node_modules - Copy/@babel/core/lib/vendor/import-meta-resolve.js.map
+Backend/node_modules - Copy/@babel/core/package.json
+Backend/node_modules - Copy/@babel/core/src/config/files/index-browser.ts
+Backend/node_modules - Copy/@babel/core/src/config/files/index.ts
+Backend/node_modules - Copy/@babel/core/src/config/resolve-targets-browser.ts
+Backend/node_modules - Copy/@babel/core/src/config/resolve-targets.ts
+Backend/node_modules - Copy/@babel/core/src/transform-file-browser.ts
+Backend/node_modules - Copy/@babel/core/src/transform-file.ts
+Backend/node_modules - Copy/@babel/generator/LICENSE
+Backend/node_modules - Copy/@babel/generator/README.md
+Backend/node_modules - Copy/@babel/generator/lib/buffer.js
+Backend/node_modules - Copy/@babel/generator/lib/buffer.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/base.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/base.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/classes.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/classes.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/deprecated.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/deprecated.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/expressions.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/expressions.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/flow.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/flow.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/index.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/index.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/jsx.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/jsx.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/methods.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/methods.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/modules.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/modules.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/statements.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/statements.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/template-literals.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/template-literals.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/types.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/types.js.map
+Backend/node_modules - Copy/@babel/generator/lib/generators/typescript.js
+Backend/node_modules - Copy/@babel/generator/lib/generators/typescript.js.map
+Backend/node_modules - Copy/@babel/generator/lib/index.js
+Backend/node_modules - Copy/@babel/generator/lib/index.js.map
+Backend/node_modules - Copy/@babel/generator/lib/node/index.js
+Backend/node_modules - Copy/@babel/generator/lib/node/index.js.map
+Backend/node_modules - Copy/@babel/generator/lib/node/parentheses.js
+Backend/node_modules - Copy/@babel/generator/lib/node/parentheses.js.map
+Backend/node_modules - Copy/@babel/generator/lib/node/whitespace.js
+Backend/node_modules - Copy/@babel/generator/lib/node/whitespace.js.map
+Backend/node_modules - Copy/@babel/generator/lib/printer.js
+Backend/node_modules - Copy/@babel/generator/lib/printer.js.map
+Backend/node_modules - Copy/@babel/generator/lib/source-map.js
+Backend/node_modules - Copy/@babel/generator/lib/source-map.js.map
+Backend/node_modules - Copy/@babel/generator/lib/token-map.js
+Backend/node_modules - Copy/@babel/generator/lib/token-map.js.map
+Backend/node_modules - Copy/@babel/generator/package.json
+Backend/node_modules - Copy/@babel/helper-compilation-targets/LICENSE
+Backend/node_modules - Copy/@babel/helper-compilation-targets/README.md
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/debug.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/debug.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/filter-items.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/filter-items.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/index.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/options.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/options.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/pretty.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/pretty.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/targets.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/targets.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/utils.js
+Backend/node_modules - Copy/@babel/helper-compilation-targets/lib/utils.js.map
+Backend/node_modules - Copy/@babel/helper-compilation-targets/package.json
+Backend/node_modules - Copy/@babel/helper-module-imports/LICENSE
+Backend/node_modules - Copy/@babel/helper-module-imports/README.md
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/import-builder.js
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/import-builder.js.map
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/import-injector.js
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/import-injector.js.map
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/index.js
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/is-module.js
+Backend/node_modules - Copy/@babel/helper-module-imports/lib/is-module.js.map
+Backend/node_modules - Copy/@babel/helper-module-imports/package.json
+Backend/node_modules - Copy/@babel/helper-module-transforms/LICENSE
+Backend/node_modules - Copy/@babel/helper-module-transforms/README.md
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/dynamic-import.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/dynamic-import.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/get-module-name.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/get-module-name.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/index.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/lazy-modules.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/lazy-modules.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/normalize-and-load-metadata.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/normalize-and-load-metadata.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/rewrite-live-references.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/rewrite-live-references.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/rewrite-this.js
+Backend/node_modules - Copy/@babel/helper-module-transforms/lib/rewrite-this.js.map
+Backend/node_modules - Copy/@babel/helper-module-transforms/package.json
+Backend/node_modules - Copy/@babel/helper-plugin-utils/LICENSE
+Backend/node_modules - Copy/@babel/helper-plugin-utils/README.md
+Backend/node_modules - Copy/@babel/helper-plugin-utils/lib/index.js
+Backend/node_modules - Copy/@babel/helper-plugin-utils/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-plugin-utils/package.json
+Backend/node_modules - Copy/@babel/helper-string-parser/LICENSE
+Backend/node_modules - Copy/@babel/helper-string-parser/README.md
+Backend/node_modules - Copy/@babel/helper-string-parser/lib/index.js
+Backend/node_modules - Copy/@babel/helper-string-parser/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-string-parser/package.json
+Backend/node_modules - Copy/@babel/helper-validator-identifier/LICENSE
+Backend/node_modules - Copy/@babel/helper-validator-identifier/README.md
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/identifier.js
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/identifier.js.map
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/index.js
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/keyword.js
+Backend/node_modules - Copy/@babel/helper-validator-identifier/lib/keyword.js.map
+Backend/node_modules - Copy/@babel/helper-validator-identifier/package.json
+Backend/node_modules - Copy/@babel/helper-validator-option/LICENSE
+Backend/node_modules - Copy/@babel/helper-validator-option/README.md
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/find-suggestion.js
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/find-suggestion.js.map
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/index.js
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/index.js.map
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/validator.js
+Backend/node_modules - Copy/@babel/helper-validator-option/lib/validator.js.map
+Backend/node_modules - Copy/@babel/helper-validator-option/package.json
+Backend/node_modules - Copy/@babel/helpers/LICENSE
+Backend/node_modules - Copy/@babel/helpers/README.md
+Backend/node_modules - Copy/@babel/helpers/lib/helpers-generated.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers-generated.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/AwaitValue.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/AwaitValue.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/OverloadYield.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/OverloadYield.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecoratedDescriptor.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecoratedDescriptor.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2203.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2203.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2203R.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2203R.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2301.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2301.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2305.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2305.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2311.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/applyDecs2311.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayLikeToArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayLikeToArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayWithHoles.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayWithHoles.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayWithoutHoles.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/arrayWithoutHoles.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/assertClassBrand.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/assertClassBrand.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/assertThisInitialized.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/assertThisInitialized.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncGeneratorDelegate.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncGeneratorDelegate.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncIterator.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncIterator.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncToGenerator.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/asyncToGenerator.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/awaitAsyncGenerator.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/awaitAsyncGenerator.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/callSuper.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/callSuper.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/checkInRHS.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/checkInRHS.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/checkPrivateRedeclaration.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/checkPrivateRedeclaration.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorDestructureSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorDestructureSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classApplyDescriptorSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCallCheck.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCallCheck.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCheckPrivateStaticAccess.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCheckPrivateStaticAccess.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCheckPrivateStaticFieldDescriptor.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classCheckPrivateStaticFieldDescriptor.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classExtractFieldDescriptor.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classExtractFieldDescriptor.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classNameTDZError.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classNameTDZError.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldDestructureSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldDestructureSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldGet2.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldGet2.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldInitSpec.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldInitSpec.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldLooseBase.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldLooseBase.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldLooseKey.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldLooseKey.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldSet2.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateFieldSet2.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateGetter.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateGetter.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodInitSpec.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodInitSpec.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateMethodSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateSetter.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classPrivateSetter.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldDestructureSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldDestructureSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldSpecGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldSpecGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldSpecSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateFieldSpecSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateMethodGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateMethodGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateMethodSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/classStaticPrivateMethodSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/construct.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/construct.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createClass.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createClass.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createForOfIteratorHelper.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createForOfIteratorHelper.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createForOfIteratorHelperLoose.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createForOfIteratorHelperLoose.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createSuper.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/createSuper.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/decorate.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/decorate.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defaults.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defaults.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineAccessor.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineAccessor.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineEnumerableProperties.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineEnumerableProperties.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineProperty.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/defineProperty.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/dispose.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/dispose.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/extends.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/extends.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/get.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/get.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/getPrototypeOf.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/getPrototypeOf.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/identity.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/identity.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/importDeferProxy.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/importDeferProxy.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/inherits.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/inherits.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/inheritsLoose.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/inheritsLoose.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/initializerDefineProperty.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/initializerDefineProperty.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/initializerWarningHelper.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/initializerWarningHelper.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/instanceof.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/instanceof.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/interopRequireDefault.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/interopRequireDefault.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/interopRequireWildcard.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/interopRequireWildcard.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/isNativeFunction.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/isNativeFunction.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/isNativeReflectConstruct.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/isNativeReflectConstruct.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/iterableToArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/iterableToArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/iterableToArrayLimit.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/iterableToArrayLimit.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/jsx.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/jsx.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/maybeArrayLike.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/maybeArrayLike.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/newArrowCheck.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/newArrowCheck.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nonIterableRest.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nonIterableRest.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nonIterableSpread.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nonIterableSpread.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nullishReceiverError.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/nullishReceiverError.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectDestructuringEmpty.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectDestructuringEmpty.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectSpread.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectSpread.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectSpread2.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectSpread2.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectWithoutProperties.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectWithoutProperties.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectWithoutPropertiesLoose.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/objectWithoutPropertiesLoose.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/possibleConstructorReturn.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/possibleConstructorReturn.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/readOnlyError.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/readOnlyError.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/regeneratorRuntime.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/regeneratorRuntime.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/set.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/set.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/setFunctionName.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/setFunctionName.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/setPrototypeOf.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/setPrototypeOf.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/skipFirstGeneratorNext.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/skipFirstGeneratorNext.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/slicedToArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/slicedToArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropBase.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropBase.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropGet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropGet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropSet.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/superPropSet.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/taggedTemplateLiteral.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/taggedTemplateLiteral.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/taggedTemplateLiteralLoose.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/taggedTemplateLiteralLoose.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/tdz.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/tdz.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/temporalRef.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/temporalRef.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/temporalUndefined.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/temporalUndefined.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toConsumableArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toConsumableArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toPrimitive.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toPrimitive.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toPropertyKey.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toPropertyKey.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toSetter.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/toSetter.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/tsRewriteRelativeImportExtensions.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/tsRewriteRelativeImportExtensions.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/typeof.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/typeof.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/unsupportedIterableToArray.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/unsupportedIterableToArray.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/using.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/using.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/usingCtx.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/usingCtx.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapAsyncGenerator.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapAsyncGenerator.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapNativeSuper.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapNativeSuper.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapRegExp.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/wrapRegExp.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/writeOnlyError.js
+Backend/node_modules - Copy/@babel/helpers/lib/helpers/writeOnlyError.js.map
+Backend/node_modules - Copy/@babel/helpers/lib/index.js
+Backend/node_modules - Copy/@babel/helpers/lib/index.js.map
+Backend/node_modules - Copy/@babel/helpers/package.json
+Backend/node_modules - Copy/@babel/parser/CHANGELOG.md
+Backend/node_modules - Copy/@babel/parser/LICENSE
+Backend/node_modules - Copy/@babel/parser/README.md
+Backend/node_modules - Copy/@babel/parser/bin/babel-parser.js
+Backend/node_modules - Copy/@babel/parser/index.cjs
+Backend/node_modules - Copy/@babel/parser/lib/index.js
+Backend/node_modules - Copy/@babel/parser/lib/index.js.map
+Backend/node_modules - Copy/@babel/parser/package.json
+Backend/node_modules - Copy/@babel/parser/typings/babel-parser.d.ts
+Backend/node_modules - Copy/@babel/plugin-syntax-async-generators/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-async-generators/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-async-generators/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-async-generators/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-bigint/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-bigint/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-bigint/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-bigint/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-class-properties/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-class-properties/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-class-properties/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-class-properties/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-class-static-block/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-class-static-block/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-class-static-block/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-class-static-block/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-import-attributes/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-import-attributes/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-import-attributes/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-import-attributes/lib/index.js.map
+Backend/node_modules - Copy/@babel/plugin-syntax-import-attributes/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-import-meta/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-import-meta/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-import-meta/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-import-meta/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-json-strings/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-json-strings/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-json-strings/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-json-strings/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-jsx/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-jsx/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-jsx/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-jsx/lib/index.js.map
+Backend/node_modules - Copy/@babel/plugin-syntax-jsx/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-logical-assignment-operators/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-logical-assignment-operators/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-logical-assignment-operators/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-logical-assignment-operators/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-nullish-coalescing-operator/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-nullish-coalescing-operator/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-nullish-coalescing-operator/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-nullish-coalescing-operator/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-numeric-separator/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-numeric-separator/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-numeric-separator/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-numeric-separator/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-object-rest-spread/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-object-rest-spread/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-object-rest-spread/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-object-rest-spread/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-catch-binding/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-catch-binding/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-catch-binding/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-catch-binding/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-chaining/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-chaining/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-chaining/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-optional-chaining/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-private-property-in-object/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-private-property-in-object/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-private-property-in-object/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-private-property-in-object/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-top-level-await/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-top-level-await/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-top-level-await/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-top-level-await/package.json
+Backend/node_modules - Copy/@babel/plugin-syntax-typescript/LICENSE
+Backend/node_modules - Copy/@babel/plugin-syntax-typescript/README.md
+Backend/node_modules - Copy/@babel/plugin-syntax-typescript/lib/index.js
+Backend/node_modules - Copy/@babel/plugin-syntax-typescript/lib/index.js.map
+Backend/node_modules - Copy/@babel/plugin-syntax-typescript/package.json
+Backend/node_modules - Copy/@babel/template/LICENSE
+Backend/node_modules - Copy/@babel/template/README.md
+Backend/node_modules - Copy/@babel/template/lib/builder.js
+Backend/node_modules - Copy/@babel/template/lib/builder.js.map
+Backend/node_modules - Copy/@babel/template/lib/formatters.js
+Backend/node_modules - Copy/@babel/template/lib/formatters.js.map
+Backend/node_modules - Copy/@babel/template/lib/index.js
+Backend/node_modules - Copy/@babel/template/lib/index.js.map
+Backend/node_modules - Copy/@babel/template/lib/literal.js
+Backend/node_modules - Copy/@babel/template/lib/literal.js.map
+Backend/node_modules - Copy/@babel/template/lib/options.js
+Backend/node_modules - Copy/@babel/template/lib/options.js.map
+Backend/node_modules - Copy/@babel/template/lib/parse.js
+Backend/node_modules - Copy/@babel/template/lib/parse.js.map
+Backend/node_modules - Copy/@babel/template/lib/populate.js
+Backend/node_modules - Copy/@babel/template/lib/populate.js.map
+Backend/node_modules - Copy/@babel/template/lib/string.js
+Backend/node_modules - Copy/@babel/template/lib/string.js.map
+Backend/node_modules - Copy/@babel/template/package.json
+Backend/node_modules - Copy/@babel/traverse/LICENSE
+Backend/node_modules - Copy/@babel/traverse/README.md
+Backend/node_modules - Copy/@babel/traverse/lib/cache.js
+Backend/node_modules - Copy/@babel/traverse/lib/cache.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/context.js
+Backend/node_modules - Copy/@babel/traverse/lib/context.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/hub.js
+Backend/node_modules - Copy/@babel/traverse/lib/hub.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/index.js
+Backend/node_modules - Copy/@babel/traverse/lib/index.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/ancestry.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/ancestry.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/comments.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/comments.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/context.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/context.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/conversion.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/conversion.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/evaluation.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/evaluation.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/family.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/family.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/index.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/index.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/index.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/index.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/inferer-reference.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/inferer-reference.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/inferers.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/inferers.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/util.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/inference/util.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/introspection.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/introspection.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/hoister.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/hoister.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/removal-hooks.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/removal-hooks.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/virtual-types-validator.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/virtual-types-validator.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/virtual-types.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/lib/virtual-types.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/modification.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/modification.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/removal.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/removal.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/path/replacement.js
+Backend/node_modules - Copy/@babel/traverse/lib/path/replacement.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/scope/binding.js
+Backend/node_modules - Copy/@babel/traverse/lib/scope/binding.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/scope/index.js
+Backend/node_modules - Copy/@babel/traverse/lib/scope/index.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/scope/lib/renamer.js
+Backend/node_modules - Copy/@babel/traverse/lib/scope/lib/renamer.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/traverse-node.js
+Backend/node_modules - Copy/@babel/traverse/lib/traverse-node.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/types.js
+Backend/node_modules - Copy/@babel/traverse/lib/types.js.map
+Backend/node_modules - Copy/@babel/traverse/lib/visitors.js
+Backend/node_modules - Copy/@babel/traverse/lib/visitors.js.map
+Backend/node_modules - Copy/@babel/traverse/package.json
+Backend/node_modules - Copy/@babel/types/LICENSE
+Backend/node_modules - Copy/@babel/types/README.md
+Backend/node_modules - Copy/@babel/types/lib/asserts/assertNode.js
+Backend/node_modules - Copy/@babel/types/lib/asserts/assertNode.js.map
+Backend/node_modules - Copy/@babel/types/lib/asserts/generated/index.js
+Backend/node_modules - Copy/@babel/types/lib/asserts/generated/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/ast-types/generated/index.js
+Backend/node_modules - Copy/@babel/types/lib/ast-types/generated/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/flow/createFlowUnionType.js
+Backend/node_modules - Copy/@babel/types/lib/builders/flow/createFlowUnionType.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/flow/createTypeAnnotationBasedOnTypeof.js
+Backend/node_modules - Copy/@babel/types/lib/builders/flow/createTypeAnnotationBasedOnTypeof.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/index.js
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/lowercase.js
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/lowercase.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/uppercase.js
+Backend/node_modules - Copy/@babel/types/lib/builders/generated/uppercase.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/productions.js
+Backend/node_modules - Copy/@babel/types/lib/builders/productions.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/react/buildChildren.js
+Backend/node_modules - Copy/@babel/types/lib/builders/react/buildChildren.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/typescript/createTSUnionType.js
+Backend/node_modules - Copy/@babel/types/lib/builders/typescript/createTSUnionType.js.map
+Backend/node_modules - Copy/@babel/types/lib/builders/validateNode.js
+Backend/node_modules - Copy/@babel/types/lib/builders/validateNode.js.map
+Backend/node_modules - Copy/@babel/types/lib/clone/clone.js
+Backend/node_modules - Copy/@babel/types/lib/clone/clone.js.map
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneDeep.js
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneDeep.js.map
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneDeepWithoutLoc.js
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneDeepWithoutLoc.js.map
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneNode.js
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneNode.js.map
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneWithoutLoc.js
+Backend/node_modules - Copy/@babel/types/lib/clone/cloneWithoutLoc.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/addComment.js
+Backend/node_modules - Copy/@babel/types/lib/comments/addComment.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/addComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/addComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritInnerComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritInnerComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritLeadingComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritLeadingComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritTrailingComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritTrailingComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritsComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/inheritsComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/comments/removeComments.js
+Backend/node_modules - Copy/@babel/types/lib/comments/removeComments.js.map
+Backend/node_modules - Copy/@babel/types/lib/constants/generated/index.js
+Backend/node_modules - Copy/@babel/types/lib/constants/generated/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/constants/index.js
+Backend/node_modules - Copy/@babel/types/lib/constants/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/ensureBlock.js
+Backend/node_modules - Copy/@babel/types/lib/converters/ensureBlock.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/gatherSequenceExpressions.js
+Backend/node_modules - Copy/@babel/types/lib/converters/gatherSequenceExpressions.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toBindingIdentifierName.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toBindingIdentifierName.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toBlock.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toBlock.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toComputedKey.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toComputedKey.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toExpression.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toExpression.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toIdentifier.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toIdentifier.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toKeyAlias.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toKeyAlias.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toSequenceExpression.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toSequenceExpression.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/toStatement.js
+Backend/node_modules - Copy/@babel/types/lib/converters/toStatement.js.map
+Backend/node_modules - Copy/@babel/types/lib/converters/valueToNode.js
+Backend/node_modules - Copy/@babel/types/lib/converters/valueToNode.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/core.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/core.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/deprecated-aliases.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/deprecated-aliases.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/experimental.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/experimental.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/flow.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/flow.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/index.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/jsx.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/jsx.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/misc.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/misc.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/placeholders.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/placeholders.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/typescript.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/typescript.js.map
+Backend/node_modules - Copy/@babel/types/lib/definitions/utils.js
+Backend/node_modules - Copy/@babel/types/lib/definitions/utils.js.map
+Backend/node_modules - Copy/@babel/types/lib/index-legacy.d.ts
+Backend/node_modules - Copy/@babel/types/lib/index.d.ts
+Backend/node_modules - Copy/@babel/types/lib/index.js
+Backend/node_modules - Copy/@babel/types/lib/index.js.flow
+Backend/node_modules - Copy/@babel/types/lib/index.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/appendToMemberExpression.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/appendToMemberExpression.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/flow/removeTypeDuplicates.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/flow/removeTypeDuplicates.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/inherits.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/inherits.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/prependToMemberExpression.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/prependToMemberExpression.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/removeProperties.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/removeProperties.js.map
+Backend/node_modules - Copy/@babel/types/lib/modifications/removePropertiesDeep.js
+Backend/node_modules - Copy/@babel/types/lib/modifications/removePropertiesDeep.js.map
+Backend/node_modules - Copy/@babel/types/package.json
+Backend/package-lock.json
+Backend/package.json
+Backend/scriptUsername.js
+Backend/scriptaddNiveau.js
+Backend/seed.js
+Backend/server.js
+Backend/services/admin.service.js
+Backend/services/auth.service.js
+Backend/services/chat.service.js
+Backend/services/collaborator.service.js
+Backend/services/course.service.js
+Backend/services/email.service.js
+Backend/services/emailcourse.service.js
+Backend/services/emaillevel.service.js
+Backend/services/mail.service.js
+Backend/services/manager.service.js
+Backend/services/message.service.js
+Backend/services/notification.service.js
+Backend/services/performer.service.js
+Backend/services/preference.service.js
+Backend/services/recommandation.service.js
+Backend/services/submission.service.js
+Backend/services/technology.service.js
+Backend/services/test.service.js
+Backend/services/user.service.js
+Backend/tests/fakerTest.js
+Backend/tests/testEmail.js
+Backend/tests/user.service.test.js
+Backend/updatetestlevels.js
+Backend/uploads/1749472992420-s.webp
+Backend/uploads/pdfs/pdfFile-1748436515025-42660425.pdf
+Backend/uploads/pdfs/pdfFile-1748436901433-516622278.pdf
+Backend/uploads/pdfs/pdfFile-1748437310683-735420829.pdf
+Backend/uploads/pdfs/pdfFile-1748723141940-645677318.pdf
+Backend/uploads/pdfs/pdfFile-1748723504796-723359424.pdf
+Backend/uploads/pdfs/pdfFile-1748724419017-589585965.pdf
+Backend/uploads/pdfs/pdfFile-1748724676649-766981354.pdf
+Backend/utils/clerkUtils.js
+Skillbloom
+desktop.ini
+frontend/.gitignore
+frontend/.prettierignore
+frontend/.prettierrc
+frontend/CHANGELOG.md
+frontend/LICENSE
+frontend/README.md
+frontend/components.json
+frontend/cz.yaml
+frontend/eslint.config.js
+frontend/index.html
+frontend/knip.config.ts
+frontend/netlify.toml
+frontend/package-lock.json
+frontend/package.json
+frontend/pnpm-lock.yaml
+frontend/postcss.config.js
+frontend/prisma/schema.prisma
+frontend/public/LeanA.jpg
+frontend/public/angA.jpg
+frontend/public/angB.webp
+frontend/public/angI.jpg
+frontend/public/cycA.webp
+frontend/public/cycB.webp
+frontend/public/cycI.png
+frontend/public/devA.jpeg
+frontend/public/devB.png
+frontend/public/devI.webp
+frontend/public/htA.jpg
+frontend/public/htB.webp
+frontend/public/htI.webp
+frontend/public/images/bg_signin.png
+frontend/public/images/favicon.png
+frontend/public/images/favicon.svg
+frontend/public/images/shadcn-admin.png
+frontend/public/jsA.png
+frontend/public/jsB.png
+frontend/public/jsI.png
+frontend/public/kanA.png
+frontend/public/kanB.jpg
+frontend/public/kanI.jpg
+frontend/public/kotA.png
+frontend/public/kotB.webp
+frontend/public/kotI.jpg
+frontend/public/larA.webp
+frontend/public/larB.avif
+frontend/public/larI.webp
+frontend/public/leanB.webp
+frontend/public/leanI.jpeg
+frontend/public/loginscreenpic.png
+frontend/public/nodA.png
+frontend/public/nodI.webp
+frontend/public/nodeB.jpg
+frontend/public/pdfs/Scrum.pdf
+frontend/public/pdfs/advancednode.pdf
+frontend/public/pdfs/angular.pdf
+frontend/public/pdfs/angular2.pdf
+frontend/public/pdfs/express.pdf
+frontend/public/pdfs/html_css.pdf
+frontend/public/pdfs/kanban.pdf
+frontend/public/pdfs/kotlin.pdf
+frontend/public/pdfs/laravel.pdf
+frontend/public/pdfs/nodeJs.pdf
+frontend/public/pdfs/python.pdf
+frontend/public/pdfs/react.pdf
+frontend/public/pdfs/vue.pdf
+frontend/public/pyA.jpg
+frontend/public/pyB.jpg
+frontend/public/pyI.webp
+frontend/public/reA.avif
+frontend/public/reB.png
+frontend/public/reI.webp
+frontend/public/saA.webp
+frontend/public/saB.png
+frontend/public/saI.webp
+frontend/public/scA.jpg
+frontend/public/scB.jpg
+frontend/public/scI.webp
+frontend/public/vuA.png
+frontend/public/vuB.avif
+frontend/public/vuI.webp
+frontend/public/watA.png
+frontend/public/watB.jpg
+frontend/public/watI.png
+frontend/src/assets/vite.svg
+frontend/src/components/CourseIccon.tsx
+frontend/src/components/Helpcenter.tsx
+frontend/src/components/NewEventModal.tsx
+frontend/src/components/SavedCoursesContext.tsx
+frontend/src/components/TwoTupIcon.tsx
+frontend/src/components/auth/AuthLoading.tsx
+frontend/src/components/calendar/DayViewCalendar.tsx
+frontend/src/components/calendar/MonthViewCalendar.tsx
+frontend/src/components/coming-soon.tsx
+frontend/src/components/command-menu.tsx
+frontend/src/components/confirm-dialog.tsx
+frontend/src/components/layout/app-sidebar.tsx
+frontend/src/components/layout/data/sidebar-data.ts
+frontend/src/components/layout/header.tsx
+frontend/src/components/layout/main.tsx
+frontend/src/components/layout/nav-group.tsx
+frontend/src/components/layout/nav-user.tsx
+frontend/src/components/layout/team-switcher.tsx
+frontend/src/components/layout/top-nav.tsx
+frontend/src/components/layout/types.ts
+frontend/src/components/long-text.tsx
+frontend/src/components/password-input.tsx
+frontend/src/components/pin-input.tsx
+frontend/src/components/pinboard.tsx
+frontend/src/components/profile-dropdown.tsx
+frontend/src/components/reminder.tsx
+frontend/src/components/ressouces_card.tsx
+frontend/src/components/search.tsx
+frontend/src/components/searchh.tsx
+frontend/src/components/select-dropdown.tsx
+frontend/src/components/skip-to-main.tsx
+frontend/src/components/theme-switch.tsx
+frontend/src/components/ui/accordion.tsx
+frontend/src/components/ui/alert-dialog.tsx
+frontend/src/components/ui/alert.tsx
+frontend/src/components/ui/avatar.tsx
+frontend/src/components/ui/badge.tsx
+frontend/src/components/ui/button.tsx
+frontend/src/components/ui/calendar.tsx
+frontend/src/components/ui/card-video.tsx
+frontend/src/components/ui/card.tsx
+frontend/src/components/ui/checkbox.tsx
+frontend/src/components/ui/collapsible.tsx
+frontend/src/components/ui/command.tsx
+frontend/src/components/ui/dialog.tsx
+frontend/src/components/ui/dropdown-menu.tsx
+frontend/src/components/ui/form.tsx
+frontend/src/components/ui/input.tsx
+frontend/src/components/ui/label.tsx
+frontend/src/components/ui/popover.tsx
+frontend/src/components/ui/progress.tsx
+frontend/src/components/ui/radio-group.tsx
+frontend/src/components/ui/scroll-area.tsx
+frontend/src/components/ui/select.tsx
+frontend/src/components/ui/separator.tsx
+frontend/src/components/ui/sheet.tsx
+frontend/src/components/ui/sidebar.tsx
+frontend/src/components/ui/skeleton.tsx
+frontend/src/components/ui/switch.tsx
+frontend/src/components/ui/table.tsx
+frontend/src/components/ui/tabs.tsx
+frontend/src/components/ui/textarea.tsx
+frontend/src/components/ui/toast.tsx
+frontend/src/components/ui/toaster.tsx
+frontend/src/components/ui/tooltip.tsx
+frontend/src/config/fonts.ts
+frontend/src/context/SidebarContext.tsx
+frontend/src/context/authContext.tsx
+frontend/src/context/font-context.tsx
+frontend/src/context/search-context.tsx
+frontend/src/context/theme-context.tsx
+frontend/src/features/TestParticipation/testInterface.tsx
+frontend/src/features/TestParticipation/validation/quizSchema.ts
+frontend/src/features/admin/dashboard/components/overview.tsx
+frontend/src/features/admin/dashboard/components/recent-sales.tsx
+frontend/src/features/admin/dashboard/index.tsx
+frontend/src/features/apps/data/apps.tsx
+frontend/src/features/apps/index.tsx
+frontend/src/features/auth/auth-layout.tsx
+frontend/src/features/auth/forgot-password/components/forgot-password-form.tsx
+frontend/src/features/auth/forgot-password/index.tsx
+frontend/src/features/auth/otp/components/otp-form.tsx
+frontend/src/features/auth/otp/index.tsx
+frontend/src/features/auth/sign-in/components/user-auth-form.tsx
+frontend/src/features/auth/sign-in/sign-in-2.tsx
+frontend/src/features/auth/sign-up/components/sign-up-form.tsx
+frontend/src/features/auth/sign-up/index.tsx
+frontend/src/features/calendar/calendar-app/calendar-app.tsx
+frontend/src/features/calendar/calendar-app/data/TestCard.tsx
+frontend/src/features/calendar/calendar-app/data/calendar.ts
+frontend/src/features/calendar/calendar-app/data/eventsdata.ts
+frontend/src/features/calendar/index.tsx
+frontend/src/features/challenges/index.tsx
+frontend/src/features/chats/index.tsx
+frontend/src/features/collaborator/dashboard/components/overview.tsx
+frontend/src/features/collaborator/dashboard/components/recent-sales.tsx
+frontend/src/features/collaborator/dashboard/index.tsx
+frontend/src/features/courses/AssignCourseDialog.tsx
+frontend/src/features/courses/Course/CourseDetailPage.tsx
+frontend/src/features/courses/Course/LevelDetailPage.tsx
+frontend/src/features/courses/CourseCard.tsx
+frontend/src/features/createTests/components/questionItem.tsx
+frontend/src/features/createTests/index.tsx
+frontend/src/features/dashboard/index.tsx
+frontend/src/features/editTest/index.tsx
+frontend/src/features/errors/forbidden.tsx
+frontend/src/features/errors/general-error.tsx
+frontend/src/features/errors/maintenance-error.tsx
+frontend/src/features/errors/not-found-error.tsx
+frontend/src/features/errors/unauthorized-error.tsx
+frontend/src/features/manager/components/TechnologyRankingChart.tsx
+frontend/src/features/manager/components/TimeSpentIndicator.tsx
+frontend/src/features/manager/components/TimeSpentRadial.tsx
+frontend/src/features/manager/components/autoSizeInput.tsx
+frontend/src/features/manager/components/badge.tsx
+frontend/src/features/manager/components/bestTechnologyCard.tsx
+frontend/src/features/manager/components/indicators.tsx
+frontend/src/features/manager/components/overview.tsx
+frontend/src/features/manager/components/performer.tsx
+frontend/src/features/manager/components/performersOfTheWeek.tsx
+frontend/src/features/manager/components/profileCard.tsx
+frontend/src/features/manager/components/recent-sales.tsx
+frontend/src/features/manager/components/successHistoryChart.tsx
+frontend/src/features/manager/components/taskItem.tsx
+frontend/src/features/manager/components/taskManager.tsx
+frontend/src/features/manager/components/taskModal.tsx
+frontend/src/features/manager/components/test1.tsx
+frontend/src/features/manager/components/testsHistory.tsx
+frontend/src/features/manager/components/worstTechnologyCard.tsx
+frontend/src/features/manager/dashboard-manager.tsx
+frontend/src/features/manager/testHistory.tsx
+frontend/src/features/pinboard/index.tsx
+frontend/src/features/profile/collaboratorHistory.tsx
+frontend/src/features/profile/userProfile.tsx
+frontend/src/features/settings/account/account-form.tsx
+frontend/src/features/settings/account/index.tsx
+frontend/src/features/settings/appearance/appearance-form.tsx
+frontend/src/features/settings/appearance/index.tsx
+frontend/src/features/settings/components/animated-background.tsx
+frontend/src/features/settings/components/content-section.tsx
+frontend/src/features/settings/components/creative-sidebar-nav.tsx
+frontend/src/features/settings/components/sidebar-nav.tsx
+frontend/src/features/settings/display/display-form.tsx
+frontend/src/features/settings/display/index.tsx
+frontend/src/features/settings/index.tsx
+frontend/src/features/settings/notifications/index.tsx
+frontend/src/features/settings/notifications/notifications-form.tsx
+frontend/src/features/settings/profile/index.tsx
+frontend/src/features/settings/profile/profile-form.tsx
+frontend/src/features/tasks/components/columns.tsx
+frontend/src/features/tasks/components/data-table-column-header.tsx
+frontend/src/features/tasks/components/data-table-faceted-filter.tsx
+frontend/src/features/tasks/components/data-table-pagination.tsx
+frontend/src/features/tasks/components/data-table-row-actions.tsx
+frontend/src/features/tasks/components/data-table-toolbar.tsx
+frontend/src/features/tasks/components/data-table-view-options.tsx
+frontend/src/features/tasks/components/data-table.tsx
+frontend/src/features/tasks/components/tasks-dialogs.tsx
+frontend/src/features/tasks/components/tasks-import-dialog.tsx
+frontend/src/features/tasks/components/tasks-mutate-drawer.tsx
+frontend/src/features/tasks/components/tasks-primary-buttons.tsx
+frontend/src/features/tasks/context/tasks-context.tsx
+frontend/src/features/tasks/data/data.tsx
+frontend/src/features/tasks/data/schema.ts
+frontend/src/features/tasks/data/tasks.ts
+frontend/src/features/tasks/index.tsx
+frontend/src/features/tests/Quiz.tsx
+frontend/src/features/tests/data/schema.ts
+frontend/src/features/tests/index.tsx
+frontend/src/features/users/components/addUserModal.tsx
+frontend/src/features/users/components/data-table-column-header.tsx
+frontend/src/features/users/components/data-table-faceted-filter.tsx
+frontend/src/features/users/components/data-table-pagination.tsx
+frontend/src/features/users/components/data-table-row-actions.tsx
+frontend/src/features/users/components/data-table-toolbar.tsx
+frontend/src/features/users/components/data-table-view-options.tsx
+frontend/src/features/users/components/inviteUserModal.tsx
+frontend/src/features/users/components/users-action-dialog.tsx
+frontend/src/features/users/components/users-columns.tsx
+frontend/src/features/users/components/users-delete-dialog.tsx
+frontend/src/features/users/components/users-dialogs.tsx
+frontend/src/features/users/components/users-invite-dialog.tsx
+frontend/src/features/users/components/users-primary-buttons.tsx
+frontend/src/features/users/components/users-table.tsx
+frontend/src/features/users/context/users-context.tsx
+frontend/src/features/users/data/data.ts
+frontend/src/features/users/data/schema.ts
+frontend/src/features/users/index.tsx
+frontend/src/hooks/use-dialog-state.tsx
+frontend/src/hooks/use-mobile.tsx
+frontend/src/hooks/use-toast.ts
+frontend/src/index.css
+frontend/src/interfaces/TimeSpentRadial.interface.ts
+frontend/src/interfaces/auth.interface.ts
+frontend/src/interfaces/performer.interface.ts
+frontend/src/interfaces/question.interface.ts
+frontend/src/interfaces/technology.interface.ts
+frontend/src/interfaces/testRecords.interface.ts
+frontend/src/lib/api-client.ts
+frontend/src/lib/utils.ts
+frontend/src/main.tsx
+frontend/src/routeTree.gen.ts
+frontend/src/routes/(auth)/500.tsx
+frontend/src/routes/(auth)/forgot-password.lazy.tsx
+frontend/src/routes/(auth)/otp.tsx
+frontend/src/routes/(auth)/sign-in-2.lazy.tsx
+frontend/src/routes/(auth)/sign-in.tsx
+frontend/src/routes/(auth)/sign-up.lazy.tsx
+frontend/src/routes/(errors)/401.lazy.tsx
+frontend/src/routes/(errors)/403.lazy.tsx
+frontend/src/routes/(errors)/404.lazy.tsx
+frontend/src/routes/(errors)/500.lazy.tsx
+frontend/src/routes/(errors)/503.lazy.tsx
+frontend/src/routes/__root.tsx
+frontend/src/routes/_authenticated/apps/index.lazy.tsx
+frontend/src/routes/_authenticated/calendar/index.lazy.tsx
+frontend/src/routes/_authenticated/challenges/index.lazy.tsx
+frontend/src/routes/_authenticated/chats/index.lazy.tsx
+frontend/src/routes/_authenticated/collaboratorHistory/$userId.tsx
+frontend/src/routes/_authenticated/courses/$courseId/index.lazy.tsx
+frontend/src/routes/_authenticated/courses/$courseId/levels/$levelId.lazy.tsx
+frontend/src/routes/_authenticated/courses/LevelDetailPage.lazy.tsx
+frontend/src/routes/_authenticated/courses/index.lazy.tsx
+frontend/src/routes/_authenticated/createTests/index.lazy.tsx
+frontend/src/routes/_authenticated/dashboard-manager/index.lazy.tsx
+frontend/src/routes/_authenticated/editTest/$testId.tsx
+frontend/src/routes/_authenticated/help-center/index.lazy.tsx
+frontend/src/routes/_authenticated/index.tsx
+frontend/src/routes/_authenticated/jwtdecoder.tsx
+frontend/src/routes/_authenticated/pinboard/index.lazy.tsx
+frontend/src/routes/_authenticated/route.tsx
+frontend/src/routes/_authenticated/settings/account.lazy.tsx
+frontend/src/routes/_authenticated/settings/appearance.lazy.tsx
+frontend/src/routes/_authenticated/settings/display.lazy.tsx
+frontend/src/routes/_authenticated/settings/index.lazy.tsx
+frontend/src/routes/_authenticated/settings/notifications.lazy.tsx
+frontend/src/routes/_authenticated/settings/route.lazy.tsx
+frontend/src/routes/_authenticated/tasks/index.lazy.tsx
+frontend/src/routes/_authenticated/testHistory/index.lazy.tsx
+frontend/src/routes/_authenticated/testInterface/$testId.tsx
+frontend/src/routes/_authenticated/tests/index.lazy.tsx
+frontend/src/routes/_authenticated/userProfile/$userId.tsx
+frontend/src/routes/_authenticated/users/index.lazy.tsx
+frontend/src/services/collaborator.service.ts
+frontend/src/services/course.service.ts
+frontend/src/services/performer.service.ts
+frontend/src/services/submission.service.ts
+frontend/src/services/technology.service.ts
+frontend/src/services/test.service.ts
+frontend/src/services/users.service.ts
+frontend/src/stores/authStore.ts
+frontend/src/styles/pinboard.css
+frontend/src/test.tsx
+frontend/src/theme.ts
+frontend/src/types/d3.d.ts
+frontend/src/types/recharts-extended.d.ts
+frontend/src/utils/dateUtils.ts
+frontend/src/utils/getTechnologyIcon.tsx
+frontend/src/utils/handle-server-error.ts
+frontend/src/vite-env.d.ts
+frontend/tailwind.config.js
+frontend/tsconfig.app.json
+frontend/tsconfig.json
+frontend/tsconfig.node.json
+frontend/vite.config.ts
