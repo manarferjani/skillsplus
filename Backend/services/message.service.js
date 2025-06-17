@@ -27,32 +27,36 @@ const MessageService = {
   },
 
   async sendMessage({ conversationId, senderId, message, messageType }) {
-    try {
-      if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(senderId)) {
-        throw new Error('Invalid conversation or sender ID');
-      }
-
-      const conversation = await Conversation.findById(conversationId);
-      if (!conversation) {
-        throw new Error('Conversation not found');
-      }
-
-      const newMessage = new Message({
-        conversation: conversationId,
-        sender: senderId,
-        message,
-        messageType,
-        attachments: [],
-        readBy: [],
-      });
-
-      await newMessage.save();
-      return newMessage.populate('sender', 'name');
-    } catch (err) {
-      console.error('Erreur envoi message:', err);
-      throw new Error(err.message || 'Error sending message');
+  try {
+    if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(senderId)) {
+      throw new Error('Invalid conversation or sender ID');
     }
-  },
+
+    const conversation = await Conversation.findById(conversationId);
+    if (!conversation) {
+      throw new Error('Conversation not found');
+    }
+
+    const recipientId = conversation.members.find(m => m.toString() !== senderId.toString());
+    if (!recipientId) throw new Error('Recipient not found');
+
+    const newMessage = new Message({
+      conversation: conversationId,
+      sender: senderId,
+      recipientId,
+      message,
+      messageType,
+      attachments: [],
+      readBy: [{ user: senderId, readAt: new Date() }], // Expéditeur a lu son propre message
+    });
+
+    await newMessage.save();
+    return newMessage.populate('sender', 'name');
+  } catch (err) {
+    console.error('Erreur envoi message:', err);
+    throw new Error(err.message || 'Error sending message');
+  }
+},
 
   async editMessage(messageId, message) {
     try {
@@ -147,8 +151,20 @@ const MessageService = {
       throw new Error(err.message || 'Error fetching last message');
     }
   },
+ async getUnreadMessagesCount(userId) {
+  try {
+    const unreadCount = await Message.countDocuments({
+      recipientId: userId,
+      readBy: { $not: { $elemMatch: { user: userId } } },
+    });
+    return unreadCount;
+  } catch (err) {
+    throw new Error('Erreur lors du comptage des messages non lus: ' + err.message);
+  }
+}
+,
 
-  async uploadFile({ conversationId, senderId, messageType, files }) {
+ async uploadFile({ conversationId, senderId, messageType, files }) {
   try {
     console.log('uploadFile appelé avec :', { conversationId, senderId, messageType, files: files.map(f => f.originalname) });
     if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(senderId)) {
@@ -160,6 +176,14 @@ const MessageService = {
       throw new Error('Conversation non trouvée');
     }
     console.log('Conversation trouvée :', conversation._id);
+
+    // Derive recipientId from conversation members
+    const recipientId = conversation.members.find(m => m.toString() !== senderId.toString());
+    if (!recipientId) {
+      throw new Error('Destinataire non trouvé');
+    }
+    console.log('Destinataire trouvé :', recipientId);
+
     const attachments = files.map(file => ({
       url: `http://localhost:5000/api/messages/files/${file.filename}`,
       filename: file.originalname,
@@ -170,11 +194,12 @@ const MessageService = {
     const newMessage = new Message({
       conversation: conversationId,
       sender: senderId,
+      recipientId, // Add recipientId
       messageType,
       attachments,
-      readBy: [],
+      readBy: [{ user: senderId, readAt: new Date() }], // Mark as read by sender
     });
-    console.log('Nouveau message créé :', newMessage);
+    console.log('Nouveau message créé :', newMessage.toObject());
     await newMessage.save();
     console.log('Message sauvegardé');
     const populatedMessage = await newMessage.populate('sender', 'name');

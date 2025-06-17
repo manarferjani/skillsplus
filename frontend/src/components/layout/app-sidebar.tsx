@@ -12,29 +12,34 @@ import { TeamSwitcher } from '@/components/layout/team-switcher';
 import { sidebarData } from './data/sidebar-data';
 import type { NavGroup, NavItem } from '@/components/layout/types';
 import { useAuth } from '@/context/authContext';
+import { useMemo } from 'react';
 
 type NavUserProps = React.ComponentProps<typeof NavUser>;
 
-export function AppSidebar({
-  ...props
-}: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user, isLoading } = useAuth();
   const { unreadCount } = useSidebar();
 
-  // Met à jour le badge sur l'item "Chats"
-  const sidebarDataWithBadge = {
-    ...sidebarData,
-    navGroups: sidebarData.navGroups.map((group) => ({
-      ...group,
-      items: group.items.map((item) =>
-        item.title === 'Chats'
-          ? { ...item, badge: unreadCount > 0 ? unreadCount.toString() : '' }
-          : item
-      ),
-    })),
-  };
+ const sidebarDataWithBadge = useMemo(() => ({
+  ...sidebarData,
+  navGroups: sidebarData.navGroups.map((group) => ({
+    ...group,
+    items: group.items.map((item) => {
+      if (item.title === 'Chats') {
+        // Appelle la fonction getBadge si elle existe
+        const badge = item.getBadge ? item.getBadge(unreadCount) : null;
+        return {
+          ...item,
+          ...(badge ? { badge } : {}),
+        };
+      }
+      return item;
+    }),
+  })),
+}), [unreadCount]);
 
-  // Filtre les groupes selon la visibilité et le rôle de l'utilisateur
+
+
   const filterNavGroups = (navGroups: NavGroup[]): NavGroup[] => {
     if (isLoading) return [];
 
@@ -51,7 +56,6 @@ export function AppSidebar({
       .filter((group) => group.items.length > 0);
   };
 
-  // Applique le filtre sur la data avec badge
   const filteredNavGroups = filterNavGroups(sidebarDataWithBadge.navGroups);
 
   if (isLoading) {
@@ -65,26 +69,18 @@ export function AppSidebar({
   };
 
   return (
-    <Sidebar
-      collapsible="icon"
-      variant="floating"
-      className="bg-background"
-      {...props}
-    >
+    <Sidebar collapsible="icon" variant="floating" className="bg-background" {...props}>
       <SidebarHeader className="bg-background">
         <TeamSwitcher teams={sidebarData.teams} />
       </SidebarHeader>
-
       <SidebarContent className="bg-background">
         {filteredNavGroups.map((group) => (
           <NavGroupComponent key={group.title} {...group} />
         ))}
       </SidebarContent>
-
       <SidebarFooter className="bg-background">
         <NavUser user={navUserData} />
       </SidebarFooter>
-
       <SidebarRail />
     </Sidebar>
   );

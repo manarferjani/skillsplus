@@ -4,9 +4,8 @@ import MessageService from '../services/message.service.js';
 import Conversation from '../models/conversation.model.js';
 import multer from 'multer';
 import path from 'path';
-
 import { fileURLToPath } from 'url';
-import fs from 'fs/promises'; // Import fs/promises explicitly
+import fs from 'fs/promises';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -27,12 +26,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = [
-    'image/jpeg',
-    'image/png',
-    'image/gif',
-    'application/pdf',
-  ];
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
   if (allowedTypes.includes(file.mimetype)) {
     cb(null, true);
   } else {
@@ -81,6 +75,22 @@ router.get('/files/:filename', async (req, res) => {
   }
 });
 
+// Get unread messages count for the current user
+router.get('/unread', async (req, res) => {
+  try {
+    const userId = req.user.id; // Doit provenir du middleware d'authentification
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ success: false, error: 'Invalid user ID' });
+    }
+
+    const unreadCount = await MessageService.getUnreadMessagesCount(userId);
+    res.status(200).json({ success: true, unreadCount });
+  } catch (err) {
+    console.error('Erreur récupération compte messages non lus:', err);
+    res.status(500).json({ success: false, error: err.message || 'Erreur serveur' });
+  }
+});
 // Get messages by conversation
 router.get('/:conversationId', async (req, res) => {
   try {
@@ -120,20 +130,22 @@ router.post('/', async (req, res) => {
     } else {
       const conversation = await Conversation.findById(conversationId);
       if (conversation) {
-        io.to(conversation.members.map(m => m.toString())).emit('receive-message', newMessage);
+        io.to(conversation.members.map((m) => m.toString())).emit('receive-message', newMessage);
         await MessageService.updateLastMessage(conversationId, {
           content: message || (messageType !== 'text' ? '[Attachment]' : ''),
           sender: senderId,
           timestamp: newMessage.createdAt,
         });
-        io.to(conversation.members.map(m => m.toString())).emit('last-message-updated', {
-          conversationId,
-          lastMessage: {
-            content: message || (messageType !== 'text' ? '[Attachment]' : ''),
-            sender: senderId,
-            timestamp: newMessage.createdAt,
-          },
-        });
+        io
+          .to(conversation.members.map((m) => m.toString()))
+          .emit('last-message-updated', {
+            conversationId,
+            lastMessage: {
+              content: message || (messageType !== 'text' ? '[Attachment]' : ''),
+              sender: senderId,
+              timestamp: newMessage.createdAt,
+            },
+          });
       }
     }
 
@@ -160,7 +172,7 @@ router.put('/:messageId', async (req, res) => {
     if (io) {
       const conversation = await Conversation.findById(updatedMessage.conversation);
       if (conversation) {
-        io.to(conversation.members.map(m => m.toString())).emit('message-updated', updatedMessage);
+        io.to(conversation.members.map((m) => m.toString())).emit('message-updated', updatedMessage);
       }
     }
 
@@ -186,18 +198,20 @@ router.delete('/:messageId', async (req, res) => {
     if (io) {
       const conversation = await Conversation.findById(message.conversation);
       if (conversation) {
-        io.to(conversation.members.map(m => m.toString())).emit('delete-message', messageId);
+        io.to(conversation.members.map((m) => m.toString())).emit('delete-message', messageId);
         const lastMessage = await MessageService.getLastMessage(message.conversation);
-        io.to(conversation.members.map(m => m.toString())).emit('last-message-updated', {
-          conversationId: message.conversation,
-          lastMessage: lastMessage
-            ? {
-                content: lastMessage.message || (lastMessage.messageType !== 'text' ? '[Attachment]' : ''),
-                sender: lastMessage.sender,
-                timestamp: lastMessage.createdAt,
-              }
-            : null,
-        });
+        io
+          .to(conversation.members.map((m) => m.toString()))
+          .emit('last-message-updated', {
+            conversationId: message.conversation,
+            lastMessage: lastMessage
+              ? {
+                  content: lastMessage.message || (lastMessage.messageType !== 'text' ? '[Attachment]' : ''),
+                  sender: lastMessage.sender,
+                  timestamp: lastMessage.createdAt,
+                }
+              : null,
+          });
       }
     }
 
@@ -212,26 +226,13 @@ router.delete('/:messageId', async (req, res) => {
 router.put('/:messageId/read', async (req, res) => {
   try {
     const { messageId } = req.params;
-    const { userId } = req.body;
+    const { recipientId } = req.body;
 
-    if (!mongoose.Types.ObjectId.isValid(messageId) || !mongoose.Types.ObjectId.isValid(userId)) {
-      return res.status(400).json({ success: false, error: 'Invalid message or user ID' });
-    }
-
-    const updatedMessage = await MessageService.markMessageAsRead(messageId, userId);
-
-    const io = req.app.get('io');
-    if (io) {
-      const conversation = await Conversation.findById(updatedMessage.conversation);
-      if (conversation) {
-        io.to(conversation.members.map(m => m.toString())).emit('message-read', updatedMessage);
-      }
-    }
-
-    res.status(200).json({ success: true, data: updatedMessage });
-  } catch (err) {
-    console.error('Erreur marquage message lu:', err);
-    res.status(500).json({ success: false, error: err.message || 'Erreur serveur' });
+    const message = await MessageService.markMessageAsRead(messageId, recipientId);
+    res.status(200).json({ success: true, data: message });
+  } catch (error) {
+    console.error('Erreur marquage message lu:', error);
+    res.status(400).json({ success: false, error: error.message });
   }
 });
 
@@ -242,7 +243,7 @@ router.post('/upload', upload.array('files', 5), async (req, res) => {
       conversationId: req.body.conversationId,
       senderId: req.body.senderId,
       messageType: req.body.messageType,
-      files: req.files ? req.files.map(f => f.originalname) : [],
+      files: req.files ? req.files.map((f) => f.originalname) : [],
     });
 
     const { conversationId, senderId, messageType } = req.body;
@@ -269,30 +270,36 @@ router.post('/upload', upload.array('files', 5), async (req, res) => {
     } else {
       const conversation = await Conversation.findById(conversationId);
       if (conversation) {
-        io.to(conversation.members.map(m => m.toString())).emit('receive-message', newMessage);
+        io.to(conversation.members.map((m) => m.toString())).emit('receive-message', newMessage);
         await MessageService.updateLastMessage(conversationId, {
           content: '[Attachment]',
           sender: senderId,
           timestamp: newMessage.createdAt,
         });
-        io.to(conversation.members.map(m => m.toString())).emit('last-message-updated', {
-          conversationId,
-          lastMessage: {
-            content: '[Attachment]',
-            sender: senderId,
-            timestamp: newMessage.createdAt,
-          },
-        });
+        io
+          .to(conversation.members.map((m) => m.toString()))
+          .emit('last-message-updated', {
+            conversationId,
+            lastMessage: {
+              content: '[Attachment]',
+              sender: senderId,
+              timestamp: newMessage.createdAt,
+            },
+          });
       }
     }
 
     res.status(201).json({ success: true, data: newMessage });
   } catch (err) {
     console.error('Erreur upload fichier :', err);
+    if (err instanceof mongoose.Error.ValidationError) {
+      return res.status(400).json({ success: false, error: `Erreur de validation: ${err.message}` });
+    }
     if (err instanceof multer.MulterError) {
       return res.status(400).json({ success: false, error: `Erreur Multer : ${err.message}` });
     }
     res.status(500).json({ success: false, error: err.message || 'Erreur serveur lors de l\'upload' });
   }
 });
+
 export default router;

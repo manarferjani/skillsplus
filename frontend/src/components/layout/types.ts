@@ -18,6 +18,8 @@ interface BaseNavItem {
   badge?: string
   icon?: React.ElementType
   visible?: string[] 
+    getBadge?: (unreadCount: number) => string | null;
+
 }
 
 type NavLink = BaseNavItem & {

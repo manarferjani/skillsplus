@@ -1,3 +1,4 @@
+// ./data/sidebar-data.ts
 import {
   IconBarrierBlock,
   IconBrowserCheck,
@@ -19,10 +20,9 @@ import {
   IconUserOff,
   IconUsers,
   IconCalendar,
-
-} from '@tabler/icons-react'
-import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
-import { type SidebarData } from '../types'
+} from '@tabler/icons-react';
+import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react';
+import { type SidebarData } from '../types';
 import { IconOnlineCourse } from "@/components/CourseIccon";
 
 export const sidebarData: SidebarData = {
@@ -71,19 +71,20 @@ export const sidebarData: SidebarData = {
           title: 'Apps',
           url: '/apps',
           icon: IconPackages,
-          visible: ["admin", "manager"], // limité
+          visible: ['admin', 'manager'],
         },
-        {
-          title: 'Chats',
-          url: '/chats',
-          badge: '',
-          icon: IconMessages,
-        },
+       {
+  title: 'Chats',
+  url: '/chats',
+  icon: IconMessages,
+  getBadge: (unreadCount: number) => unreadCount > 0 ? String(unreadCount) : null,
+},
+
         {
           title: 'Users',
           url: '/users',
           icon: IconUsers,
-          visible: ["admin"], // réservé aux admins
+          visible: ['admin'],
         },
         {
           title: 'Calendar',
@@ -103,7 +104,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Auth',
           icon: IconLockAccess,
-          visible: ["admin", "manager"], // pas utile pour users
+          visible: ['admin', 'manager'],
           items: [
             {
               title: 'Sign In',
@@ -130,7 +131,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Errors',
           icon: IconBug,
-          visible: ["admin"], // erreurs visibles seulement pour admin/dev
+          visible: ['admin'],
           items: [
             {
               title: 'Unauthorized',
@@ -167,7 +168,7 @@ export const sidebarData: SidebarData = {
         {
           title: 'Settings',
           icon: IconSettings,
-          visible: ["admin", "manager"], // config avancée
+          visible: ['admin', 'manager'],
           items: [
             {
               title: 'Profile',
@@ -204,4 +205,4 @@ export const sidebarData: SidebarData = {
       ],
     },
   ],
-}
+};

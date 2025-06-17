@@ -1048,36 +1048,65 @@ export default function Chats() {
   }
 
   // Marquer comme lu
-  const handleMarkAsRead = async (messageId: string) => {
-    if (!user?.id) return
-    try {
-      const response = await fetch(
-        `${API_BASE_URL}/messages/${messageId}/read`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-          body: JSON.stringify({ userId: user.id }),
-        }
-      )
-      const data = await response.json()
-      if (!response.ok) {
-        throw new Error(data.error || `Network error: ${response.statusText}`)
-      }
-      if (!data.success) {
-        throw new Error(data.error || 'Error marking message as read')
-      }
-      setMessages((prev) =>
-        prev.map((msg) => (msg._id === messageId ? data.data : msg))
-      )
-      toast.success('Message marked as read')
-    } catch (err: any) {
-      toast.error(err.message || 'Error marking message as read')
-      console.error(err)
-    }
+ const handleMarkAsRead = async (messageId: string) => {
+  if (!user?.id) {
+    toast.error('Utilisateur non authentifié. Veuillez vous connecter.');
+    console.error('Aucun ID utilisateur disponible');
+    return;
   }
+
+  // Validate IDs
+  if (!isValidObjectId(messageId)) {
+    toast.error('ID de message invalide');
+    console.error('ID de message invalide:', messageId);
+    return;
+  }
+  if (!isValidObjectId(user.id)) {
+    toast.error('ID utilisateur invalide');
+    console.error('ID utilisateur invalide:', user.id);
+    return;
+  }
+
+  // Verify token
+  const token = localStorage.getItem('token');
+  if (!token) {
+    toast.error('Token d’authentification manquant. Veuillez vous reconnecter.');
+    console.error('Token manquant');
+    return;
+  }
+
+  try {
+    console.log('Envoi de la requête pour marquer comme lu:', { messageId, recipientId: user.id });
+    const response = await fetch(
+      `${API_BASE_URL}/messages/${messageId}/read`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ recipientId: user.id }),
+      }
+    );
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error || `Erreur réseau: ${response.statusText}`);
+    }
+    if (!data.success) {
+      throw new Error(data.error || 'Erreur lors du marquage du message comme lu');
+    }
+    setMessages((prev) =>
+      prev.map((msg) => (msg._id === messageId ? data.data : msg))
+    );
+    toast.success('Message marqué comme lu');
+  } catch (err: any) {
+    toast.error(err.message || 'Erreur lors du marquage du message comme lu');
+    console.error('Erreur marquage message lu:', err, {
+      messageId,
+      recipientId: user.id,
+    });
+  }
+};
 
   // Supprimer une conversation
   const handleDeleteConversation = async (conversationId: string) => {
