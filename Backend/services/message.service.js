@@ -75,12 +75,18 @@ const MessageService = {
       throw new Error(err.message || 'Error editing message');
     }
   },
+
   async deleteMessage(messageId) {
-    const message = await Message.findByIdAndDelete(messageId);
-    if (!message) {
-      throw new Error('Message not found');
+    try {
+      const message = await Message.findByIdAndDelete(messageId);
+      if (!message) {
+        throw new Error('Message not found');
+      }
+      return message;
+    } catch (err) {
+      console.error('Erreur suppression message:', err);
+      throw new Error(err.message || 'Error deleting message');
     }
-    return message; // Retourne le message supprimé
   },
 
   async markMessageAsRead(messageId, userId) {
@@ -142,37 +148,43 @@ const MessageService = {
     }
   },
 
-  async uploadFile({ conversationId, senderId, messageType, file }) {
-    try {
-      if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(senderId)) {
-        throw new Error('Invalid conversation or sender ID');
-      }
-
-      const conversation = await Conversation.findById(conversationId);
-      if (!conversation) {
-        throw new Error('Conversation not found');
-      }
-
-      const newMessage = new Message({
-        conversation: conversationId,
-        sender: senderId,
-        messageType,
-        attachments: [{
-          url: `/Uploads/${file.filename}`,
-          filename: file.originalname,
-          mimeType: file.mimetype,
-          size: file.size,
-        }],
-        readBy: [],
-      });
-
-      await newMessage.save();
-      return newMessage.populate('sender', 'name');
-    } catch (err) {
-      console.error('Erreur téléchargement fichier:', err);
-      throw new Error(err.message || 'Error uploading file');
+  async uploadFile({ conversationId, senderId, messageType, files }) {
+  try {
+    console.log('uploadFile appelé avec :', { conversationId, senderId, messageType, files: files.map(f => f.originalname) });
+    if (!mongoose.Types.ObjectId.isValid(conversationId) || !mongoose.Types.ObjectId.isValid(senderId)) {
+      throw new Error('ID de conversation ou d\'utilisateur invalide');
     }
-  },
+    console.log('ObjectIds validés');
+    const conversation = await Conversation.findById(conversationId);
+    if (!conversation) {
+      throw new Error('Conversation non trouvée');
+    }
+    console.log('Conversation trouvée :', conversation._id);
+    const attachments = files.map(file => ({
+      url: `http://localhost:5000/api/messages/files/${file.filename}`,
+      filename: file.originalname,
+      mimeType: file.mimetype,
+      size: file.size,
+    }));
+    console.log('Attachments créés :', attachments);
+    const newMessage = new Message({
+      conversation: conversationId,
+      sender: senderId,
+      messageType,
+      attachments,
+      readBy: [],
+    });
+    console.log('Nouveau message créé :', newMessage);
+    await newMessage.save();
+    console.log('Message sauvegardé');
+    const populatedMessage = await newMessage.populate('sender', 'name');
+    console.log('Message populated :', populatedMessage);
+    return populatedMessage;
+  } catch (err) {
+    console.error('Erreur upload fichier :', err);
+    throw new Error(err.message || 'Erreur lors de l\'upload du fichier');
+  }
+}
 };
 
 export default MessageService;

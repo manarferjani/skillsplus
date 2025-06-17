@@ -131,19 +131,20 @@
 
   @keyframes slideDown {
     from {
-      height: 0;
+      height: 100%;
     }
     to {
       height: var(--radix-collapsible-content-height);
     }
   }
 
+
   @keyframes slideUp {
     from {
       height: var(--radix-collapsible-content-height);
     }
     to {
-      height: 0;
+      height: 100%;
     }
   }
 
